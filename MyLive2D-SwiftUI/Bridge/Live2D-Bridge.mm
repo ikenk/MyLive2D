@@ -68,27 +68,27 @@ class Allocator : public Csm::ICubismAllocator
 
 #pragma mark - Live2DCubism class
 
-static Allocator _allocator;
-
-@implementation Live2DCubism
-+ (void)initL2D {
-    Csm::CubismFramework::StartUp(&_allocator, NULL);
-    Csm::CubismFramework::Initialize();
-}
-
-+ (void)dispose {
-    Csm::CubismFramework::Dispose();
-}
-
-+ (NSString *)live2DVersion {
-    unsigned int version = csmGetVersion();
-    unsigned int major = (version >> 24) & 0xff;
-    unsigned int minor = (version >> 16) & 0xff;
-    unsigned int patch = version & 0xffff;
-
-    return [NSString stringWithFormat:@"v%1$d.%2$d.%3$d", major, minor, patch];
-}
-@end
+//static Allocator _allocator;
+//
+//@implementation Live2DCubism
+//+ (void)initL2D {
+//    Csm::CubismFramework::StartUp(&_allocator, NULL);
+//    Csm::CubismFramework::Initialize();
+//}
+//
+//+ (void)dispose {
+//    Csm::CubismFramework::Dispose();
+//}
+//
+//+ (NSString *)live2DVersion {
+//    unsigned int version = csmGetVersion();
+//    unsigned int major = (version >> 24) & 0xff;
+//    unsigned int minor = (version >> 16) & 0xff;
+//    unsigned int patch = version & 0xffff;
+//
+//    return [NSString stringWithFormat:@"v%1$d.%2$d.%3$d", major, minor, patch];
+//}
+//@end
 
 #pragma mark - Live2DModelMetal class
 

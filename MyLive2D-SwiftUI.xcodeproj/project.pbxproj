@@ -9,22 +9,12 @@
 /* Begin PBXBuildFile section */
 		44158C902CEB235D00CE9D62 /* MetalShaders.metal in Resources */ = {isa = PBXBuildFile; fileRef = 444798BB2CE98FD800BB3C62 /* MetalShaders.metal */; };
 		44158C9F2CEB367900CE9D62 /* libCubismSdkFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */; settings = {ATTRIBUTES = (Required, ); }; };
-		44158CB12CEB3DC400CE9D62 /* LAppDefine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA42CEB3DC300CE9D62 /* LAppDefine.mm */; };
 		44158CB32CEB3DC400CE9D62 /* LAppTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA62CEB3DC300CE9D62 /* LAppTextureManager.mm */; };
-		44158CB52CEB3DC400CE9D62 /* LAppPal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA82CEB3DC400CE9D62 /* LAppPal.mm */; };
-		44158CB72CEB3DC400CE9D62 /* LAppModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CAA2CEB3DC400CE9D62 /* LAppModel.mm */; };
-		44158CB82CEB3DC400CE9D62 /* LAppLive2DManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CAB2CEB3DC400CE9D62 /* LAppLive2DManager.mm */; };
-		44158CBB2CEB3DC400CE9D62 /* LAppAllocator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CAE2CEB3DC400CE9D62 /* LAppAllocator.mm */; };
 		44158CBC2CEB3DC400CE9D62 /* LAppSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CAF2CEB3DC400CE9D62 /* LAppSprite.mm */; };
 		44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B962CE99F4E00BB3C62 /* AppDelegate.swift */; };
 		44158CBE2CEB3F4800CE9D62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B982CE99F4E00BB3C62 /* ContentView.swift */; };
 		44158CC22CEB543D00CE9D62 /* Live2D-Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CC12CEB543D00CE9D62 /* Live2D-Bridge.mm */; };
-		44158CC52CEB7F6B00CE9D62 /* LARFaceTrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44158CC42CEB7F6B00CE9D62 /* LARFaceTrackingViewModel.swift */; };
 		44158CC72CEB7FE300CE9D62 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44158CC62CEB7FE300CE9D62 /* CustomError.swift */; };
-		44158CC92CEB9F5F00CE9D62 /* LMTKViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44158CC82CEB9F5F00CE9D62 /* LMTKViewViewModel.swift */; };
-		44158CCB2CEB9F9600CE9D62 /* LARFaceTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44158CCA2CEB9F9600CE9D62 /* LARFaceTrackingView.swift */; };
-		44158CCD2CEBA0A200CE9D62 /* LMTKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44158CCC2CEBA0A200CE9D62 /* LMTKView.swift */; };
-		44158D312CEC3FC500CE9D62 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44158D302CEC3FC500CE9D62 /* Resources */; };
 		44158D492CEC436100CE9D62 /* texture_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 44158D322CEC436100CE9D62 /* texture_00.png */; };
 		44158D4A2CEC436100CE9D62 /* anya.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D342CEC436100CE9D62 /* anya.exp3.json */; };
 		44158D4B2CEC436100CE9D62 /* anya2.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D352CEC436100CE9D62 /* anya2.exp3.json */; };
@@ -46,7 +36,6 @@
 		44158D5B2CEC436100CE9D62 /* yy.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D452CEC436100CE9D62 /* yy.exp3.json */; };
 		44158D5C2CEC436100CE9D62 /* zs1.motion3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D462CEC436100CE9D62 /* zs1.motion3.json */; };
 		44158D5D2CEC436100CE9D62 /* zx.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D472CEC436100CE9D62 /* zx.exp3.json */; };
-		44158D692CEC69AB00CE9D62 /* LBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158D5F2CEC5FE200CE9D62 /* LBridge.mm */; };
 		444799E22CE9900300BB3C62 /* CubismEyeBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799B92CE9900200BB3C62 /* CubismEyeBlink.cpp */; };
 		444799E32CE9900300BB3C62 /* CubismMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BA2CE9900200BB3C62 /* CubismMotion.cpp */; };
 		444799E42CE9900300BB3C62 /* CubismRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BB2CE9900200BB3C62 /* CubismRenderer.cpp */; };
@@ -90,25 +79,35 @@
 		44479A0A2CE9900300BB3C62 /* CubismDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799E12CE9900300BB3C62 /* CubismDebug.cpp */; };
 		44479B9B2CE99F4F00BB3C62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */; };
 		44479B9E2CE99F4F00BB3C62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9D2CE99F4F00BB3C62 /* Preview Assets.xcassets */; };
+		44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */; };
+		44D0B4C82CEDB9D500BFE9D0 /* My_LAppDefine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4C72CEDB9D500BFE9D0 /* My_LAppDefine.mm */; };
+		44D0B4CB2CEDC9B500BFE9D0 /* My_LAppPal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */; };
+		44D0B4CE2CEDF7E400BFE9D0 /* My_LAppModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4CD2CEDF7E400BFE9D0 /* My_LAppModel.mm */; };
+		44E5180F2CEF74CF008A9BBA /* My_LRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44E5180E2CEF74CF008A9BBA /* My_LRender.mm */; };
+		44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E518102CF03C8C008A9BBA /* ViewController.swift */; };
+		44E5181B2CF0AE6D008A9BBA /* MetalUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA52CEB3DC300CE9D62 /* MetalUIView.m */; };
+		44E5181E2CF0C84D008A9BBA /* My_LAppLive2DManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */; };
+		44E5181F2CF0D257008A9BBA /* MetalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44158CAD2CEB3DC400CE9D62 /* MetalView.m */; };
+		44E5183F2CF1D0D2008A9BBA /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44E5183E2CF1D0D2008A9BBA /* Resources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		44158CFD2CEC32B100CE9D62 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = Res;
-			dstSubfolderSpec = 7;
-			files = (
-				44158D312CEC3FC500CE9D62 /* Resources in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		444797532CE98D5400BB3C62 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44E5183B2CF1CFEC008A9BBA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Res;
+			dstSubfolderSpec = 7;
+			files = (
+				44E5183F2CF1D0D2008A9BBA /* Resources in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +131,9 @@
 		44158CC12CEB543D00CE9D62 /* Live2D-Bridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "Live2D-Bridge.mm"; sourceTree = "<group>"; };
 		44158CC42CEB7F6B00CE9D62 /* LARFaceTrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LARFaceTrackingViewModel.swift; sourceTree = "<group>"; };
 		44158CC62CEB7FE300CE9D62 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
-		44158CC82CEB9F5F00CE9D62 /* LMTKViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMTKViewViewModel.swift; sourceTree = "<group>"; };
+		44158CC82CEB9F5F00CE9D62 /* LMTKViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMTKViewRenderer.swift; sourceTree = "<group>"; };
 		44158CCA2CEB9F9600CE9D62 /* LARFaceTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LARFaceTrackingView.swift; sourceTree = "<group>"; };
 		44158CCC2CEBA0A200CE9D62 /* LMTKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMTKView.swift; sourceTree = "<group>"; };
-		44158D302CEC3FC500CE9D62 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		44158D322CEC436100CE9D62 /* texture_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture_00.png; sourceTree = "<group>"; };
 		44158D342CEC436100CE9D62 /* anya.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anya.exp3.json; sourceTree = "<group>"; };
 		44158D352CEC436100CE9D62 /* anya2.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anya2.exp3.json; sourceTree = "<group>"; };
@@ -424,6 +422,20 @@
 		44479BE02CEA562000BB3C62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44479BE42CEA619F00BB3C62 /* MetalConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalConfig.h; sourceTree = "<group>"; };
 		444E9DC02CEB01D3009EF853 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		44D0B4C12CED936100BFE9D0 /* My_LAppAllocator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppAllocator.h; sourceTree = "<group>"; };
+		44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppAllocator.mm; sourceTree = "<group>"; };
+		44D0B4C62CEDB8C000BFE9D0 /* My_LAppDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppDefine.h; sourceTree = "<group>"; };
+		44D0B4C72CEDB9D500BFE9D0 /* My_LAppDefine.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppDefine.mm; sourceTree = "<group>"; };
+		44D0B4C92CEDC9A100BFE9D0 /* My_LAppPal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppPal.h; sourceTree = "<group>"; };
+		44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppPal.mm; sourceTree = "<group>"; };
+		44D0B4CC2CEDF7DB00BFE9D0 /* My_LAppModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppModel.h; sourceTree = "<group>"; };
+		44D0B4CD2CEDF7E400BFE9D0 /* My_LAppModel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppModel.mm; sourceTree = "<group>"; };
+		44E5180D2CEF74BC008A9BBA /* My_LRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LRender.h; sourceTree = "<group>"; };
+		44E5180E2CEF74CF008A9BBA /* My_LRender.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LRender.mm; sourceTree = "<group>"; };
+		44E518102CF03C8C008A9BBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		44E5181C2CF0C842008A9BBA /* My_LAppLive2DManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppLive2DManager.h; sourceTree = "<group>"; };
+		44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppLive2DManager.mm; sourceTree = "<group>"; };
+		44E5183E2CF1D0D2008A9BBA /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -452,6 +464,18 @@
 				44158CC12CEB543D00CE9D62 /* Live2D-Bridge.mm */,
 				44158D5E2CEC5FC700CE9D62 /* LBridge.h */,
 				44158D5F2CEC5FE200CE9D62 /* LBridge.mm */,
+				44D0B4C12CED936100BFE9D0 /* My_LAppAllocator.h */,
+				44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */,
+				44D0B4C62CEDB8C000BFE9D0 /* My_LAppDefine.h */,
+				44D0B4C72CEDB9D500BFE9D0 /* My_LAppDefine.mm */,
+				44D0B4C92CEDC9A100BFE9D0 /* My_LAppPal.h */,
+				44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */,
+				44D0B4CC2CEDF7DB00BFE9D0 /* My_LAppModel.h */,
+				44D0B4CD2CEDF7E400BFE9D0 /* My_LAppModel.mm */,
+				44E5181C2CF0C842008A9BBA /* My_LAppLive2DManager.h */,
+				44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */,
+				44E5180D2CEF74BC008A9BBA /* My_LRender.h */,
+				44E5180E2CEF74CF008A9BBA /* My_LRender.mm */,
 			);
 			path = Bridge;
 			sourceTree = "<group>";
@@ -1350,19 +1374,21 @@
 			isa = PBXGroup;
 			children = (
 				44479B962CE99F4E00BB3C62 /* AppDelegate.swift */,
+				44E518102CF03C8C008A9BBA /* ViewController.swift */,
 				44479B982CE99F4E00BB3C62 /* ContentView.swift */,
 				44158CCA2CEB9F9600CE9D62 /* LARFaceTrackingView.swift */,
 				44158CC42CEB7F6B00CE9D62 /* LARFaceTrackingViewModel.swift */,
-				44158CC82CEB9F5F00CE9D62 /* LMTKViewViewModel.swift */,
+				44158CC82CEB9F5F00CE9D62 /* LMTKViewRenderer.swift */,
 				44158CCC2CEBA0A200CE9D62 /* LMTKView.swift */,
 				44158CC62CEB7FE300CE9D62 /* CustomError.swift */,
 				44158CC32CEB7EB900CE9D62 /* Bridge */,
 				44479BAF2CEA480800BB3C62 /* HeaderFiles */,
 				44479BB12CEA482A00BB3C62 /* SourceFiles */,
+				44E518142CF03DFE008A9BBA /* Protocol */,
 				44158D482CEC436100CE9D62 /* Frieren */,
 				444E9DBF2CEB01C8009EF853 /* ThirdParty */,
+				44E5183E2CF1D0D2008A9BBA /* Resources */,
 				44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */,
-				44158D302CEC3FC500CE9D62 /* Resources */,
 				44479B9C2CE99F4F00BB3C62 /* Preview Content */,
 			);
 			path = "MyLive2D-SwiftUI";
@@ -1424,6 +1450,13 @@
 			path = ThirdParty;
 			sourceTree = "<group>";
 		};
+		44E518142CF03DFE008A9BBA /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1448,10 +1481,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44479B9F2CE99F4F00BB3C62 /* Build configuration list for PBXNativeTarget "MyLive2D-SwiftUI" */;
 			buildPhases = (
-				44479B902CE99F4E00BB3C62 /* Sources */,
 				44479B912CE99F4E00BB3C62 /* Frameworks */,
+				44479B902CE99F4E00BB3C62 /* Sources */,
 				44479B922CE99F4E00BB3C62 /* Resources */,
-				44158CFD2CEC32B100CE9D62 /* CopyFiles */,
+				44E5183B2CF1CFEC008A9BBA /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1587,22 +1620,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44158D692CEC69AB00CE9D62 /* LBridge.mm in Sources */,
+				44E5181F2CF0D257008A9BBA /* MetalView.m in Sources */,
+				44E5181B2CF0AE6D008A9BBA /* MetalUIView.m in Sources */,
 				44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */,
 				44158CBE2CEB3F4800CE9D62 /* ContentView.swift in Sources */,
+				44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */,
+				44D0B4CE2CEDF7E400BFE9D0 /* My_LAppModel.mm in Sources */,
 				44158CB32CEB3DC400CE9D62 /* LAppTextureManager.mm in Sources */,
-				44158CC92CEB9F5F00CE9D62 /* LMTKViewViewModel.swift in Sources */,
-				44158CB12CEB3DC400CE9D62 /* LAppDefine.mm in Sources */,
+				44D0B4CB2CEDC9B500BFE9D0 /* My_LAppPal.mm in Sources */,
+				44D0B4C82CEDB9D500BFE9D0 /* My_LAppDefine.mm in Sources */,
 				44158CC72CEB7FE300CE9D62 /* CustomError.swift in Sources */,
-				44158CB72CEB3DC400CE9D62 /* LAppModel.mm in Sources */,
-				44158CCB2CEB9F9600CE9D62 /* LARFaceTrackingView.swift in Sources */,
-				44158CB82CEB3DC400CE9D62 /* LAppLive2DManager.mm in Sources */,
-				44158CB52CEB3DC400CE9D62 /* LAppPal.mm in Sources */,
+				44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */,
+				44E5180F2CEF74CF008A9BBA /* My_LRender.mm in Sources */,
 				44158CBC2CEB3DC400CE9D62 /* LAppSprite.mm in Sources */,
+				44E5181E2CF0C84D008A9BBA /* My_LAppLive2DManager.mm in Sources */,
 				44158CC22CEB543D00CE9D62 /* Live2D-Bridge.mm in Sources */,
-				44158CCD2CEBA0A200CE9D62 /* LMTKView.swift in Sources */,
-				44158CC52CEB7F6B00CE9D62 /* LARFaceTrackingViewModel.swift in Sources */,
-				44158CBB2CEB3DC400CE9D62 /* LAppAllocator.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1823,7 +1855,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HTZ.MyLive2D-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/${TARGET_NAME}/Bridge/Live2D-Bridge.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/${TARGET_NAME}/Bridge/My_LRender.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1877,7 +1909,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HTZ.MyLive2D-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/${TARGET_NAME}/Bridge/Live2D-Bridge.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/${TARGET_NAME}/Bridge/My_LRender.h";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

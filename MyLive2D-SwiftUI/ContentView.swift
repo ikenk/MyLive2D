@@ -11,7 +11,9 @@ import RealityKit
 struct ContentView : View {
     var body: some View {
 //        LARFaceTrackingView().edgesIgnoringSafeArea(.all)
-        LMTKView()
+//        LMTKView()
+        Text("Hello World!!!")
+            .font(.largeTitle)
     }
 }
 

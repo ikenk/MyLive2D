@@ -15,7 +15,8 @@
 
 - (void)drawableResize:(CGSize)size;
 
-- (void)renderToMetalLayer:(nonnull CAMetalLayer *)metalLayer;
+- (void)renderToMetalLayer:(nonnull CAMetalLayer *)metalLayer
+    NS_SWIFT_NAME(renderToMetalLayer(_:));
 
 @end
 

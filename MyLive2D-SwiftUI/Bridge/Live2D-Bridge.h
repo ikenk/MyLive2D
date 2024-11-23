@@ -14,12 +14,17 @@
 #import <simd/simd.h>
 #import <Metal/Metal.h>
 
+#import "My_LAppAllocator.h"
+#import "My_LAppDefine.h"
+#import "My_LAppPal.h"
+#import "My_LRender.h"
+#import "MetalUIView.h"
 
-@interface Live2DCubism : NSObject
-+ (void)initL2D;
-+ (void)dispose;
-+ (NSString *)live2DVersion;
-@end
+//@interface Live2DCubism : NSObject
+//+ (void)initL2D;
+//+ (void)dispose;
+//+ (NSString *)live2DVersion;
+//@end
 
 @interface Live2DModelMetal : NSObject
 
