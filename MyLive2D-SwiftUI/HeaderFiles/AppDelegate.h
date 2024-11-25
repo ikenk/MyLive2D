@@ -11,26 +11,26 @@
 @class LAppView;
 @class LAppTextureManager;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) ViewController *viewController;
-@property (nonatomic, readonly, getter=getTextureManager) LAppTextureManager *textureManager; // テクスチャマネージャー
-
-/**
- * @brief   Cubism SDK の初期化
- */
-- (void)initializeCubism;
-
-/**
- * @brief   アプリケーションを終了するかどうか。
- */
-- (bool)getIsEnd;
-
-/**
- * @brief   アプリケーションを終了する。
- */
-- (void)finishApplication;
-
-@end
+//@interface AppDelegate : UIResponder <UIApplicationDelegate>
+//
+//@property (strong, nonatomic) UIWindow *window;
+//@property (strong, nonatomic) ViewController *viewController;
+//@property (nonatomic, readonly, getter=getTextureManager) LAppTextureManager *textureManager; // テクスチャマネージャー
+//
+///**
+// * @brief   Cubism SDK の初期化
+// */
+//- (void)initializeCubism;
+//
+///**
+// * @brief   アプリケーションを終了するかどうか。
+// */
+//- (bool)getIsEnd;
+//
+///**
+// * @brief   アプリケーションを終了する。
+// */
+//- (void)finishApplication;
+//
+//@end
 

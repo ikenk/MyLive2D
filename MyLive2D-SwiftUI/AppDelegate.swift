@@ -12,10 +12,20 @@ import SwiftUI
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var viewController: (UIViewController & MetalViewDelegate)?
+    var myViewController: My_ViewControllerBridge = My_ViewControllerBridge.shared()
+    
+    var textureManager:My_LAppTextureManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        Live2DCubism.initializeTextureManager()
+//        Live2DCubism.initializeTextureManager()
+        textureManager = .init()
+        
+        My_AppDelegateBridge.shared().setToAppDelegate(self)
+        My_AppDelegateBridge.shared().setToViewController(myViewController)
+        My_AppDelegateBridge.shared().setToTextureManager(textureManager)
 
         // Create the SwiftUI view that provides the window contents.
 //        let contentView = ContentView()
@@ -23,11 +33,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use a UIHostingController as window root view controller.
         let window = UIWindow(frame: UIScreen.main.bounds)
 //        window.rootViewController = UIHostingController(rootView: contentView)
-        window.rootViewController = ViewController()
+        viewController = ViewController()
+        window.rootViewController = viewController
         self.window = window
         window.makeKeyAndVisible()
         
         Live2DCubism.initializeCubism()
+        
+
+        
+        My_AppDelegateBridge.shared().viewController.initializeSprite()
+        
+        print("application Start")
         
         return true
     }
@@ -39,13 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        Live2DCubism.deinitializeTextureManager()
+        textureManager = nil
+//        Live2DCubism.deinitializeTextureManager()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        
-        Live2DCubism.initializeTextureManager()
+        textureManager = nil
+//        Live2DCubism.initializeTextureManager()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

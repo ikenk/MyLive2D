@@ -8,7 +8,9 @@
 #ifndef LAppSprite_h
 #define LAppSprite_h
 
-#import "ViewController.h"
+// Apple
+#import <UIKit/UIKit.h>
+#import "MetalView.h"
 
 @interface LAppSprite : NSObject
 @property (nonatomic, readonly, getter=GetTextureId) id <MTLTexture> texture; // テクスチャ

@@ -11,17 +11,22 @@ import SwiftUI
 import UIKit
 
 class ViewController: UIViewController, MetalViewDelegate {
-    
     private var commandQueue: MTLCommandQueue?
     private var depthTexture: MTLTexture?
     
-    private var myModelRender:My_ModelRender?
+//    var myModelRender:My_ModelRender?
+    
+    var myViewControllerBridge: My_ViewControllerBridge = .shared()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
-        myModelRender = .init(viewController: self)
+//        myModelRender = .init(viewController: self, commandQueue: self.commandQueue, depthTexture: self.depthTexture)
+        myViewControllerBridge.setToViewController(self)
+        myViewControllerBridge.setToCommandQueue(commandQueue)
+        myViewControllerBridge.setToDepthTexture(depthTexture)
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
 //        super.init(nibName: nil, bundle: nil)
 //        myModelRender = .init(viewController: self)
@@ -31,15 +36,13 @@ class ViewController: UIViewController, MetalViewDelegate {
     override func loadView() {
 //        let metalUIView = MetalUIView()
 //        self.view = metalUIView
-        guard let myModelRender = myModelRender else { print("No myModelRender!!!"); return }
-        myModelRender.loadView()
+//        guard let myModelRender = myModelRender else { print("No myModelRender!!!"); return }
+//        myModelRender.loadView()
+        myViewControllerBridge.loadView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 设置Metal渲染相关...
-        guard let device = MTLCreateSystemDefaultDevice() else { return }
         
         // 创建 SwiftUI 视图
         let contentView = ContentView()
@@ -48,7 +51,7 @@ class ViewController: UIViewController, MetalViewDelegate {
         let hostingController = UIHostingController(rootView: contentView)
                
         // 添加为子视图控制器
-        self.addChild(hostingController)
+        addChild(hostingController)
         
         view.addSubview(hostingController.view)
         
@@ -60,7 +63,7 @@ class ViewController: UIViewController, MetalViewDelegate {
 //            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 //        ])
         
-        let _ = print(view.frame.size)
+//        let _ = print(view.frame.size)
         
         hostingController.view.frame = CGRect(
             x: 50,
@@ -73,34 +76,20 @@ class ViewController: UIViewController, MetalViewDelegate {
         // 完成子视图控制器添加
         hostingController.didMove(toParent: self)
         
-        guard let myModelRender = myModelRender else { print("No myModelRender!!!"); return }
-        myModelRender.loadView()
-              
-//        let single = CubismRenderingInstanceSingleton_Metal.shared()
-//        single?.setMTLDevice(device)
-//
-//        guard let metalView = self.view as? MetalUIView else { return }
-//        metalView.metalLayer.device = device
-//        metalView.delegate = self
-//        metalView.metalLayer.pixelFormat = .bgra8Unorm
-//
-//        single?.setMetalLayer(metalView.metalLayer)
-//
-//        commandQueue = device.makeCommandQueue()
-//
-//        // 初始化触摸管理
-//        touchManager = TouchManager()
-//
-//        // 初始化矩阵
-//        deviceToScreen = CubismMatrix44.new()
-//        viewMatrix = CubismViewMatrix.new()
-//
-//        initializeScreen()
+//        guard let myModelRender = myModelRender else { print("No myModelRender!!!"); return }
+        
+//        myModelRender.viewDidLoad()
+        
+        myViewControllerBridge.viewDidLoad()
+        
+        print("view Controller Start")
     }
 
     // 实现 MetalViewDelegate 协议
     @objc func drawableResize(_ size: CGSize) {
-        // 实现drawableResize...
+//        guard let myModelRender = myModelRender else { print("No myModelRender!!!"); return }
+//        myModelRender.drawableResize(size)
+        myViewControllerBridge.drawableResize(size)
     }
     
 //    @objc(renderToMetalLayer:)
@@ -108,6 +97,9 @@ class ViewController: UIViewController, MetalViewDelegate {
 //        // 实现renderToMetalLayer...
 //    }
     @objc func renderToMetalLayer(_ metalLayer: CAMetalLayer) {
-        
+//        dump(metalLayer.nextDrawable())
+//        guard let myModelRender = myModelRender else { print("No myModelRender!!!"); return }
+//        myModelRender.renderToMetalLayer(metalLayer)
+        myViewControllerBridge.renderToMetalLayer(metalLayer)
     }
 }

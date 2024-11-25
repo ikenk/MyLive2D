@@ -9,33 +9,9 @@
 /* Begin PBXBuildFile section */
 		44158C902CEB235D00CE9D62 /* MetalShaders.metal in Resources */ = {isa = PBXBuildFile; fileRef = 444798BB2CE98FD800BB3C62 /* MetalShaders.metal */; };
 		44158C9F2CEB367900CE9D62 /* libCubismSdkFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */; settings = {ATTRIBUTES = (Required, ); }; };
-		44158CB32CEB3DC400CE9D62 /* LAppTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA62CEB3DC300CE9D62 /* LAppTextureManager.mm */; };
-		44158CBC2CEB3DC400CE9D62 /* LAppSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CAF2CEB3DC400CE9D62 /* LAppSprite.mm */; };
 		44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B962CE99F4E00BB3C62 /* AppDelegate.swift */; };
 		44158CBE2CEB3F4800CE9D62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B982CE99F4E00BB3C62 /* ContentView.swift */; };
-		44158CC22CEB543D00CE9D62 /* Live2D-Bridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CC12CEB543D00CE9D62 /* Live2D-Bridge.mm */; };
 		44158CC72CEB7FE300CE9D62 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44158CC62CEB7FE300CE9D62 /* CustomError.swift */; };
-		44158D492CEC436100CE9D62 /* texture_00.png in Resources */ = {isa = PBXBuildFile; fileRef = 44158D322CEC436100CE9D62 /* texture_00.png */; };
-		44158D4A2CEC436100CE9D62 /* anya.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D342CEC436100CE9D62 /* anya.exp3.json */; };
-		44158D4B2CEC436100CE9D62 /* anya2.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D352CEC436100CE9D62 /* anya2.exp3.json */; };
-		44158D4C2CEC436100CE9D62 /* d.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D362CEC436100CE9D62 /* d.exp3.json */; };
-		44158D4D2CEC436100CE9D62 /* daiji.motion3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D372CEC436100CE9D62 /* daiji.motion3.json */; };
-		44158D4E2CEC436100CE9D62 /* erd.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D382CEC436100CE9D62 /* erd.exp3.json */; };
-		44158D4F2CEC436100CE9D62 /* Frieren.cdi3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D392CEC436100CE9D62 /* Frieren.cdi3.json */; };
-		44158D502CEC436100CE9D62 /* Frieren.moc3 in Resources */ = {isa = PBXBuildFile; fileRef = 44158D3A2CEC436100CE9D62 /* Frieren.moc3 */; };
-		44158D512CEC436100CE9D62 /* Frieren.model3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D3B2CEC436100CE9D62 /* Frieren.model3.json */; };
-		44158D522CEC436100CE9D62 /* Frieren.physics3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D3C2CEC436100CE9D62 /* Frieren.physics3.json */; };
-		44158D532CEC436100CE9D62 /* Frieren.vtube.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D3D2CEC436100CE9D62 /* Frieren.vtube.json */; };
-		44158D542CEC436100CE9D62 /* han.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D3E2CEC436100CE9D62 /* han.exp3.json */; };
-		44158D552CEC436100CE9D62 /* items_pinned_to_model.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D3F2CEC436100CE9D62 /* items_pinned_to_model.json */; };
-		44158D562CEC436100CE9D62 /* ku.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D402CEC436100CE9D62 /* ku.exp3.json */; };
-		44158D572CEC436100CE9D62 /* lks.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D412CEC436100CE9D62 /* lks.exp3.json */; };
-		44158D582CEC436100CE9D62 /* mmy.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D422CEC436100CE9D62 /* mmy.exp3.json */; };
-		44158D592CEC436100CE9D62 /* W.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D432CEC436100CE9D62 /* W.exp3.json */; };
-		44158D5A2CEC436100CE9D62 /* wh.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D442CEC436100CE9D62 /* wh.exp3.json */; };
-		44158D5B2CEC436100CE9D62 /* yy.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D452CEC436100CE9D62 /* yy.exp3.json */; };
-		44158D5C2CEC436100CE9D62 /* zs1.motion3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D462CEC436100CE9D62 /* zs1.motion3.json */; };
-		44158D5D2CEC436100CE9D62 /* zx.exp3.json in Resources */ = {isa = PBXBuildFile; fileRef = 44158D472CEC436100CE9D62 /* zx.exp3.json */; };
 		444799E22CE9900300BB3C62 /* CubismEyeBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799B92CE9900200BB3C62 /* CubismEyeBlink.cpp */; };
 		444799E32CE9900300BB3C62 /* CubismMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BA2CE9900200BB3C62 /* CubismMotion.cpp */; };
 		444799E42CE9900300BB3C62 /* CubismRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BB2CE9900200BB3C62 /* CubismRenderer.cpp */; };
@@ -79,16 +55,20 @@
 		44479A0A2CE9900300BB3C62 /* CubismDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799E12CE9900300BB3C62 /* CubismDebug.cpp */; };
 		44479B9B2CE99F4F00BB3C62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */; };
 		44479B9E2CE99F4F00BB3C62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9D2CE99F4F00BB3C62 /* Preview Assets.xcassets */; };
+		44CB6F822CF467570041EE7A /* My_Live2DCubism.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */; };
 		44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */; };
 		44D0B4C82CEDB9D500BFE9D0 /* My_LAppDefine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4C72CEDB9D500BFE9D0 /* My_LAppDefine.mm */; };
 		44D0B4CB2CEDC9B500BFE9D0 /* My_LAppPal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */; };
 		44D0B4CE2CEDF7E400BFE9D0 /* My_LAppModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4CD2CEDF7E400BFE9D0 /* My_LAppModel.mm */; };
-		44E5180F2CEF74CF008A9BBA /* My_LRender.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44E5180E2CEF74CF008A9BBA /* My_LRender.mm */; };
 		44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E518102CF03C8C008A9BBA /* ViewController.swift */; };
 		44E5181B2CF0AE6D008A9BBA /* MetalUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA52CEB3DC300CE9D62 /* MetalUIView.m */; };
 		44E5181E2CF0C84D008A9BBA /* My_LAppLive2DManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */; };
 		44E5181F2CF0D257008A9BBA /* MetalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44158CAD2CEB3DC400CE9D62 /* MetalView.m */; };
 		44E5183F2CF1D0D2008A9BBA /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 44E5183E2CF1D0D2008A9BBA /* Resources */; };
+		44E518452CF23661008A9BBA /* My_AppDelegateBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44E518442CF23661008A9BBA /* My_AppDelegateBridge.mm */; };
+		44E518482CF2D531008A9BBA /* My_ViewControllerBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44E518472CF2D531008A9BBA /* My_ViewControllerBridge.mm */; };
+		44E5184B2CF2E786008A9BBA /* My_LAppTextureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44E5184A2CF2E786008A9BBA /* My_LAppTextureManager.mm */; };
+		44E5184C2CF31982008A9BBA /* LAppSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CAF2CEB3DC400CE9D62 /* LAppSprite.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -115,48 +95,14 @@
 
 /* Begin PBXFileReference section */
 		44158CA32CEB3DC300CE9D62 /* TouchManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TouchManager.mm; sourceTree = "<group>"; };
-		44158CA42CEB3DC300CE9D62 /* LAppDefine.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAppDefine.mm; sourceTree = "<group>"; };
 		44158CA52CEB3DC300CE9D62 /* MetalUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalUIView.m; sourceTree = "<group>"; };
-		44158CA62CEB3DC300CE9D62 /* LAppTextureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAppTextureManager.mm; sourceTree = "<group>"; };
-		44158CA72CEB3DC400CE9D62 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
-		44158CA82CEB3DC400CE9D62 /* LAppPal.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAppPal.mm; sourceTree = "<group>"; };
-		44158CA92CEB3DC400CE9D62 /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		44158CAA2CEB3DC400CE9D62 /* LAppModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAppModel.mm; sourceTree = "<group>"; };
-		44158CAB2CEB3DC400CE9D62 /* LAppLive2DManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAppLive2DManager.mm; sourceTree = "<group>"; };
-		44158CAC2CEB3DC400CE9D62 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		44158CAD2CEB3DC400CE9D62 /* MetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalView.m; sourceTree = "<group>"; };
-		44158CAE2CEB3DC400CE9D62 /* LAppAllocator.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAppAllocator.mm; sourceTree = "<group>"; };
 		44158CAF2CEB3DC400CE9D62 /* LAppSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LAppSprite.mm; sourceTree = "<group>"; };
-		44158CC02CEB534E00CE9D62 /* Live2D-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Live2D-Bridge.h"; sourceTree = "<group>"; };
-		44158CC12CEB543D00CE9D62 /* Live2D-Bridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "Live2D-Bridge.mm"; sourceTree = "<group>"; };
 		44158CC42CEB7F6B00CE9D62 /* LARFaceTrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LARFaceTrackingViewModel.swift; sourceTree = "<group>"; };
 		44158CC62CEB7FE300CE9D62 /* CustomError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		44158CC82CEB9F5F00CE9D62 /* LMTKViewRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMTKViewRenderer.swift; sourceTree = "<group>"; };
 		44158CCA2CEB9F9600CE9D62 /* LARFaceTrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LARFaceTrackingView.swift; sourceTree = "<group>"; };
 		44158CCC2CEBA0A200CE9D62 /* LMTKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMTKView.swift; sourceTree = "<group>"; };
-		44158D322CEC436100CE9D62 /* texture_00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = texture_00.png; sourceTree = "<group>"; };
-		44158D342CEC436100CE9D62 /* anya.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anya.exp3.json; sourceTree = "<group>"; };
-		44158D352CEC436100CE9D62 /* anya2.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = anya2.exp3.json; sourceTree = "<group>"; };
-		44158D362CEC436100CE9D62 /* d.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = d.exp3.json; sourceTree = "<group>"; };
-		44158D372CEC436100CE9D62 /* daiji.motion3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = daiji.motion3.json; sourceTree = "<group>"; };
-		44158D382CEC436100CE9D62 /* erd.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = erd.exp3.json; sourceTree = "<group>"; };
-		44158D392CEC436100CE9D62 /* Frieren.cdi3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Frieren.cdi3.json; sourceTree = "<group>"; };
-		44158D3A2CEC436100CE9D62 /* Frieren.moc3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Frieren.moc3; sourceTree = "<group>"; };
-		44158D3B2CEC436100CE9D62 /* Frieren.model3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Frieren.model3.json; sourceTree = "<group>"; };
-		44158D3C2CEC436100CE9D62 /* Frieren.physics3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Frieren.physics3.json; sourceTree = "<group>"; };
-		44158D3D2CEC436100CE9D62 /* Frieren.vtube.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Frieren.vtube.json; sourceTree = "<group>"; };
-		44158D3E2CEC436100CE9D62 /* han.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = han.exp3.json; sourceTree = "<group>"; };
-		44158D3F2CEC436100CE9D62 /* items_pinned_to_model.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = items_pinned_to_model.json; sourceTree = "<group>"; };
-		44158D402CEC436100CE9D62 /* ku.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ku.exp3.json; sourceTree = "<group>"; };
-		44158D412CEC436100CE9D62 /* lks.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lks.exp3.json; sourceTree = "<group>"; };
-		44158D422CEC436100CE9D62 /* mmy.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mmy.exp3.json; sourceTree = "<group>"; };
-		44158D432CEC436100CE9D62 /* W.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = W.exp3.json; sourceTree = "<group>"; };
-		44158D442CEC436100CE9D62 /* wh.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wh.exp3.json; sourceTree = "<group>"; };
-		44158D452CEC436100CE9D62 /* yy.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yy.exp3.json; sourceTree = "<group>"; };
-		44158D462CEC436100CE9D62 /* zs1.motion3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zs1.motion3.json; sourceTree = "<group>"; };
-		44158D472CEC436100CE9D62 /* zx.exp3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = zx.exp3.json; sourceTree = "<group>"; };
-		44158D5E2CEC5FC700CE9D62 /* LBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LBridge.h; sourceTree = "<group>"; };
-		44158D5F2CEC5FE200CE9D62 /* LBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = LBridge.mm; sourceTree = "<group>"; };
 		444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCubismSdkFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		444798772CE98FD800BB3C62 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		444798792CE98FD800BB3C62 /* CubismDebug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismDebug.hpp; sourceTree = "<group>"; };
@@ -406,22 +352,24 @@
 		44479B982CE99F4E00BB3C62 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44479B9D2CE99F4F00BB3C62 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		44479BB22CEA485300BB3C62 /* LAppLive2DManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAppLive2DManager.h; sourceTree = "<group>"; };
-		44479BB32CEA485300BB3C62 /* LAppAllocator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAppAllocator.h; sourceTree = "<group>"; };
-		44479BB42CEA485300BB3C62 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		44479BB52CEA485300BB3C62 /* LAppPal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAppPal.h; sourceTree = "<group>"; };
 		44479BB62CEA485300BB3C62 /* LAppSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAppSprite.h; sourceTree = "<group>"; };
 		44479BB72CEA485300BB3C62 /* MetalUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalUIView.h; sourceTree = "<group>"; };
-		44479BB82CEA485300BB3C62 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		44479BB92CEA485300BB3C62 /* LAppTextureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAppTextureManager.h; sourceTree = "<group>"; };
-		44479BBA2CEA485300BB3C62 /* LAppDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAppDefine.h; sourceTree = "<group>"; };
-		44479BBB2CEA485300BB3C62 /* LAppModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAppModel.h; sourceTree = "<group>"; };
 		44479BBC2CEA485300BB3C62 /* MetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalView.h; sourceTree = "<group>"; };
 		44479BBD2CEA485300BB3C62 /* TouchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchManager.h; sourceTree = "<group>"; };
 		44479BDE2CEA560E00BB3C62 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		44479BE02CEA562000BB3C62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44479BE42CEA619F00BB3C62 /* MetalConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalConfig.h; sourceTree = "<group>"; };
 		444E9DC02CEB01D3009EF853 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		44CB6F802CF4674A0041EE7A /* My_Live2DCubism.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_Live2DCubism.h; sourceTree = "<group>"; };
+		44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_Live2DCubism.mm; sourceTree = "<group>"; };
+		44CB6F882CF4CD700041EE7A /* LAppDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAppDefine.h; sourceTree = "<group>"; };
+		44CB6F892CF4CD700041EE7A /* LAppTextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAppTextureManager.h; sourceTree = "<group>"; };
+		44CB6F8A2CF4CD700041EE7A /* LAppAllocator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAppAllocator.h; sourceTree = "<group>"; };
+		44CB6F8B2CF4CD700041EE7A /* LAppPal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAppPal.h; sourceTree = "<group>"; };
+		44CB6F8C2CF4CD700041EE7A /* LAppModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAppModel.h; sourceTree = "<group>"; };
+		44CB6F8D2CF4CD700041EE7A /* LAppLive2DManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LAppLive2DManager.h; sourceTree = "<group>"; };
+		44CB6F8E2CF4CD700041EE7A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		44CB6F8F2CF4CD780041EE7A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		44D0B4C12CED936100BFE9D0 /* My_LAppAllocator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppAllocator.h; sourceTree = "<group>"; };
 		44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppAllocator.mm; sourceTree = "<group>"; };
 		44D0B4C62CEDB8C000BFE9D0 /* My_LAppDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppDefine.h; sourceTree = "<group>"; };
@@ -436,6 +384,13 @@
 		44E5181C2CF0C842008A9BBA /* My_LAppLive2DManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppLive2DManager.h; sourceTree = "<group>"; };
 		44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppLive2DManager.mm; sourceTree = "<group>"; };
 		44E5183E2CF1D0D2008A9BBA /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+		44E518402CF22B1E008A9BBA /* MyLive2D_SwiftUI-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyLive2D_SwiftUI-Swift.h"; sourceTree = "<group>"; };
+		44E518432CF2317B008A9BBA /* My_AppDelegateBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_AppDelegateBridge.h; sourceTree = "<group>"; };
+		44E518442CF23661008A9BBA /* My_AppDelegateBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_AppDelegateBridge.mm; sourceTree = "<group>"; };
+		44E518462CF2D525008A9BBA /* My_ViewControllerBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_ViewControllerBridge.h; sourceTree = "<group>"; };
+		44E518472CF2D531008A9BBA /* My_ViewControllerBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_ViewControllerBridge.mm; sourceTree = "<group>"; };
+		44E518492CF2E778008A9BBA /* My_LAppTextureManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppTextureManager.h; sourceTree = "<group>"; };
+		44E5184A2CF2E786008A9BBA /* My_LAppTextureManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppTextureManager.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,60 +415,10 @@
 		44158CC32CEB7EB900CE9D62 /* Bridge */ = {
 			isa = PBXGroup;
 			children = (
-				44158CC02CEB534E00CE9D62 /* Live2D-Bridge.h */,
-				44158CC12CEB543D00CE9D62 /* Live2D-Bridge.mm */,
-				44158D5E2CEC5FC700CE9D62 /* LBridge.h */,
-				44158D5F2CEC5FE200CE9D62 /* LBridge.mm */,
-				44D0B4C12CED936100BFE9D0 /* My_LAppAllocator.h */,
-				44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */,
-				44D0B4C62CEDB8C000BFE9D0 /* My_LAppDefine.h */,
-				44D0B4C72CEDB9D500BFE9D0 /* My_LAppDefine.mm */,
-				44D0B4C92CEDC9A100BFE9D0 /* My_LAppPal.h */,
-				44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */,
-				44D0B4CC2CEDF7DB00BFE9D0 /* My_LAppModel.h */,
-				44D0B4CD2CEDF7E400BFE9D0 /* My_LAppModel.mm */,
-				44E5181C2CF0C842008A9BBA /* My_LAppLive2DManager.h */,
-				44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */,
-				44E5180D2CEF74BC008A9BBA /* My_LRender.h */,
-				44E5180E2CEF74CF008A9BBA /* My_LRender.mm */,
+				44CB6F902CF4D00A0041EE7A /* Archived */,
+				44E518402CF22B1E008A9BBA /* MyLive2D_SwiftUI-Swift.h */,
 			);
 			path = Bridge;
-			sourceTree = "<group>";
-		};
-		44158D332CEC436100CE9D62 /* Frieren.8192 */ = {
-			isa = PBXGroup;
-			children = (
-				44158D322CEC436100CE9D62 /* texture_00.png */,
-			);
-			path = Frieren.8192;
-			sourceTree = "<group>";
-		};
-		44158D482CEC436100CE9D62 /* Frieren */ = {
-			isa = PBXGroup;
-			children = (
-				44158D332CEC436100CE9D62 /* Frieren.8192 */,
-				44158D342CEC436100CE9D62 /* anya.exp3.json */,
-				44158D352CEC436100CE9D62 /* anya2.exp3.json */,
-				44158D362CEC436100CE9D62 /* d.exp3.json */,
-				44158D372CEC436100CE9D62 /* daiji.motion3.json */,
-				44158D382CEC436100CE9D62 /* erd.exp3.json */,
-				44158D392CEC436100CE9D62 /* Frieren.cdi3.json */,
-				44158D3A2CEC436100CE9D62 /* Frieren.moc3 */,
-				44158D3B2CEC436100CE9D62 /* Frieren.model3.json */,
-				44158D3C2CEC436100CE9D62 /* Frieren.physics3.json */,
-				44158D3D2CEC436100CE9D62 /* Frieren.vtube.json */,
-				44158D3E2CEC436100CE9D62 /* han.exp3.json */,
-				44158D3F2CEC436100CE9D62 /* items_pinned_to_model.json */,
-				44158D402CEC436100CE9D62 /* ku.exp3.json */,
-				44158D412CEC436100CE9D62 /* lks.exp3.json */,
-				44158D422CEC436100CE9D62 /* mmy.exp3.json */,
-				44158D432CEC436100CE9D62 /* W.exp3.json */,
-				44158D442CEC436100CE9D62 /* wh.exp3.json */,
-				44158D452CEC436100CE9D62 /* yy.exp3.json */,
-				44158D462CEC436100CE9D62 /* zs1.motion3.json */,
-				44158D472CEC436100CE9D62 /* zx.exp3.json */,
-			);
-			path = Frieren;
 			sourceTree = "<group>";
 		};
 		444793822CE98A6600BB3C62 = {
@@ -1383,13 +1288,11 @@
 				44158CC62CEB7FE300CE9D62 /* CustomError.swift */,
 				44158CC32CEB7EB900CE9D62 /* Bridge */,
 				44479BAF2CEA480800BB3C62 /* HeaderFiles */,
-				44479BB12CEA482A00BB3C62 /* SourceFiles */,
-				44E518142CF03DFE008A9BBA /* Protocol */,
-				44158D482CEC436100CE9D62 /* Frieren */,
+				44479BB12CEA482A00BB3C62 /* M+Files */,
 				444E9DBF2CEB01C8009EF853 /* ThirdParty */,
-				44E5183E2CF1D0D2008A9BBA /* Resources */,
 				44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */,
 				44479B9C2CE99F4F00BB3C62 /* Preview Content */,
+				44E5183E2CF1D0D2008A9BBA /* Resources */,
 			);
 			path = "MyLive2D-SwiftUI";
 			sourceTree = "<group>";
@@ -1405,41 +1308,38 @@
 		44479BAF2CEA480800BB3C62 /* HeaderFiles */ = {
 			isa = PBXGroup;
 			children = (
-				44479BB42CEA485300BB3C62 /* AppDelegate.h */,
-				44479BB32CEA485300BB3C62 /* LAppAllocator.h */,
-				44479BBA2CEA485300BB3C62 /* LAppDefine.h */,
-				44479BB22CEA485300BB3C62 /* LAppLive2DManager.h */,
-				44479BBB2CEA485300BB3C62 /* LAppModel.h */,
-				44479BB52CEA485300BB3C62 /* LAppPal.h */,
+				44CB6F872CF4CD540041EE7A /* OriginHeader */,
+				44CB6F852CF4CB3E0041EE7A /* ViewBridge */,
+				44CB6F832CF4C8610041EE7A /* View */,
+				44CB6F802CF4674A0041EE7A /* My_Live2DCubism.h */,
+				44D0B4C12CED936100BFE9D0 /* My_LAppAllocator.h */,
+				44D0B4C92CEDC9A100BFE9D0 /* My_LAppPal.h */,
+				44D0B4C62CEDB8C000BFE9D0 /* My_LAppDefine.h */,
+				44D0B4CC2CEDF7DB00BFE9D0 /* My_LAppModel.h */,
+				44E5181C2CF0C842008A9BBA /* My_LAppLive2DManager.h */,
+				44E518492CF2E778008A9BBA /* My_LAppTextureManager.h */,
 				44479BB62CEA485300BB3C62 /* LAppSprite.h */,
-				44479BB92CEA485300BB3C62 /* LAppTextureManager.h */,
-				44479BB72CEA485300BB3C62 /* MetalUIView.h */,
-				44479BBC2CEA485300BB3C62 /* MetalView.h */,
-				44479BE42CEA619F00BB3C62 /* MetalConfig.h */,
 				44479BBD2CEA485300BB3C62 /* TouchManager.h */,
-				44479BB82CEA485300BB3C62 /* ViewController.h */,
 			);
 			path = HeaderFiles;
 			sourceTree = "<group>";
 		};
-		44479BB12CEA482A00BB3C62 /* SourceFiles */ = {
+		44479BB12CEA482A00BB3C62 /* M+Files */ = {
 			isa = PBXGroup;
 			children = (
-				44158CA92CEB3DC400CE9D62 /* AppDelegate.mm */,
-				44158CAE2CEB3DC400CE9D62 /* LAppAllocator.mm */,
-				44158CA42CEB3DC300CE9D62 /* LAppDefine.mm */,
-				44158CAB2CEB3DC400CE9D62 /* LAppLive2DManager.mm */,
-				44158CAA2CEB3DC400CE9D62 /* LAppModel.mm */,
-				44158CA82CEB3DC400CE9D62 /* LAppPal.mm */,
+				44CB6F862CF4CB560041EE7A /* ViewBridge */,
+				44CB6F842CF4C87B0041EE7A /* View */,
+				44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */,
+				44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */,
+				44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */,
+				44D0B4C72CEDB9D500BFE9D0 /* My_LAppDefine.mm */,
+				44D0B4CD2CEDF7E400BFE9D0 /* My_LAppModel.mm */,
+				44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */,
+				44E5184A2CF2E786008A9BBA /* My_LAppTextureManager.mm */,
 				44158CAF2CEB3DC400CE9D62 /* LAppSprite.mm */,
-				44158CA62CEB3DC300CE9D62 /* LAppTextureManager.mm */,
-				44158CAC2CEB3DC400CE9D62 /* main.m */,
-				44158CA52CEB3DC300CE9D62 /* MetalUIView.m */,
-				44158CAD2CEB3DC400CE9D62 /* MetalView.m */,
 				44158CA32CEB3DC300CE9D62 /* TouchManager.mm */,
-				44158CA72CEB3DC400CE9D62 /* ViewController.mm */,
 			);
-			path = SourceFiles;
+			path = "M+Files";
 			sourceTree = "<group>";
 		};
 		444E9DBF2CEB01C8009EF853 /* ThirdParty */ = {
@@ -1450,11 +1350,65 @@
 			path = ThirdParty;
 			sourceTree = "<group>";
 		};
-		44E518142CF03DFE008A9BBA /* Protocol */ = {
+		44CB6F832CF4C8610041EE7A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				44479BB72CEA485300BB3C62 /* MetalUIView.h */,
+				44479BBC2CEA485300BB3C62 /* MetalView.h */,
+				44479BE42CEA619F00BB3C62 /* MetalConfig.h */,
 			);
-			path = Protocol;
+			path = View;
+			sourceTree = "<group>";
+		};
+		44CB6F842CF4C87B0041EE7A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44158CA52CEB3DC300CE9D62 /* MetalUIView.m */,
+				44158CAD2CEB3DC400CE9D62 /* MetalView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		44CB6F852CF4CB3E0041EE7A /* ViewBridge */ = {
+			isa = PBXGroup;
+			children = (
+				44E518432CF2317B008A9BBA /* My_AppDelegateBridge.h */,
+				44E518462CF2D525008A9BBA /* My_ViewControllerBridge.h */,
+			);
+			path = ViewBridge;
+			sourceTree = "<group>";
+		};
+		44CB6F862CF4CB560041EE7A /* ViewBridge */ = {
+			isa = PBXGroup;
+			children = (
+				44E518442CF23661008A9BBA /* My_AppDelegateBridge.mm */,
+				44E518472CF2D531008A9BBA /* My_ViewControllerBridge.mm */,
+			);
+			path = ViewBridge;
+			sourceTree = "<group>";
+		};
+		44CB6F872CF4CD540041EE7A /* OriginHeader */ = {
+			isa = PBXGroup;
+			children = (
+				44CB6F8E2CF4CD700041EE7A /* AppDelegate.h */,
+				44CB6F8A2CF4CD700041EE7A /* LAppAllocator.h */,
+				44CB6F882CF4CD700041EE7A /* LAppDefine.h */,
+				44CB6F8D2CF4CD700041EE7A /* LAppLive2DManager.h */,
+				44CB6F8C2CF4CD700041EE7A /* LAppModel.h */,
+				44CB6F8B2CF4CD700041EE7A /* LAppPal.h */,
+				44CB6F892CF4CD700041EE7A /* LAppTextureManager.h */,
+				44CB6F8F2CF4CD780041EE7A /* ViewController.h */,
+			);
+			name = OriginHeader;
+			sourceTree = "<group>";
+		};
+		44CB6F902CF4D00A0041EE7A /* Archived */ = {
+			isa = PBXGroup;
+			children = (
+				44E5180D2CEF74BC008A9BBA /* My_LRender.h */,
+				44E5180E2CEF74CF008A9BBA /* My_LRender.mm */,
+			);
+			path = Archived;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1538,30 +1492,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44158D5A2CEC436100CE9D62 /* wh.exp3.json in Resources */,
 				44158C902CEB235D00CE9D62 /* MetalShaders.metal in Resources */,
-				44158D5B2CEC436100CE9D62 /* yy.exp3.json in Resources */,
-				44158D4A2CEC436100CE9D62 /* anya.exp3.json in Resources */,
-				44158D5D2CEC436100CE9D62 /* zx.exp3.json in Resources */,
-				44158D4D2CEC436100CE9D62 /* daiji.motion3.json in Resources */,
-				44158D572CEC436100CE9D62 /* lks.exp3.json in Resources */,
-				44158D582CEC436100CE9D62 /* mmy.exp3.json in Resources */,
-				44158D552CEC436100CE9D62 /* items_pinned_to_model.json in Resources */,
-				44158D4B2CEC436100CE9D62 /* anya2.exp3.json in Resources */,
-				44158D492CEC436100CE9D62 /* texture_00.png in Resources */,
-				44158D592CEC436100CE9D62 /* W.exp3.json in Resources */,
 				44479B9E2CE99F4F00BB3C62 /* Preview Assets.xcassets in Resources */,
-				44158D502CEC436100CE9D62 /* Frieren.moc3 in Resources */,
-				44158D532CEC436100CE9D62 /* Frieren.vtube.json in Resources */,
-				44158D522CEC436100CE9D62 /* Frieren.physics3.json in Resources */,
-				44158D4C2CEC436100CE9D62 /* d.exp3.json in Resources */,
-				44158D512CEC436100CE9D62 /* Frieren.model3.json in Resources */,
-				44158D562CEC436100CE9D62 /* ku.exp3.json in Resources */,
-				44158D5C2CEC436100CE9D62 /* zs1.motion3.json in Resources */,
-				44158D4F2CEC436100CE9D62 /* Frieren.cdi3.json in Resources */,
 				44479B9B2CE99F4F00BB3C62 /* Assets.xcassets in Resources */,
-				44158D542CEC436100CE9D62 /* han.exp3.json in Resources */,
-				44158D4E2CEC436100CE9D62 /* erd.exp3.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1620,21 +1553,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44E5184C2CF31982008A9BBA /* LAppSprite.mm in Sources */,
 				44E5181F2CF0D257008A9BBA /* MetalView.m in Sources */,
 				44E5181B2CF0AE6D008A9BBA /* MetalUIView.m in Sources */,
 				44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */,
+				44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */,
 				44158CBE2CEB3F4800CE9D62 /* ContentView.swift in Sources */,
+				44158CC72CEB7FE300CE9D62 /* CustomError.swift in Sources */,
+				44E518452CF23661008A9BBA /* My_AppDelegateBridge.mm in Sources */,
+				44E518482CF2D531008A9BBA /* My_ViewControllerBridge.mm in Sources */,
 				44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */,
 				44D0B4CE2CEDF7E400BFE9D0 /* My_LAppModel.mm in Sources */,
-				44158CB32CEB3DC400CE9D62 /* LAppTextureManager.mm in Sources */,
+				44CB6F822CF467570041EE7A /* My_Live2DCubism.mm in Sources */,
 				44D0B4CB2CEDC9B500BFE9D0 /* My_LAppPal.mm in Sources */,
 				44D0B4C82CEDB9D500BFE9D0 /* My_LAppDefine.mm in Sources */,
-				44158CC72CEB7FE300CE9D62 /* CustomError.swift in Sources */,
-				44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */,
-				44E5180F2CEF74CF008A9BBA /* My_LRender.mm in Sources */,
-				44158CBC2CEB3DC400CE9D62 /* LAppSprite.mm in Sources */,
 				44E5181E2CF0C84D008A9BBA /* My_LAppLive2DManager.mm in Sources */,
-				44158CC22CEB543D00CE9D62 /* Live2D-Bridge.mm in Sources */,
+				44E5184B2CF2E786008A9BBA /* My_LAppTextureManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1827,6 +1761,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CUBISM_FRAMEWORK_NAME = CubismSdkFramework;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MyLive2D-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 36V8YWAA2V;
 				ENABLE_PREVIEWS = YES;
@@ -1855,7 +1790,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HTZ.MyLive2D-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/${TARGET_NAME}/Bridge/My_LRender.h";
+				SWIFT_INSTALL_MODULE = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/${TARGET_NAME}/Bridge/$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1881,6 +1817,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CUBISM_FRAMEWORK_NAME = CubismSdkFramework;
 				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MyLive2D-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 36V8YWAA2V;
 				ENABLE_PREVIEWS = YES;
@@ -1909,7 +1846,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.HTZ.MyLive2D-SwiftUI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/${TARGET_NAME}/Bridge/My_LRender.h";
+				SWIFT_INSTALL_MODULE = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_DIR}/${TARGET_NAME}/Bridge/$(SWIFT_MODULE_NAME)-Swift.h";
 				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
