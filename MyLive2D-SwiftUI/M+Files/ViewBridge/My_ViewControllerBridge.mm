@@ -23,8 +23,7 @@
 #import "My_LAppLive2DManager.h"
 #import "My_AppDelegateBridge.h"
 #import "My_LAppTextureManager.h"
-
-#import "LAppSprite.h"
+#import "My_LAppSprite.h"
 #import "MetalUIView.h"
 #import "MetalView.h"
 

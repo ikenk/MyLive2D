@@ -13,34 +13,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    var viewController: (UIViewController & MetalViewDelegate)?
     var myViewController: My_ViewControllerBridge = My_ViewControllerBridge.shared()
+    var viewController: (UIViewController & MetalViewDelegate)?
     
     var textureManager:My_LAppTextureManager?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        Live2DCubism.initializeTextureManager()
         textureManager = .init()
         
         My_AppDelegateBridge.shared().setToAppDelegate(self)
         My_AppDelegateBridge.shared().setToViewController(myViewController)
         My_AppDelegateBridge.shared().setToTextureManager(textureManager)
 
-        // Create the SwiftUI view that provides the window contents.
-//        let contentView = ContentView()
-
-        // Use a UIHostingController as window root view controller.
         let window = UIWindow(frame: UIScreen.main.bounds)
-//        window.rootViewController = UIHostingController(rootView: contentView)
         viewController = ViewController()
         window.rootViewController = viewController
         self.window = window
         window.makeKeyAndVisible()
         
         Live2DCubism.initializeCubism()
-        
-
         
         My_AppDelegateBridge.shared().viewController.initializeSprite()
         

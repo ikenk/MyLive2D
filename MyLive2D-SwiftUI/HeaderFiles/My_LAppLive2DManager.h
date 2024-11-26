@@ -16,7 +16,7 @@
 
 // Custom
 #import "My_LAppModel.h"
-#import "LAppSprite.h"
+#import "My_LAppSprite.h"
 
 
 
