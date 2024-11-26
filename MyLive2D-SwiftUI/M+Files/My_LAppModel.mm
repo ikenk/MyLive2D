@@ -772,7 +772,7 @@ void LAppModel::SetupTextures()
         My_LAppTextureInfo* texture = [My_AppDelegateBridge.shared.textureManager createTextureFromPngFile: filePath];
 //        id <MTLTexture> mtlTextueNumber = texture->id;
         id <MTLTexture> mtlTextueNumber = texture.textureId;
-        NSLog(@".......................");
+        
         //Metal
         GetRenderer<Rendering::CubismRenderer_Metal>()->BindTexture(modelTextureNumber, mtlTextueNumber);
     }

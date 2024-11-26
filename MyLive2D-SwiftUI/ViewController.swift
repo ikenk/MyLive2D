@@ -14,13 +14,10 @@ class ViewController: UIViewController, MetalViewDelegate {
     private var commandQueue: MTLCommandQueue?
     private var depthTexture: MTLTexture?
     
-//    var myModelRender:My_ModelRender?
-    
     var myViewControllerBridge: My_ViewControllerBridge = .shared()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
-//        myModelRender = .init(viewController: self, commandQueue: self.commandQueue, depthTexture: self.depthTexture)
         myViewControllerBridge.setToViewController(self)
         myViewControllerBridge.setToCommandQueue(commandQueue)
         myViewControllerBridge.setToDepthTexture(depthTexture)
@@ -28,32 +25,47 @@ class ViewController: UIViewController, MetalViewDelegate {
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-//        super.init(nibName: nil, bundle: nil)
-//        myModelRender = .init(viewController: self)
         fatalError("init(coder:) has not been implemented")
     }
     
     override func loadView() {
-//        let metalUIView = MetalUIView()
-//        self.view = metalUIView
-//        guard let myModelRender = myModelRender else { print("No myModelRender!!!"); return }
-//        myModelRender.loadView()
         myViewControllerBridge.loadView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createContentViewController()
+        
+        createLARFaceTrackingViewController()
+        
+        myViewControllerBridge.viewDidLoad()
+        
+        print("view Controller Start")
+    }
+
+    // 实现 MetalViewDelegate 协议
+    @objc func drawableResize(_ size: CGSize) {
+        myViewControllerBridge.drawableResize(size)
+    }
+    
+    @objc func renderToMetalLayer(_ metalLayer: CAMetalLayer) {
+        myViewControllerBridge.renderToMetalLayer(metalLayer)
+    }
+}
+
+extension ViewController {
+    func createContentViewController() {
         // 创建 SwiftUI 视图
         let contentView = ContentView()
                
         // 使用 UIHostingController 包装 SwiftUI 视图
-        let hostingController = UIHostingController(rootView: contentView)
+        let hostingContentViewController = UIHostingController(rootView: contentView)
                
         // 添加为子视图控制器
-        addChild(hostingController)
+        addChild(hostingContentViewController)
         
-        view.addSubview(hostingController.view)
+        view.addSubview(hostingContentViewController.view)
         
 //        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 //        NSLayoutConstraint.activate([
@@ -63,43 +75,35 @@ class ViewController: UIViewController, MetalViewDelegate {
 //            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
 //        ])
         
-//        let _ = print(view.frame.size)
-        
-        hostingController.view.frame = CGRect(
+        hostingContentViewController.view.frame = CGRect(
             x: 50,
             y: 50,
             width: 200,
             height: 200
         )
-        hostingController.view.backgroundColor = .yellow
+//        hostingContentViewController.view.backgroundColor = .yellow
         
         // 完成子视图控制器添加
-        hostingController.didMove(toParent: self)
-        
-//        guard let myModelRender = myModelRender else { print("No myModelRender!!!"); return }
-        
-//        myModelRender.viewDidLoad()
-        
-        myViewControllerBridge.viewDidLoad()
-        
-        print("view Controller Start")
-    }
-
-    // 实现 MetalViewDelegate 协议
-    @objc func drawableResize(_ size: CGSize) {
-//        guard let myModelRender = myModelRender else { print("No myModelRender!!!"); return }
-//        myModelRender.drawableResize(size)
-        myViewControllerBridge.drawableResize(size)
+        hostingContentViewController.didMove(toParent: self)
     }
     
-//    @objc(renderToMetalLayer:)
-//    func render(to layer: CAMetalLayer) {
-//        // 实现renderToMetalLayer...
-//    }
-    @objc func renderToMetalLayer(_ metalLayer: CAMetalLayer) {
-//        dump(metalLayer.nextDrawable())
-//        guard let myModelRender = myModelRender else { print("No myModelRender!!!"); return }
-//        myModelRender.renderToMetalLayer(metalLayer)
-        myViewControllerBridge.renderToMetalLayer(metalLayer)
+    func createLARFaceTrackingViewController() {
+        let lARFaceTrackingView = LARFaceTrackingView()
+               
+        let hostingLARFaceTrackingViewController = UIHostingController(rootView: lARFaceTrackingView)
+               
+        addChild(hostingLARFaceTrackingViewController)
+        
+        view.addSubview(hostingLARFaceTrackingViewController.view)
+        
+        hostingLARFaceTrackingViewController.view.frame = CGRect(
+            x: 50,
+            y: 300,
+            width: 500,
+            height: 500
+        )
+        hostingLARFaceTrackingViewController.view.backgroundColor = .yellow
+        
+        hostingLARFaceTrackingViewController.didMove(toParent: self)
     }
 }

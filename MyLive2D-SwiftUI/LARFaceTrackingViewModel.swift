@@ -31,21 +31,21 @@ class LARFaceTrackingViewModel: NSObject, ObservableObject {
     
     override init() {
         super.init()
-    }
-    
-    func setupFaceTrackingConfig() -> ARFaceTrackingConfiguration{
-        guard ARFaceTrackingConfiguration.isSupported else { fatalError() }
-        let config = ARFaceTrackingConfiguration()
-        config.maximumNumberOfTrackedFaces = 1
-        config.isLightEstimationEnabled = true
-        return config
+        
+        setupFaceTrackingSession()
+        
+        setupFaceAnchor()
     }
     
     func setupFaceTrackingSession() {
-        let config = setupFaceTrackingConfig()
+        // TODO: deal with fatalError()
+        guard ARFaceTrackingConfiguration.isSupported else { fatalError() }
+        
+        let config = ARFaceTrackingConfiguration()
+        config.maximumNumberOfTrackedFaces = 1
+        config.isLightEstimationEnabled = true
         
         arView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
-        
         arView.session.delegate = self
     }
     
@@ -68,6 +68,6 @@ class LARFaceTrackingViewModel: NSObject, ObservableObject {
 
 extension LARFaceTrackingViewModel: ARSessionDelegate{
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        
+        print("LARFaceTrackingViewModel")
     }
 }
