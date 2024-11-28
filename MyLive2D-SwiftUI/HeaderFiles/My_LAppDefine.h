@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) float viewLogicalMaxTop;
 
 // Resource paths
+@property (class, nonatomic, readonly) NSString *filesAppResourcesPath;
 @property (class, nonatomic, readonly) NSString *resourcesPath;
 @property (class, nonatomic, readonly) NSString *backImageName;
 @property (class, nonatomic, readonly) NSString *gearImageName;
@@ -89,6 +90,7 @@ namespace LAppDefine {
     extern const csmFloat32 ViewLogicalMaxBottom;   ///< 論理的なビュー座標系の下端の最大値
     extern const csmFloat32 ViewLogicalMaxTop;      ///< 論理的なビュー座標系の上端の最大値
 
+    extern const csmChar* FilesAppResourcesPath; // Path of Resources in iOS Files APP
     extern const csmChar* ResourcesPath;            ///< 素材パス
     extern const csmChar* BackImageName;         ///< 背景画像ファイル
     extern const csmChar* GearImageName;         ///< 歯車画像ファイル

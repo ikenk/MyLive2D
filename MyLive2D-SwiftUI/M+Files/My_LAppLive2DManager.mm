@@ -145,18 +145,30 @@ Csm::csmString GetPath(CFURLRef url)
 {
     _modelDir.Clear();
 
-    NSBundle* bundle = [NSBundle mainBundle];
-    NSString* resPath = [NSString stringWithUTF8String:LAppDefine::ResourcesPath];
-    NSArray* resArr = [bundle pathsForResourcesOfType:NULL inDirectory:resPath];
-    NSUInteger cnt = [resArr count];
+//    NSBundle* bundle = [NSBundle mainBundle];
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+//    NSString* resPath = [NSString stringWithUTF8String:LAppDefine::ResourcesPath];
+    NSURL* filePath = [[fileManager URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:true error:nil] URLByAppendingPathComponent:MyLAppDefine.filesAppResourcesPath isDirectory:true];
+//    NSArray* resArr = [bundle pathsForResourcesOfType:NULL inDirectory:resPath];
+    NSArray* fileArr = [fileManager contentsOfDirectoryAtPath:[filePath path] error:nil];
+//    NSUInteger cnt = [resArr count];
+    NSUInteger cnt = [fileArr count];
 
     for (NSUInteger i = 0; i < cnt; i++)
     {
-        NSString* modelName = [[resArr objectAtIndex:i] lastPathComponent];
-        NSMutableString* modelDirPath = [NSMutableString stringWithString:resPath];
+//        NSString* modelName = [[resArr objectAtIndex:i] lastPathComponent];
+        NSString* modelName = [[fileArr objectAtIndex:i] lastPathComponent];
+//        NSMutableString* modelDirPath = [NSMutableString stringWithString:resPath];
+//        [modelDirPath appendString:@"/"];
+//        [modelDirPath appendString:modelName];
+        NSMutableString* modelDirPath = [NSMutableString stringWithString:[filePath path]];
         [modelDirPath appendString:@"/"];
         [modelDirPath appendString:modelName];
-        NSArray* model3json = [bundle pathsForResourcesOfType:@".model3.json" inDirectory:modelDirPath];
+//        NSArray* model3json = [bundle pathsForResourcesOfType:@".model3.json" inDirectory:modelDirPath];
+        NSArray *contents = [fileManager contentsOfDirectoryAtPath:modelDirPath error:nil];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"lastPathComponent ENDSWITH '.model3.json'"];
+        NSArray *model3json = [contents filteredArrayUsingPredicate:predicate];
+
         if ([model3json count] == 1)
         {
             _modelDir.PushBack(Csm::csmString([modelName UTF8String]));

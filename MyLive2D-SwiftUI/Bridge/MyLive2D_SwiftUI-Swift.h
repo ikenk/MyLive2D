@@ -11,5 +11,6 @@
 #import "My_AppDelegateBridge.h"
 #import "My_ViewControllerBridge.h"
 #import "My_Live2DCubism.h"
+#import "My_LAppDefine.h"
 
 #endif /* MyLive2D_SwiftUI_Swift_h */

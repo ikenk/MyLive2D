@@ -7,48 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "17038194-6210-47AE-88A9-AB43A9142CB7"
+            uuid = "22A31D48-295C-4687-9339-3D93C646662C"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyLive2D-SwiftUI/Bridge/My_LAppTextureManager.mm"
+            filePath = "MyLive2D-SwiftUI/M+Files/My_LAppLive2DManager.mm"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-createTextureFromPngFile:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B90C05FD-CB5D-46CA-B6CB-EEDC0DFDEEAF"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyLive2D-SwiftUI/Bridge/My_LAppLive2DManager.mm"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
-            landmarkName = "-changeScene:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BD5F5639-791D-4753-85F9-EB9E21DF6241"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyLive2D-SwiftUI/Bridge/My_LAppModel.mm"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "769"
-            endingLineNumber = "769"
-            landmarkName = "LAppModel::SetupTextures()"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "-setUpModel"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

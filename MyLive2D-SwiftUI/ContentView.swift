@@ -10,10 +10,16 @@ import RealityKit
 
 struct ContentView : View {
     var body: some View {
-//        LARFaceTrackingView().edgesIgnoringSafeArea(.all)
-//        LMTKView()
         Text("Hello World!!!")
             .font(.largeTitle)
+        
+        Button {
+            print("Button")
+        } label: {
+            Text("Tap it!!!")
+                .font(.title2)
+                .foregroundStyle(.red)
+        }
     }
 }
 

@@ -68,6 +68,10 @@
 
 #pragma mark - Resource Paths
 
++ (NSString *)filesAppResourcesPath{
+    return @(LAppDefine::FilesAppResourcesPath);
+}
+
 + (NSString *)resourcesPath {
     return @(LAppDefine::ResourcesPath);
 }
@@ -168,8 +172,10 @@ namespace LAppDefine {
     // 相対パス
 #if !TARGET_OS_MACCATALYST
     const csmChar* ResourcesPath = "Res/Resources/";
+    const csmChar* FilesAppResourcesPath = "Resources/";
 #else
     const csmChar* ResourcesPath = "Resources/";
+    const csmChar* FilesAppResourcesPath = "Resources/";
 #endif
 
     // モデルの後ろにある背景の画像ファイル
