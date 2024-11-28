@@ -1284,6 +1284,7 @@
 				44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */,
 				44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */,
 				44CB6FD82CF728A50041EE7A /* LResourceManager.swift */,
+				44CB6FDA2CF72A6E0041EE7A /* Constants.swift */,
 				44CB6FDC2CF72B4E0041EE7A /* NotSure */,
 				44158CC32CEB7EB900CE9D62 /* Bridge */,
 				44479BAF2CEA480800BB3C62 /* HeaderFiles */,
@@ -1389,7 +1390,6 @@
 			isa = PBXGroup;
 			children = (
 				44CB6FD32CF7119F0041EE7A /* LDocumentPicker.swift */,
-				44CB6FDA2CF72A6E0041EE7A /* Constants.swift */,
 				44CB6FD52CF717B60041EE7A /* LocalDocHandler.swift */,
 			);
 			path = NotSure;

@@ -45,9 +45,14 @@ class ViewController: UIViewController, MetalViewDelegate {
         
 //        createLARFaceTrackingViewController()
         
-        guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
-
-        let _ = lResourceManager.copyBundleResourcesToLocalDirectorySync(from: bundleResourcesDir)
+        print("UserDefaults.standard.bool(forKey: NOT_FIRST_RUN): \(UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))")
+        
+        if !UserDefaults.standard.bool(forKey: NOT_FIRST_RUN){
+            print("UserDefaults.standard.bool run")
+            guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
+            
+            let _ = lResourceManager.copyBundleResourcesToLocalDirectorySync(from: bundleResourcesDir)
+        }
         
         myViewControllerBridge.viewDidLoad()
         

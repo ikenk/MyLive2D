@@ -7,4 +7,4 @@
 
 import Foundation
 
-let FIRST_RUN = "FIRST_RUN"
+let NOT_FIRST_RUN = "NOT_FIRST_RUN"
