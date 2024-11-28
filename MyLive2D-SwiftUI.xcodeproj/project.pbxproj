@@ -55,11 +55,13 @@
 		44479B9B2CE99F4F00BB3C62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */; };
 		44479B9E2CE99F4F00BB3C62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9D2CE99F4F00BB3C62 /* Preview Assets.xcassets */; };
 		44CB6F822CF467570041EE7A /* My_Live2DCubism.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */; };
-		44CB6F982CF573FA0041EE7A /* LMTKViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F932CF573FA0041EE7A /* LMTKViewRenderer.swift */; };
 		44CB6F992CF573FA0041EE7A /* LARFaceTrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */; };
 		44CB6F9A2CF573FA0041EE7A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F952CF573FA0041EE7A /* CustomError.swift */; };
 		44CB6F9B2CF573FA0041EE7A /* LARFaceTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */; };
-		44CB6F9C2CF573FA0041EE7A /* LMTKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F972CF573FA0041EE7A /* LMTKView.swift */; };
+		44CB6FD42CF7119F0041EE7A /* LDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FD32CF7119F0041EE7A /* LDocumentPicker.swift */; };
+		44CB6FD62CF717B60041EE7A /* LocalDocHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FD52CF717B60041EE7A /* LocalDocHandler.swift */; };
+		44CB6FD92CF728A50041EE7A /* LResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FD82CF728A50041EE7A /* LResourceManager.swift */; };
+		44CB6FDB2CF72A6E0041EE7A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FDA2CF72A6E0041EE7A /* Constants.swift */; };
 		44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */; };
 		44D0B4C82CEDB9D500BFE9D0 /* My_LAppDefine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4C72CEDB9D500BFE9D0 /* My_LAppDefine.mm */; };
 		44D0B4CB2CEDC9B500BFE9D0 /* My_LAppPal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */; };
@@ -361,11 +363,14 @@
 		444E9DC02CEB01D3009EF853 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		44CB6F802CF4674A0041EE7A /* My_Live2DCubism.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_Live2DCubism.h; sourceTree = "<group>"; };
 		44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_Live2DCubism.mm; sourceTree = "<group>"; };
-		44CB6F932CF573FA0041EE7A /* LMTKViewRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMTKViewRenderer.swift; sourceTree = "<group>"; };
 		44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LARFaceTrackingViewModel.swift; sourceTree = "<group>"; };
 		44CB6F952CF573FA0041EE7A /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LARFaceTrackingView.swift; sourceTree = "<group>"; };
-		44CB6F972CF573FA0041EE7A /* LMTKView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMTKView.swift; sourceTree = "<group>"; };
+		44CB6FD32CF7119F0041EE7A /* LDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDocumentPicker.swift; sourceTree = "<group>"; };
+		44CB6FD52CF717B60041EE7A /* LocalDocHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDocHandler.swift; sourceTree = "<group>"; };
+		44CB6FD72CF726890041EE7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		44CB6FD82CF728A50041EE7A /* LResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LResourceManager.swift; sourceTree = "<group>"; };
+		44CB6FDA2CF72A6E0041EE7A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		44D0B4C12CED936100BFE9D0 /* My_LAppAllocator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppAllocator.h; sourceTree = "<group>"; };
 		44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppAllocator.mm; sourceTree = "<group>"; };
 		44D0B4C62CEDB8C000BFE9D0 /* My_LAppDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppDefine.h; sourceTree = "<group>"; };
@@ -374,8 +379,6 @@
 		44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppPal.mm; sourceTree = "<group>"; };
 		44D0B4CC2CEDF7DB00BFE9D0 /* My_LAppModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppModel.h; sourceTree = "<group>"; };
 		44D0B4CD2CEDF7E400BFE9D0 /* My_LAppModel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppModel.mm; sourceTree = "<group>"; };
-		44E5180D2CEF74BC008A9BBA /* My_LRender.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LRender.h; sourceTree = "<group>"; };
-		44E5180E2CEF74CF008A9BBA /* My_LRender.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LRender.mm; sourceTree = "<group>"; };
 		44E518102CF03C8C008A9BBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44E5181C2CF0C842008A9BBA /* My_LAppLive2DManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppLive2DManager.h; sourceTree = "<group>"; };
 		44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppLive2DManager.mm; sourceTree = "<group>"; };
@@ -411,7 +414,6 @@
 		44158CC32CEB7EB900CE9D62 /* Bridge */ = {
 			isa = PBXGroup;
 			children = (
-				44CB6F902CF4D00A0041EE7A /* Archived */,
 				44E518402CF22B1E008A9BBA /* MyLive2D_SwiftUI-Swift.h */,
 			);
 			path = Bridge;
@@ -1274,14 +1276,15 @@
 		44479B952CE99F4E00BB3C62 /* MyLive2D-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				44CB6FD72CF726890041EE7A /* Info.plist */,
 				44479B962CE99F4E00BB3C62 /* AppDelegate.swift */,
 				44E518102CF03C8C008A9BBA /* ViewController.swift */,
 				44479B982CE99F4E00BB3C62 /* ContentView.swift */,
 				44CB6F952CF573FA0041EE7A /* CustomError.swift */,
 				44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */,
 				44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */,
-				44CB6F972CF573FA0041EE7A /* LMTKView.swift */,
-				44CB6F932CF573FA0041EE7A /* LMTKViewRenderer.swift */,
+				44CB6FD82CF728A50041EE7A /* LResourceManager.swift */,
+				44CB6FDC2CF72B4E0041EE7A /* NotSure */,
 				44158CC32CEB7EB900CE9D62 /* Bridge */,
 				44479BAF2CEA480800BB3C62 /* HeaderFiles */,
 				44479BB12CEA482A00BB3C62 /* M+Files */,
@@ -1382,13 +1385,14 @@
 			path = ViewBridge;
 			sourceTree = "<group>";
 		};
-		44CB6F902CF4D00A0041EE7A /* Archived */ = {
+		44CB6FDC2CF72B4E0041EE7A /* NotSure */ = {
 			isa = PBXGroup;
 			children = (
-				44E5180D2CEF74BC008A9BBA /* My_LRender.h */,
-				44E5180E2CEF74CF008A9BBA /* My_LRender.mm */,
+				44CB6FD32CF7119F0041EE7A /* LDocumentPicker.swift */,
+				44CB6FDA2CF72A6E0041EE7A /* Constants.swift */,
+				44CB6FD52CF717B60041EE7A /* LocalDocHandler.swift */,
 			);
-			path = Archived;
+			path = NotSure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1534,6 +1538,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44E5184C2CF31982008A9BBA /* My_LAppSprite.mm in Sources */,
+				44CB6FDB2CF72A6E0041EE7A /* Constants.swift in Sources */,
 				44E5181F2CF0D257008A9BBA /* MetalView.m in Sources */,
 				44CB6F9B2CF573FA0041EE7A /* LARFaceTrackingView.swift in Sources */,
 				44E5181B2CF0AE6D008A9BBA /* MetalUIView.m in Sources */,
@@ -1543,12 +1548,13 @@
 				44158CBE2CEB3F4800CE9D62 /* ContentView.swift in Sources */,
 				44E518452CF23661008A9BBA /* My_AppDelegateBridge.mm in Sources */,
 				44CB6F992CF573FA0041EE7A /* LARFaceTrackingViewModel.swift in Sources */,
+				44CB6FD42CF7119F0041EE7A /* LDocumentPicker.swift in Sources */,
 				44E518482CF2D531008A9BBA /* My_ViewControllerBridge.mm in Sources */,
 				44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */,
-				44CB6F9C2CF573FA0041EE7A /* LMTKView.swift in Sources */,
 				44D0B4CE2CEDF7E400BFE9D0 /* My_LAppModel.mm in Sources */,
 				44CB6F822CF467570041EE7A /* My_Live2DCubism.mm in Sources */,
-				44CB6F982CF573FA0041EE7A /* LMTKViewRenderer.swift in Sources */,
+				44CB6FD62CF717B60041EE7A /* LocalDocHandler.swift in Sources */,
+				44CB6FD92CF728A50041EE7A /* LResourceManager.swift in Sources */,
 				44D0B4CB2CEDC9B500BFE9D0 /* My_LAppPal.mm in Sources */,
 				44D0B4C82CEDB9D500BFE9D0 /* My_LAppDefine.mm in Sources */,
 				44E5181E2CF0C84D008A9BBA /* My_LAppLive2DManager.mm in Sources */,
@@ -1757,6 +1763,8 @@
 					"${PROJECT_DIR}/${CUBISM_FRAMEWORK_NAME}/Core/include/",
 					"${PROJECT_DIR}/${CUBISM_FRAMEWORK_NAME}/HeaderFiles/",
 				);
+				INFOPLIST_FILE = "MyLive2D-SwiftUI/Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1764,6 +1772,8 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1813,6 +1823,8 @@
 					"${PROJECT_DIR}/${CUBISM_FRAMEWORK_NAME}/Core/include/",
 					"${PROJECT_DIR}/${CUBISM_FRAMEWORK_NAME}/HeaderFiles/",
 				);
+				INFOPLIST_FILE = "MyLive2D-SwiftUI/Info.plist";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1820,6 +1832,8 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportsDocumentBrowser = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

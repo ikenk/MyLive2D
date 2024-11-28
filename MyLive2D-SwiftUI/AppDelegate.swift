@@ -20,6 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let defaults = UserDefaults.standard
+        let isNotFirstRun = defaults.bool(forKey: FIRST_RUN)
+        print(isNotFirstRun)
+        if !isNotFirstRun {
+            defaults.set(true, forKey: FIRST_RUN)
+        }
+        
         textureManager = .init()
         
         My_AppDelegateBridge.shared().setToAppDelegate(self)

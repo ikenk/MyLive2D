@@ -36,7 +36,7 @@ using namespace LAppDefine;
 @interface My_ViewControllerBridge()
 
 @property (nonatomic) LAppSprite *back; //背景画像
-//@property (nonatomic) LAppSprite *gear; //歯車画像
+@property (nonatomic) LAppSprite *gear; //歯車画像
 //@property (nonatomic) LAppSprite *power; //電源画像
 @property (nonatomic) LAppSprite *renderSprite; //レンダリングターゲット描画用
 //@property (nonatomic) TouchManager *touchManager; ///< タッチマネージャー
@@ -241,6 +241,8 @@ using namespace LAppDefine;
     
     float width = My_ViewControllerBridge.shared.viewController.view.frame.size.width;
     float height = My_ViewControllerBridge.shared.viewController.view.frame.size.height;
+    
+    NSLog(@"width and height: %f,%f",width,height);
 
 //    LAppTextureManager* textureManager = [delegate getTextureManager];
     My_LAppTextureManager* textureManager = My_AppDelegateBridge.shared.textureManager;
@@ -254,19 +256,22 @@ using namespace LAppDefine;
     float x = width * 0.5f;
     float y = height * 0.5f;
 //    float fWidth = static_cast<float>(backgroundTexture->width * 2.0f);
-    float fWidth = static_cast<float>(backgroundTexture.width * 2.0f);
-    float fHeight = static_cast<float>(height) * 0.95f;
+    float fWidth = static_cast<float>(width); // 让背景图撑满背景
+//    float fHeight = static_cast<float>(height) * 0.95f;
+    float fHeight = static_cast<float>(height); // 让背景图撑满背景
 //    _back = [[LAppSprite alloc] initWithMyVar:x Y:y Width:fWidth Height:fHeight MaxWidth:width MaxHeight:height Texture:backgroundTexture->id];
     _back = [[LAppSprite alloc] initWithMyVar:x Y:y Width:fWidth Height:fHeight MaxWidth:width MaxHeight:height Texture:backgroundTexture.textureId];
 
 //    //モデル変更ボタン
-//    imageName = GearImageName;
+    imageName = GearImageName;
 //    TextureInfo* gearTexture = [textureManager createTextureFromPngFile:resourcesPath+imageName];
-//    x = static_cast<float>(width - gearTexture->width * 0.5f);
-//    y = static_cast<float>(height - gearTexture->height * 0.5f);
-//    fWidth = static_cast<float>(gearTexture->width);
-//    fHeight = static_cast<float>(gearTexture->height);
-//    _gear = [[LAppSprite alloc] initWithMyVar:x Y:y Width:fWidth Height:fHeight MaxWidth:width MaxHeight:height Texture:gearTexture->id];
+    filePath = @((resourcesPath + imageName).c_str());
+    My_LAppTextureInfo* gearTexture = [textureManager createTextureFromPngFile:filePath];
+    x = static_cast<float>(width - gearTexture.width * 0.5f);
+    y = static_cast<float>(height - gearTexture.height * 0.5f);
+    fWidth = static_cast<float>(gearTexture.width);
+    fHeight = static_cast<float>(gearTexture.height);
+    _gear = [[LAppSprite alloc] initWithMyVar:x Y:y Width:fWidth Height:fHeight MaxWidth:width MaxHeight:height Texture:gearTexture.textureId];
 //
 //    //電源ボタン
 //    imageName = PowerImageName;
@@ -296,12 +301,12 @@ using namespace LAppDefine;
     [_back resizeImmidiate:x Y:y Width:fWidth Height:fHeight MaxWidth:maxWidth MaxHeight:maxHeight];
 
 //    //モデル変更ボタン
-//    x = static_cast<float>(width - _gear.GetTextureId.width * 0.5f);
-//    y = static_cast<float>(height - _gear.GetTextureId.height * 0.5f);
-//    fWidth = static_cast<float>(_gear.GetTextureId.width);
-//    fHeight = static_cast<float>(_gear.GetTextureId.height);
-//    [_gear resizeImmidiate:x Y:y Width:fWidth Height:fHeight MaxWidth:maxWidth MaxHeight:maxHeight];
-//
+    x = static_cast<float>(width - _gear.GetTextureId.width * 0.5f);
+    y = static_cast<float>(height - _gear.GetTextureId.height * 0.5f);
+    fWidth = static_cast<float>(_gear.GetTextureId.width);
+    fHeight = static_cast<float>(_gear.GetTextureId.height);
+    [_gear resizeImmidiate:x Y:y Width:fWidth Height:fHeight MaxWidth:maxWidth MaxHeight:maxHeight];
+
 //    //電源ボタン
 //    x = static_cast<float>(width - _power.GetTextureId.width * 0.5f);
 //    y = static_cast<float>(_power.GetTextureId.height * 0.5f);
@@ -314,8 +319,8 @@ using namespace LAppDefine;
 {
     [_back renderImmidiate:renderEncoder];
 
-//    [_gear renderImmidiate:renderEncoder];
-//
+    [_gear renderImmidiate:renderEncoder];
+
 //    [_power renderImmidiate:renderEncoder];
 }
 

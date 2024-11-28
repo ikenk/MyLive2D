@@ -18,5 +18,4 @@ struct LARFaceTrackingView: UIViewRepresentable {
 
     func updateUIView(_ uiView: ARView, context: Context) {
     }
-    
 }

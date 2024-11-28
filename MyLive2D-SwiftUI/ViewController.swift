@@ -16,6 +16,8 @@ class ViewController: UIViewController, MetalViewDelegate {
     
     var myViewControllerBridge: My_ViewControllerBridge = .shared()
     
+    var lResourceManager: LResourceManager = .shared
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
         myViewControllerBridge.setToViewController(self)
@@ -35,14 +37,32 @@ class ViewController: UIViewController, MetalViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let _ = print("UIScreen.main.bounds :\(UIScreen.main.bounds)")
+        view.layer.borderColor = UIColor.yellow.cgColor
+        view.layer.borderWidth = 2
+        
         createContentViewController()
         
-        createLARFaceTrackingViewController()
+//        createLARFaceTrackingViewController()
+        
+        guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
+
+        let _ = lResourceManager.copyBundleResourcesToLocalDirectorySync(from: bundleResourcesDir)
         
         myViewControllerBridge.viewDidLoad()
         
         print("view Controller Start")
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        
+//        guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
+//        
+//        Task{
+//            let _ = await lResourceManager.copyBundleResourcesToLocalDirectoryAsync(from: bundleResourcesDir)
+//        }
+//    }
 
     // 实现 MetalViewDelegate 协议
     @objc func drawableResize(_ size: CGSize) {
@@ -76,12 +96,14 @@ extension ViewController {
 //        ])
         
         hostingContentViewController.view.frame = CGRect(
-            x: 50,
-            y: 50,
-            width: 200,
-            height: 200
+            x: 0,
+            y: 0,
+            width: 300,
+            height: 300
         )
 //        hostingContentViewController.view.backgroundColor = .yellow
+        hostingContentViewController.view.layer.borderColor = UIColor.red.cgColor
+        hostingContentViewController.view.layer.borderWidth = 2
         
         // 完成子视图控制器添加
         hostingContentViewController.didMove(toParent: self)
@@ -97,12 +119,11 @@ extension ViewController {
         view.addSubview(hostingLARFaceTrackingViewController.view)
         
         hostingLARFaceTrackingViewController.view.frame = CGRect(
-            x: 50,
+            x: 0,
             y: 300,
             width: 500,
             height: 500
         )
-        hostingLARFaceTrackingViewController.view.backgroundColor = .yellow
         
         hostingLARFaceTrackingViewController.didMove(toParent: self)
     }
