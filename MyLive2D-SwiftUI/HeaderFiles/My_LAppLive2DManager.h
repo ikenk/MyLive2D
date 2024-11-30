@@ -8,19 +8,35 @@
 #ifndef My_LAppLive2DManager_h
 #define My_LAppLive2DManager_h
 
+#ifdef __cplusplus
 // Cubism
 #import <CubismFramework.hpp>
 #import <Math/CubismMatrix44.hpp>
 #import <Type/csmVector.hpp>
 #import <Type/csmString.hpp>
+#endif
 
 // Custom
 #import "My_LAppModel.h"
 #import "My_LAppSprite.h"
 
+// MARK: Objective-C Interface
+@interface My_LAppLive2DManager:NSObject
+
++ (instancetype) shared;
+
+- (NSInteger)getSceneIndex;
+
+- (void)changeScene:(NSInteger)index;
+
+- (void)nextScene;
+
+@end
 
 
-// MARK: C++/OC Mixed interface
+
+#ifdef __cplusplus
+// MARK: C++/OC Mixed Interface
 @interface LAppLive2DManager : NSObject
 
 typedef NS_ENUM(NSUInteger, SelectTarget)
@@ -131,5 +147,6 @@ typedef NS_ENUM(NSUInteger, SelectTarget)
 - (void)SetRenderTargetClearColor:(float)r g:(float)g b:(float)b;
 
 @end
+#endif
 
 #endif /* My_LAppLive2DManager_h */

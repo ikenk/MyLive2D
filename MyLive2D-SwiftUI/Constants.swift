@@ -8,3 +8,5 @@
 import Foundation
 
 let NOT_FIRST_RUN = "NOT_FIRST_RUN"
+
+let SCENE_INDEX = "SCENE_INDEX"

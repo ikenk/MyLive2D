@@ -24,6 +24,7 @@
 #import "My_AppDelegateBridge.h"
 #import "My_LAppTextureManager.h"
 #import "My_LAppSprite.h"
+#import "My_PathSearch.h"
 #import "MetalUIView.h"
 #import "MetalView.h"
 
@@ -242,16 +243,18 @@ using namespace LAppDefine;
     float width = My_ViewControllerBridge.shared.viewController.view.frame.size.width;
     float height = My_ViewControllerBridge.shared.viewController.view.frame.size.height;
     
-    NSLog(@"width and height: %f,%f",width,height);
+    NSLog(@"[MyLog]width and height: %f,%f",width,height);
 
 //    LAppTextureManager* textureManager = [delegate getTextureManager];
     My_LAppTextureManager* textureManager = My_AppDelegateBridge.shared.textureManager;
-    const string resourcesPath = ResourcesPath;
+//    const string resourcesPath = ResourcesPath;
+    NSString* resourcesPath = [My_PathSearch searchResourcesFilePath];
 
     //背景
     string imageName = BackImageName;
 //    TextureInfo* backgroundTexture = [textureManager createTextureFromPngFile:resourcesPath+imageName];
-    NSString *filePath = @((resourcesPath + imageName).c_str());
+//    NSString* filePath = @((resourcesPath + imageName).c_str());
+    NSString *filePath = [resourcesPath stringByAppendingString:@((imageName).c_str())];
     My_LAppTextureInfo* backgroundTexture = [textureManager createTextureFromPngFile:filePath];
     float x = width * 0.5f;
     float y = height * 0.5f;
@@ -265,7 +268,8 @@ using namespace LAppDefine;
 //    //モデル変更ボタン
     imageName = GearImageName;
 //    TextureInfo* gearTexture = [textureManager createTextureFromPngFile:resourcesPath+imageName];
-    filePath = @((resourcesPath + imageName).c_str());
+//    filePath = @((resourcesPath + imageName).c_str());
+    filePath = [resourcesPath stringByAppendingString:@((imageName).c_str())];
     My_LAppTextureInfo* gearTexture = [textureManager createTextureFromPngFile:filePath];
     x = static_cast<float>(width - gearTexture.width * 0.5f);
     y = static_cast<float>(height - gearTexture.height * 0.5f);

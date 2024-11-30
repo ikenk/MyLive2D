@@ -78,12 +78,19 @@ csmByte *LAppPal::LoadFileAsBytes(const string filePath, csmSizeInt *outSize) {
     int path_i = static_cast<int>(filePath.find_last_of("/") + 1);
     int ext_i = static_cast<int>(filePath.find_last_of("."));
     std::string pathname = filePath.substr(0, path_i);
-    std::string extname = filePath.substr(ext_i, filePath.size() - ext_i);
+//    std::string extname = filePath.substr(ext_i, filePath.size() - ext_i);
+    std::string extname = filePath.substr(ext_i + 1, filePath.size() - ext_i);
     std::string filename = filePath.substr(path_i, ext_i - path_i);
-    NSString *castFilePath = [[NSBundle mainBundle]
-        pathForResource:[NSString stringWithUTF8String:filename.c_str()]
-                 ofType:[NSString stringWithUTF8String:extname.c_str()]
-            inDirectory:[NSString stringWithUTF8String:pathname.c_str()]];
+//    NSString *castFilePath = [[NSBundle mainBundle]
+//        pathForResource:[NSString stringWithUTF8String:filename.c_str()]
+//                 ofType:[NSString stringWithUTF8String:extname.c_str()]
+//            inDirectory:[NSString stringWithUTF8String:pathname.c_str()]];
+    NSString *castFilePath = [NSString stringWithUTF8String:pathname.c_str()];
+    castFilePath = [castFilePath stringByAppendingPathComponent:[NSString stringWithUTF8String:filename.c_str()]];
+    castFilePath = [castFilePath stringByAppendingPathExtension:[NSString stringWithUTF8String:extname.c_str()]];
+    
+//    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:castFilePath];
+//    NSLog(@"[MyLog]File exists: %d", fileExists);
 
     NSData *data = [NSData dataWithContentsOfFile:castFilePath];
 

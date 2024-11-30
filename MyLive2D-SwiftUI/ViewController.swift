@@ -37,7 +37,6 @@ class ViewController: UIViewController, MetalViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let _ = print("UIScreen.main.bounds :\(UIScreen.main.bounds)")
         view.layer.borderColor = UIColor.yellow.cgColor
         view.layer.borderWidth = 2
         
@@ -45,29 +44,19 @@ class ViewController: UIViewController, MetalViewDelegate {
         
 //        createLARFaceTrackingViewController()
         
-        print("UserDefaults.standard.bool(forKey: NOT_FIRST_RUN): \(UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))")
+        print("[MyLog]UserDefaults.standard.bool(forKey: NOT_FIRST_RUN): \(UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))")
         
-        if !UserDefaults.standard.bool(forKey: NOT_FIRST_RUN){
-            print("UserDefaults.standard.bool run")
+//        if !UserDefaults.standard.bool(forKey: NOT_FIRST_RUN){
+            print("[MyLog]UserDefaults.standard.bool run")
             guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
             
             let _ = lResourceManager.copyBundleResourcesToLocalDirectorySync(from: bundleResourcesDir)
-        }
+//        }
         
         myViewControllerBridge.viewDidLoad()
         
-        print("view Controller Start")
+        print("[MyLog]view Controller Start")
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
-//        
-//        Task{
-//            let _ = await lResourceManager.copyBundleResourcesToLocalDirectoryAsync(from: bundleResourcesDir)
-//        }
-//    }
 
     // 实现 MetalViewDelegate 协议
     @objc func drawableResize(_ size: CGSize) {

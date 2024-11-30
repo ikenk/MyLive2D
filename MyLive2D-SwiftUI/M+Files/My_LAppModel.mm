@@ -763,7 +763,7 @@ void LAppModel::SetupTextures()
         csmString texturePath = _modelSetting->GetTextureFileName(modelTextureNumber);
         texturePath = _modelHomeDir + texturePath;
         
-        NSLog(@"texturePath.GetRawString() %s",texturePath.GetRawString());
+        NSLog(@"[MyLog]texturePath.GetRawString() %s",texturePath.GetRawString());
         NSString *filePath = @(texturePath.GetRawString());
 
 //        AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];

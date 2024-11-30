@@ -19,10 +19,10 @@ class LocalDocHandler {
                 rootURL = fileManagerURL
             } else {
                 rootURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                print("RootURL: \(rootURL?.description ?? "None")")
+                print("[MyLog]RootURL: \(rootURL?.description ?? "None")")
             }
         } catch {
-            print(error)
+            print("[MyLog]Error:\(error)")
         }
     }
     
@@ -41,7 +41,7 @@ class LocalDocHandler {
             do {
                 try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: true)
             } catch {
-                print(error)
+                print("[MyLog]Error:\(error)")
             }
         }
     }
@@ -60,7 +60,7 @@ class LocalDocHandler {
                 try FileManager.default.createDirectory(at: iCloudDocumentsURL, withIntermediateDirectories: true, attributes: nil)
             }
         } catch {
-            print(error)
+            print("[MyLog]Error:\(error)")
         }
     }
 }

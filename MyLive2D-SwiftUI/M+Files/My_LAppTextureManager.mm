@@ -59,7 +59,7 @@
 }
 
 - (My_LAppTextureInfo*)createTextureFromPngFile:(NSString *)fileName {
-    NSLog(@"createTextureFromPngFile:fileName  %@",fileName);
+//    NSLog(@"[MyLog]createTextureFromPngFile:fileName: %@",fileName);
     TextureInfo* textureInfo = [_appTextureManager createTextureFromPngFile:[fileName UTF8String]];
     My_LAppTextureInfo* myTextureInfo = [[My_LAppTextureInfo alloc] init];
     myTextureInfo.textureId = textureInfo->id;

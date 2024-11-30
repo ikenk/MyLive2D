@@ -57,7 +57,7 @@ class LARFaceTrackingViewModel: NSObject, ObservableObject {
     private func setupFaceAnchor() {
         // 移除现有的 anchor
         if let existingAnchorEntity = faceAnchorEntity {
-            print("移除现有的 anchor")
+            print("[MyLog]移除现有的 anchor")
             arView.scene.removeAnchor(existingAnchorEntity)
         }
         
@@ -86,11 +86,11 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
         
         createFaceMask(from: faceAnchor)
         
-//        print("faceAnchor.geometry.vertices: \(faceAnchor.geometry.vertices)")
-//        print("faceAnchor.geometry.triangleCount: \(faceAnchor.geometry.triangleCount)")
-//        print("faceAnchor.geometry.triangleIndices: \(faceAnchor.geometry.triangleIndices)")
-//        print("faceAnchor.transform: \(faceAnchor.transform)")
-//        print("faceAnchor.blendShapes[.eyeBlinkRight]: \(faceAnchor.blendShapes[.eyeBlinkRight])")
+//        print("[MyLog]faceAnchor.geometry.vertices: \(faceAnchor.geometry.vertices)")
+//        print("[MyLog]faceAnchor.geometry.triangleCount: \(faceAnchor.geometry.triangleCount)")
+//        print("[MyLog]faceAnchor.geometry.triangleIndices: \(faceAnchor.geometry.triangleIndices)")
+//        print("[MyLog]faceAnchor.transform: \(faceAnchor.transform)")
+//        print("[MyLog]faceAnchor.blendShapes[.eyeBlinkRight]: \(faceAnchor.blendShapes[.eyeBlinkRight])")
     }
 }
 
@@ -114,7 +114,7 @@ extension LARFaceTrackingViewModel {
 //            modelEntity.setPosition(.init(x: 0, y: 0, z: 0.1), relativeTo: faceAnchorEntity)
             faceAnchorEntity.addChild(modelEntity)
         } catch {
-            print("Error: \(error)")
+            print("[MyLog]Error: \(error)")
         }
     }
 

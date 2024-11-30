@@ -7,6 +7,7 @@
 
 #import "My_LAppLive2DManager.h"
 
+
 // Cpp
 #import <string.h>
 #import <stdlib.h>
@@ -15,11 +16,65 @@
 #import <Rendering/Metal/CubismRenderer_Metal.hpp>
 #import "Rendering/Metal/CubismRenderingInstanceSingleton_Metal.h"
 
+
 // Custom
 #import "My_AppDelegateBridge.h"
 #import "My_LAppModel.h"
 #import "My_LAppDefine.h"
 #import "My_LAppPal.h"
+#import "My_PathSearch.h"
+
+
+
+// MARK: Objective-C Implementation
+// Objective-C Implementation
+@interface My_LAppLive2DManager()
+
+@property(strong,nonatomic) LAppLive2DManager* lAppLive2DManager;
+
+- (id)init;
+
+- (void)dealloc;
+
+@end
+
+@implementation My_LAppLive2DManager
+
++ (instancetype)shared {
+    static My_LAppLive2DManager *instance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[My_LAppLive2DManager alloc] init];
+    });
+    return instance;
+}
+
+- (id)init {
+    [super init];
+    if(self){
+        _lAppLive2DManager = [LAppLive2DManager getInstance];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [_lAppLive2DManager dealloc];
+    [super dealloc];
+}
+
+- (NSInteger)getSceneIndex {
+    return (NSInteger)self.lAppLive2DManager.sceneIndex;
+}
+
+- (void)nextScene {
+    [self.lAppLive2DManager nextScene];
+}
+
+- (void)changeScene:(NSInteger)index {
+    [self.lAppLive2DManager changeScene:(Csm::csmInt32)index];
+}
+
+@end
 
 
 
@@ -148,21 +203,21 @@ Csm::csmString GetPath(CFURLRef url)
 //    NSBundle* bundle = [NSBundle mainBundle];
     NSFileManager* fileManager = [NSFileManager defaultManager];
 //    NSString* resPath = [NSString stringWithUTF8String:LAppDefine::ResourcesPath];
-    NSURL* filePath = [[fileManager URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:true error:nil] URLByAppendingPathComponent:MyLAppDefine.filesAppResourcesPath isDirectory:true];
+    NSString* resPath = [My_PathSearch searchResourcesFilePath];
 //    NSArray* resArr = [bundle pathsForResourcesOfType:NULL inDirectory:resPath];
-    NSArray* fileArr = [fileManager contentsOfDirectoryAtPath:[filePath path] error:nil];
+    NSArray* resArr = [fileManager contentsOfDirectoryAtPath:resPath error:nil];
 //    NSUInteger cnt = [resArr count];
-    NSUInteger cnt = [fileArr count];
+    NSUInteger cnt = [resArr count];
 
     for (NSUInteger i = 0; i < cnt; i++)
     {
 //        NSString* modelName = [[resArr objectAtIndex:i] lastPathComponent];
-        NSString* modelName = [[fileArr objectAtIndex:i] lastPathComponent];
+        NSString* modelName = [[resArr objectAtIndex:i] lastPathComponent];
 //        NSMutableString* modelDirPath = [NSMutableString stringWithString:resPath];
 //        [modelDirPath appendString:@"/"];
 //        [modelDirPath appendString:modelName];
-        NSMutableString* modelDirPath = [NSMutableString stringWithString:[filePath path]];
-        [modelDirPath appendString:@"/"];
+        NSMutableString* modelDirPath = [NSMutableString stringWithString: resPath];
+//        [modelDirPath appendString:@"/"];
         [modelDirPath appendString:modelName];
 //        NSArray* model3json = [bundle pathsForResourcesOfType:@".model3.json" inDirectory:modelDirPath];
         NSArray *contents = [fileManager contentsOfDirectoryAtPath:modelDirPath error:nil];
@@ -375,13 +430,32 @@ Csm::csmString GetPath(CFURLRef url)
     // model3.jsonのパスを決定する.
     // ディレクトリ名とmodel3.jsonの名前を一致させておくこと.
     const Csm::csmString& model = _modelDir[index];
+    
+    NSString* filePath = [My_PathSearch searchResourcesFilePath];
+    
+    NSMutableString* mutableFilePath = [NSMutableString stringWithString:filePath];
+    
+//    [mutableFilePath appendString:"/"];
+//    [mutableFilePath appendString: ];
+//    [mutableFilePath appendString:"/"];
+    
+    const Csm::csmChar* filePathCsmChar = [mutableFilePath UTF8String];
 
-    Csm::csmString modelPath(LAppDefine::ResourcesPath);
+//    Csm::csmString modelPath(LAppDefine::ResourcesPath);
+    Csm::csmString modelPath(filePathCsmChar);
+//    modelPath += model;
+//    modelPath.Append(1, '/');
+//    modelPath.Append(1, '/');
     modelPath += model;
     modelPath.Append(1, '/');
+    
+    NSLog(@"[MyLog]modelPath: %@",[NSString stringWithUTF8String:modelPath.GetRawString()]);
 
     Csm::csmString modelJsonName(model);
     modelJsonName += ".model3.json";
+    
+    NSLog(@"[MyLog]modelPath.GetRawString(): %s",modelPath.GetRawString());
+    NSLog(@"[MyLog]modelJsonName.GetRawString(): %s",modelJsonName.GetRawString());
 
     [self releaseAllModel];
     _models.PushBack(new LAppModel());
@@ -447,4 +521,3 @@ Csm::csmString GetPath(CFURLRef url)
     _clearColorB = b;
 }
 @end
-
