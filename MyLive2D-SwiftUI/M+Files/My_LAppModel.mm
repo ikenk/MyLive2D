@@ -235,6 +235,8 @@ void LAppModel::LoadAssets(const csmChar* dir, const csmChar* fileName)
 
     csmByte* buffer = CreateBuffer(path.GetRawString(), &size);
     ICubismModelSetting* setting = new CubismModelSettingJson(buffer, size);
+    NSLog(@"[MyLog]setting->GetModelFileName(): %s",setting->GetModelFileName());
+    NSLog(@"[MyLog]setting->GetHitAreasCount(): %d",setting->GetHitAreasCount());
     DeleteBuffer(buffer, path.GetRawString());
 
     SetupModel(setting);
@@ -520,10 +522,10 @@ void LAppModel::Update()
         }
     }
 
-    if (_expressionManager != NULL)
-    {
-        _expressionManager->UpdateMotion(_model, deltaTimeSeconds); // 表情でパラメータ更新（相対変化）
-    }
+//    if (_expressionManager != NULL)
+//    {
+//        _expressionManager->UpdateMotion(_model, deltaTimeSeconds); // 表情でパラメータ更新（相対変化）
+//    }
 
     //ドラッグによる変化
     //ドラッグによる顔の向きの調整

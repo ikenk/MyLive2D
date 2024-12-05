@@ -28,6 +28,8 @@
 #import "MetalUIView.h"
 #import "MetalView.h"
 
+#import "TouchManager.h"
+
 using namespace std;
 using namespace Live2D::Cubism::Framework;
 using namespace Live2D::Cubism::Core;
@@ -40,7 +42,7 @@ using namespace LAppDefine;
 @property (nonatomic) LAppSprite *gear; //歯車画像
 //@property (nonatomic) LAppSprite *power; //電源画像
 @property (nonatomic) LAppSprite *renderSprite; //レンダリングターゲット描画用
-//@property (nonatomic) TouchManager *touchManager; ///< タッチマネージャー
+@property (nonatomic) TouchManager *touchManager; ///< タッチマネージャー
 @property (nonatomic) Csm::CubismMatrix44 *deviceToScreen;///< デバイスからスクリーンへの行列
 @property (nonatomic) Csm::CubismViewMatrix *viewMatrix;
 
@@ -77,6 +79,53 @@ using namespace LAppDefine;
 
 - (void)setToDepthTexture:(id<MTLTexture>)depthTexture{
     self.depthTexture = depthTexture;
+}
+
+- (void)touchesBeganAt:(CGFloat)x Y:(CGFloat)y {
+    [_touchManager touchesBegan:x DeciveY:y];
+}
+
+- (void)touchesMovedAt:(CGFloat)x Y:(CGFloat)y {
+    float viewX = [self transformViewX:[_touchManager getX]];
+    float viewY = [self transformViewY:[_touchManager getY]];
+
+    [_touchManager touchesMoved:x DeviceY:y];
+    [[LAppLive2DManager getInstance] onDrag:viewX floatY:viewY];
+}
+
+- (void)touchesEndedAt:(CGFloat)x Y:(CGFloat)y {
+    float pointY = [self transformTapY:y];
+
+    // タッチ終了
+    LAppLive2DManager* live2DManager = [LAppLive2DManager getInstance];
+    [live2DManager onDrag:0.0f floatY:0.0f];
+    {
+        // シングルタップ
+        float getX = [_touchManager getX];// 論理座標変換した座標を取得。
+        float getY = [_touchManager getY]; // 論理座標変換した座標を取得。
+        float x = _deviceToScreen->TransformX(getX);
+        float y = _deviceToScreen->TransformY(getY);
+
+        if (DebugTouchLogEnable)
+        {
+            LAppPal::PrintLogLn("[APP]touchesEnded x:%.2f y:%.2f", x, y);
+        }
+
+        [live2DManager onTap:x floatY:y];
+
+        // 歯車にタップしたか
+        if ([_gear isHit:x PointY:pointY])
+        {
+            [live2DManager nextScene];
+        }
+
+        // 電源ボタンにタップしたか
+//        if ([_power isHit:x PointY:pointY])
+//        {
+//            AppDelegate *delegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+//            [delegate finishApplication];
+//        }
+    }
 }
 
 
@@ -126,7 +175,7 @@ using namespace LAppDefine;
     _clearColorA = .0f;
 
     // タッチ関係のイベント管理
-//    _touchManager = [[TouchManager alloc]init];
+    _touchManager = [[TouchManager alloc]init];
 
     // デバイス座標からスクリーン座標に変換するための
     _deviceToScreen = new CubismMatrix44();
@@ -243,7 +292,7 @@ using namespace LAppDefine;
     float width = My_ViewControllerBridge.shared.viewController.view.frame.size.width;
     float height = My_ViewControllerBridge.shared.viewController.view.frame.size.height;
     
-    NSLog(@"[MyLog]width and height: %f,%f",width,height);
+    NSLog(@"[MyLog]func initializeSprite: width and height: %f,%f",width,height);
 
 //    LAppTextureManager* textureManager = [delegate getTextureManager];
     My_LAppTextureManager* textureManager = My_AppDelegateBridge.shared.textureManager;
@@ -349,6 +398,11 @@ using namespace LAppDefine;
 {
     return _deviceToScreen->TransformY(deviceY);
 }
+- (float)transformTapY:(float)deviceY
+{
+    float height = self.viewController.view.frame.size.height;
+    return deviceY * -1 + height;
+}
 
 - (void)drawableResize:(CGSize)size
 {
@@ -396,12 +450,12 @@ using namespace LAppDefine;
 
 - (void)releaseView
 {
-//    _renderSprite = nil;
-//    [_gear release];
-//    [_back release];
+    _renderSprite = nil;
+    [_gear release];
+    [_back release];
 //    [_power release];
-//    _gear = nil;
-//    _back = nil;
+    _gear = nil;
+    _back = nil;
 //    _power = nil;
 
 //    MetalUIView *view = (MetalUIView*)self.view;

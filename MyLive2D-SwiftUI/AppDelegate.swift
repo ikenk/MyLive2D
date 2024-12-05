@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let defaults = UserDefaults.standard
         let isNotFirstRun = defaults.bool(forKey: NOT_FIRST_RUN)
-//        print("isNotFirstRun: \(isNotFirstRun)")
+//        print("[MyLog]isNotFirstRun: \(isNotFirstRun)")
         
         textureManager = .init()
         
@@ -64,17 +64,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         textureManager = nil
+        
         guard let live2DManager = self.live2DManager else { return }
         sceneIndexTemp = live2DManager.getSceneIndex()
         print("[MyLog]applicationDidEnterBackground")
+        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         textureManager = .init()
+        My_AppDelegateBridge.shared().setToTextureManager(textureManager)
+        
         guard let live2DManager = self.live2DManager, let sceneIndexTemp = self.sceneIndexTemp else { return }
         print("[MyLog]sceneIndexTemp: \(sceneIndexTemp)")
-//        live2DManager.changeScene(sceneIndexTemp)
+        live2DManager.changeScene(sceneIndexTemp)
         print("[MyLog]applicationWillEnterForeground")
     }
 
@@ -84,6 +88,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
+        myViewController.releaseView()
+        
+        textureManager = nil
+        
+        Live2DCubism.deinitializeCubism()
+        
+        self.window = nil
+        
+        self.viewController = nil
+        
         print("[MyLog]applicationWillTerminate")
     }
 }

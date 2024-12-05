@@ -13,5 +13,6 @@
 #import "My_Live2DCubism.h"
 #import "My_LAppDefine.h"
 #import "My_LAppLive2DManager.h"
+#import "TouchManager.h"
 
 #endif /* MyLive2D_SwiftUI_Swift_h */

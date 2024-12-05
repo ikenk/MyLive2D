@@ -68,6 +68,7 @@
 		44D0B4CE2CEDF7E400BFE9D0 /* My_LAppModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4CD2CEDF7E400BFE9D0 /* My_LAppModel.mm */; };
 		44D2B5152CFA036800601D51 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2B5142CFA036800601D51 /* SettingsView.swift */; };
 		44D2B5182CFAB51100601D51 /* My_PathSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D2B5172CFAB51000601D51 /* My_PathSearch.m */; };
+		44D6C1A22D00B1AF00B3C145 /* TouchManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA32CEB3DC300CE9D62 /* TouchManager.mm */; };
 		44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E518102CF03C8C008A9BBA /* ViewController.swift */; };
 		44E5181B2CF0AE6D008A9BBA /* MetalUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA52CEB3DC300CE9D62 /* MetalUIView.m */; };
 		44E5181E2CF0C84D008A9BBA /* My_LAppLive2DManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */; };
@@ -1545,6 +1546,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D6C1A22D00B1AF00B3C145 /* TouchManager.mm in Sources */,
 				44E5184C2CF31982008A9BBA /* My_LAppSprite.mm in Sources */,
 				44D2B5152CFA036800601D51 /* SettingsView.swift in Sources */,
 				44CB6FDB2CF72A6E0041EE7A /* Constants.swift in Sources */,

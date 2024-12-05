@@ -49,12 +49,11 @@ static LAppAllocator _cubismAllocator;
 }
 
 + (void)deinitializeCubism {
-
     [LAppLive2DManager releaseInstance];
 
     Csm::CubismFramework::Dispose();
 
-    exit(0);
+//    exit(0);
 }
 
 + (NSString *)live2DVersion {

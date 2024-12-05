@@ -58,6 +58,7 @@
 }
 
 - (void)dealloc {
+    NSLog(@"[MyLog]My_LAppLive2DManager dealloc");
     [_lAppLive2DManager dealloc];
     [super dealloc];
 }
@@ -160,6 +161,7 @@ Csm::csmString GetPath(CFURLRef url)
 
 - (void)dealloc
 {
+    NSLog(@"[MyLog]LAppLive2DManager dealloc");
     if (_renderBuffer)
     {
         _renderBuffer->DestroyOffscreenSurface();
@@ -448,8 +450,6 @@ Csm::csmString GetPath(CFURLRef url)
 //    modelPath.Append(1, '/');
     modelPath += model;
     modelPath.Append(1, '/');
-    
-    NSLog(@"[MyLog]modelPath: %@",[NSString stringWithUTF8String:modelPath.GetRawString()]);
 
     Csm::csmString modelJsonName(model);
     modelJsonName += ".model3.json";

@@ -39,7 +39,7 @@
 @end
 
 @interface My_LAppTextureManager()
-@property(nonatomic) LAppTextureManager* appTextureManager;
+@property(strong, nonatomic) LAppTextureManager* appTextureManager;
 @end
 
 @implementation My_LAppTextureManager
@@ -54,7 +54,7 @@
 }
 
 - (void)dealloc {
-    [_appTextureManager releaseTextures];
+    [_appTextureManager dealloc];
     [super dealloc];
 }
 
@@ -109,6 +109,7 @@
 - (void)dealloc
 {
     [self releaseTextures];
+    [super dealloc];
 }
 
 - (TextureInfo*) createTextureFromPngFile:(std::string)fileName

@@ -43,6 +43,12 @@
 
 - (void)renderToMetalLayer:(nonnull CAMetalLayer *)layer NS_SWIFT_NAME(renderToMetalLayer(_:));
 
+- (void)touchesBeganAt:(CGFloat)x Y:(CGFloat)y NS_SWIFT_NAME(touchesBeganAt(x:y:));
+
+- (void)touchesMovedAt:(CGFloat)x Y:(CGFloat)y NS_SWIFT_NAME(touchesMovedAt(x:y:));
+
+- (void)touchesEndedAt:(CGFloat)x Y:(CGFloat)y NS_SWIFT_NAME(touchesEndedAt(x:y:));
+
 /**
  * @brief 解放処理
  */

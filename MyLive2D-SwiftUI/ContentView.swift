@@ -22,6 +22,14 @@ struct ContentView : View {
                 .font(.title2)
                 .foregroundStyle(.red)
         }
+        
+        Button {
+            
+        } label: {
+            Text("Pick Background Image!")
+                .font(.title2)
+                .foregroundStyle(.yellow)
+        }
     }
 }
 

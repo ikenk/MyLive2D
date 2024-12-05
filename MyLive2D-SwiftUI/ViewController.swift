@@ -40,6 +40,9 @@ class ViewController: UIViewController, MetalViewDelegate {
         view.layer.borderColor = UIColor.yellow.cgColor
         view.layer.borderWidth = 2
         
+        // Ensure ViewController Can be Touched
+        view.isUserInteractionEnabled = true
+        
         createContentViewController()
         
 //        createLARFaceTrackingViewController()
@@ -47,10 +50,10 @@ class ViewController: UIViewController, MetalViewDelegate {
         print("[MyLog]UserDefaults.standard.bool(forKey: NOT_FIRST_RUN): \(UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))")
         
 //        if !UserDefaults.standard.bool(forKey: NOT_FIRST_RUN){
-            print("[MyLog]UserDefaults.standard.bool run")
-            guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
+        print("[MyLog]UserDefaults.standard.bool run")
+        guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
             
-            let _ = lResourceManager.copyBundleResourcesToLocalDirectorySync(from: bundleResourcesDir)
+        let _ = lResourceManager.copyBundleResourcesToLocalDirectorySync(from: bundleResourcesDir)
 //        }
         
         myViewControllerBridge.viewDidLoad()
@@ -58,17 +61,54 @@ class ViewController: UIViewController, MetalViewDelegate {
         print("[MyLog]view Controller Start")
     }
 
-    // 实现 MetalViewDelegate 协议
+    // Implement MetalViewDelegate Protocol
     @objc func drawableResize(_ size: CGSize) {
+//        print("[MyLog]drawableResize run")
         myViewControllerBridge.drawableResize(size)
     }
     
     @objc func renderToMetalLayer(_ metalLayer: CAMetalLayer) {
+//        print("[MyLog]renderToMetalLayer run")
         myViewControllerBridge.renderToMetalLayer(metalLayer)
     }
+    
+    // MARK: - Touch Events
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let location: CGPoint = touch.location(in: view)
+        print("[MyLog]Touch began at: \(location)")
+        
+        // TouchesBegan Event
+        myViewControllerBridge.touchesBeganAt(x: location.x, y: location.y)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: view)
+        print("[MyLog]Touch moved to: \(location)")
+        
+        // Deal With TouchesMoved Event
+        myViewControllerBridge.touchesMovedAt(x: location.x, y: location.y)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: view)
+        print("[MyLog]Touch ended at: \(location)")
+        
+        // Deal With TouchesEnded Event
+        myViewControllerBridge.touchesEndedAt(x: location.x, y: location.y)
+    }
+    
+//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        print("[MyLog]Touch cancelled")
+//        
+//        // Deal With TouchesCancelled Event
+//    }
 }
 
 extension ViewController {
+    // Create Other Views
     func createContentViewController() {
         // 创建 SwiftUI 视图
         let contentView = ContentView()

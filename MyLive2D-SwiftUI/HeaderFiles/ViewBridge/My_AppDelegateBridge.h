@@ -21,7 +21,7 @@
 @interface My_AppDelegateBridge : NSObject
 
 //@property (nonatomic, weak) UIViewController<MetalViewDelegate> *viewController;
-@property (nonatomic, weak) My_ViewControllerBridge *viewController;
+@property (weak, nonatomic) My_ViewControllerBridge *viewController;
 @property (weak, nonatomic) UIResponder<UIApplicationDelegate> *appDelegate;
 //@property (nonatomic, readonly, getter=getTextureManager) LAppTextureManager *textureManager; // テクスチャマネージャー
 @property (weak, nonatomic) My_LAppTextureManager* textureManager;
