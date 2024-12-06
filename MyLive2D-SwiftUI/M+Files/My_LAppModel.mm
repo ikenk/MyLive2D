@@ -74,89 +74,6 @@ namespace {
     [super dealloc];
 }
 
-#pragma mark - Public Methods
-
-- (void)loadAssetsFromDir:(NSString *)dir fileName:(NSString *)fileName {
-    _model->LoadAssets([dir UTF8String], [fileName UTF8String]);
-}
-
-- (void)update {
-    _model->Update();
-}
-
-- (void)drawWithProjectionMatrix:(matrix_float4x4)matrix {
-    float fMatrix[] = {
-        matrix.columns[0].x, matrix.columns[1].x, matrix.columns[2].x, matrix.columns[3].x,
-        matrix.columns[0].y, matrix.columns[1].y, matrix.columns[2].y, matrix.columns[3].y,
-        matrix.columns[0].z, matrix.columns[1].z, matrix.columns[2].z, matrix.columns[3].z,
-        matrix.columns[0].w, matrix.columns[1].w, matrix.columns[2].w, matrix.columns[3].w
-    };
-    auto cMatrix = CubismMatrix44();
-//    CubismMatrix44 cMatrix;  // 在栈上创建
-    cMatrix.SetMatrix(fMatrix);
-
-    _model->Draw(cMatrix);
-}
-
-- (void)reloadRenderer {
-    _model->ReloadRenderer();
-}
-
-// FIXME: 对于 startMotion 的使用不明确
-- (NSInteger)startMotion:(NSString *)group no:(NSInteger)no priority:(NSInteger)priority {
-    CubismMotionQueueEntryHandle handle = _model->StartMotion(
-        [group UTF8String],
-        (csmInt32)no,
-        (csmInt32)priority
-    );
-    return (NSInteger)handle;
-}
-
-// FIXME: 对于 startRandomMotion 的使用不明确
-- (NSInteger)startRandomMotion:(NSString *)group priority:(NSInteger)priority {
-    CubismMotionQueueEntryHandle handle = _model->StartRandomMotion(
-        [group UTF8String],
-        (csmInt32)priority
-    );
-    return (NSInteger)handle;
-}
-
-- (void)setExpression:(NSString *)expressionId {
-    _model->SetExpression([expressionId UTF8String]);
-}
-
-- (void)setRandomExpression {
-    _model->SetRandomExpression();
-}
-
-- (BOOL)hitTest:(NSString *)hitAreaName x:(CGFloat)x y:(CGFloat)y {
-    return _model->HitTest(
-        [hitAreaName UTF8String],
-        (csmFloat32)x,
-        (csmFloat32)y
-    );
-}
-
-#pragma mark - Properties
-
-// FIXME: 对于 GetRenderBuffer 的使用不明确
-//- (id<MTLTexture>)renderTexture {
-//    auto& renderBuffer = _model->GetRenderBuffer();
-//    return (__bridge id<MTLTexture>)renderBuffer.GetColorBuffer();
-//}
-//
-//- (CGSize)renderTextureSize {
-//    auto& renderBuffer = _model->GetRenderBuffer();
-//    return CGSizeMake(
-//        renderBuffer.GetWidth(),
-//        renderBuffer.GetHeight()
-//    );
-//}
-
-- (BOOL)hasMocConsistencyFromFile:(NSString *)mocFileName {
-    return _model->HasMocConsistencyFromFile([mocFileName UTF8String]);
-}
-
 @end
 
 
@@ -167,6 +84,8 @@ LAppModel::LAppModel()
 : CubismUserModel()
 , _modelSetting(NULL)
 , _userTimeSeconds(0.0f)
+// MARK: Additional Code
+, _isMotionAutoplayed(true)
 {
     if (MocConsistencyValidationEnable)
     {
@@ -485,7 +404,6 @@ void LAppModel::ReleaseExpressions()
 
 void LAppModel::Update()
 {
-    // 在Update开始时记录参数值
     // Record leftEyeValue at the beginning
 //    const Csm::CubismId* paramId = Csm::CubismFramework::GetIdManager()->GetId("ParamEyeLOpen");
 //    csmFloat32 leftEyeValue = _model->GetParameterValue(paramId);
@@ -501,65 +419,69 @@ void LAppModel::Update()
     // モーションによるパラメータ更新の有無
     csmBool motionUpdated = false;
 
-    //-----------------------------------------------------------------
-    _model->LoadParameters(); // 前回セーブされた状態をロード
-    if (_motionManager->IsFinished())
-    {
-        // モーションの再生がない場合、待機モーションの中からランダムで再生する
-        StartRandomMotion(MotionGroupIdle, PriorityIdle);
+    if (_isMotionAutoplayed){
+        //-----------------------------------------------------------------
+        _model->LoadParameters(); // 前回セーブされた状態をロード
+        if (_motionManager->IsFinished())
+        {
+            // モーションの再生がない場合、待機モーションの中からランダムで再生する
+            StartRandomMotion(MotionGroupIdle, PriorityIdle);
+        }
+        else
+        {
+            motionUpdated = _motionManager->UpdateMotion(_model, deltaTimeSeconds); // モーションを更新
+        }
+        _model->SaveParameters(); // 状態を保存
+        //-----------------------------------------------------------------
     }
-    else
-    {
-        motionUpdated = _motionManager->UpdateMotion(_model, deltaTimeSeconds); // モーションを更新
-    }
-    _model->SaveParameters(); // 状態を保存
-    //-----------------------------------------------------------------
-
+    
     // 不透明度
     _opacity = _model->GetModelOpacity();
 
     // まばたき
-    if (!motionUpdated)
+    if (!motionUpdated && _isMotionAutoplayed)
     {
         if (_eyeBlink != NULL)
         {
             // メインモーションの更新がないとき
-//            _eyeBlink->UpdateParameters(_model, deltaTimeSeconds); // 目パチ
+            _eyeBlink->UpdateParameters(_model, deltaTimeSeconds); // 目パチ
         }
     }
 
-    if (_expressionManager != NULL)
+    if (_expressionManager != NULL && _isMotionAutoplayed)
     {
         _expressionManager->UpdateMotion(_model, deltaTimeSeconds); // 表情でパラメータ更新（相対変化）
     }
 
-    //ドラッグによる変化
-    //ドラッグによる顔の向きの調整
-    _model->AddParameterValue(_idParamAngleX, _dragX * 30); // -30から30の値を加える
-    _model->AddParameterValue(_idParamAngleY, _dragY * 30);
-    _model->AddParameterValue(_idParamAngleZ, _dragX * _dragY * -30);
-
-    //ドラッグによる体の向きの調整
-    _model->AddParameterValue(_idParamBodyAngleX, _dragX * 10); // -10から10の値を加える
-
-    //ドラッグによる目の向きの調整
-    _model->AddParameterValue(_idParamEyeBallX, _dragX); // -1から1の値を加える
-    _model->AddParameterValue(_idParamEyeBallY, _dragY);
+    if (_isMotionAutoplayed) {
+        //ドラッグによる変化
+        //ドラッグによる顔の向きの調整
+        _model->AddParameterValue(_idParamAngleX, _dragX * 30); // -30から30の値を加える
+        _model->AddParameterValue(_idParamAngleY, _dragY * 30);
+        _model->AddParameterValue(_idParamAngleZ, _dragX * _dragY * -30);
+        
+        //ドラッグによる体の向きの調整
+        _model->AddParameterValue(_idParamBodyAngleX, _dragX * 10); // -10から10の値を加える
+        
+        //ドラッグによる目の向きの調整
+        _model->AddParameterValue(_idParamEyeBallX, _dragX); // -1から1の値を加える
+        _model->AddParameterValue(_idParamEyeBallY, _dragY);
+    }
 
     // 呼吸など
-    if (_breath != NULL)
+    if (_breath != NULL && _isMotionAutoplayed)
     {
         _breath->UpdateParameters(_model, deltaTimeSeconds);
     }
 
     // 物理演算の設定
-    if (_physics != NULL)
+    if (_physics != NULL && _isMotionAutoplayed)
     {
         _physics->Evaluate(_model, deltaTimeSeconds);
     }
 
     // リップシンクの設定
-    if (_lipSync)
+    if (_lipSync && _isMotionAutoplayed)
     {
         csmFloat32 value = 0; // リアルタイムでリップシンクを行う場合、システムから音量を取得して0〜1の範囲で値を入力します。
 
@@ -833,6 +755,7 @@ csmBool LAppModel::HasMocConsistencyFromFile(const csmChar* mocFileName)
     return consistency;
 }
 
+// MARK: Additional Code
 void LAppModel::setModelParameter(Csm::CubismIdHandle parameterId, Csm::csmFloat32 value){
 //    NSLog(@"[MyLog]parameterId: %@, value: %f", parameterId, value);
     _model->LoadParameters();
@@ -840,4 +763,8 @@ void LAppModel::setModelParameter(Csm::CubismIdHandle parameterId, Csm::csmFloat
     _model->SaveParameters(); // 保存状态
     _model->Update();
 //    NSLog(@"[MyLog]setModelParameter: _model->SetParameterValue");
+}
+
+void LAppModel::setIsMotionAutoplayed(Csm::csmBool isAutoplayed){
+    _isMotionAutoplayed = isAutoplayed;
 }

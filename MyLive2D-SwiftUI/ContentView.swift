@@ -10,6 +10,8 @@ import RealityKit
 
 struct ContentView : View {
     @State private var sceneIndex:Int = 0
+    
+    @State private var isAutoplayed:Bool = true
     var body: some View {
         Text("Hello World!!!")
             .font(.largeTitle)
@@ -24,12 +26,20 @@ struct ContentView : View {
         }
         
         Button {
-            My_LAppLive2DManager.shared().setModelParamter(0.1, forID: "ParamEyeLOpen")
+            
         } label: {
             Text("Set L/R Eye Status")
                 .font(.title2)
                 .foregroundStyle(.yellow)
         }
+        
+        Toggle("Model Is Autoplayed", isOn: $isAutoplayed)
+            .padding(.horizontal, 10)
+            .foregroundStyle(.indigo)
+            .border(.purple)
+            .onChange(of: isAutoplayed) { newValue in
+                My_LAppLive2DManager.shared().setModelMotionIfAutoplay(newValue)
+            }
     }
 }
 

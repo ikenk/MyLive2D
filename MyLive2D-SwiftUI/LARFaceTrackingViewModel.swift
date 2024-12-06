@@ -70,6 +70,7 @@ class LARFaceTrackingViewModel: NSObject, ObservableObject {
 }
 
 // MARK: ARSessionDelegate
+
 extension LARFaceTrackingViewModel: ARSessionDelegate {
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
         guard let faceAnchor = anchors.first as? ARFaceAnchor else { return }
@@ -91,10 +92,10 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
               let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float
         else { return }
         
-        My_LAppLive2DManager.shared().setModelParamter((1 - eyeBlinkLeft), forID: ParamEyeLOpen)
-        My_LAppLive2DManager.shared().setModelParamter((1 - eyeBlinkRight), forID: ParamEyeROpen)
-        My_LAppLive2DManager.shared().setModelParamter(jawOpen * 1.5, forID: ParamMouthOpenY)
-        My_LAppLive2DManager.shared().setModelParamter(1 - mouthFunnel * 2, forID: ParamMouthForm)
+        My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeLOpen, toValue: 1 - eyeBlinkLeft * 2)
+        My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeROpen, toValue: 1 - eyeBlinkRight * 2)
+        My_LAppLive2DManager.shared().setModelParam(forID: ParamMouthOpenY, toValue: jawOpen * 1.5)
+        My_LAppLive2DManager.shared().setModelParam(forID: ParamMouthForm, toValue: 1 - mouthFunnel * 2)
         
 //        createFaceMask(from: faceAnchor)
         
@@ -107,6 +108,7 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
 }
 
 // MARK: Create Face Mask
+
 extension LARFaceTrackingViewModel {
     func createFaceMask(from faceAnchor: ARFaceAnchor) {
         // 创建网格材质

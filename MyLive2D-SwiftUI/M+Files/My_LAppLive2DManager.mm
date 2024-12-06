@@ -77,9 +77,13 @@
     [self.lAppLive2DManager changeScene:(Csm::csmInt32)index];
 }
 
-- (void)setModelParamter:(Float32)value forID:(NSString *)paramId {
+- (void)setModelParamForID:(NSString *)ID toValue:(Float32)value {
 //    NSLog(@"[MyLog]My_LAppLive2DManager.setModelParamter parameterId: %@, value: %f", paramId, value);
-    [self.lAppLive2DManager SetModelParamForID:(char*)[paramId UTF8String] toValue:value];
+    [self.lAppLive2DManager SetModelParamForID:(char*)[ID UTF8String] toValue:value];
+}
+
+- (void)setModelMotionIfAutoplay:(bool) autoplay {
+    [self.lAppLive2DManager SetModelMotionIfAutoplay:autoplay];
 }
 
 @end
@@ -528,6 +532,7 @@ Csm::csmString GetPath(CFURLRef url)
     _clearColorB = b;
 }
 
+// MARK: Additional Code
 - (void)SetModelParamForID:(Csm::csmChar *)id toValue:(Csm::csmFloat32)value
 {
     Csm::csmUint32 modelCount = _models.GetSize();
@@ -535,6 +540,15 @@ Csm::csmString GetPath(CFURLRef url)
         LAppModel* model = [self getModel:i];
         const Csm::CubismId* paramId = Csm::CubismFramework::GetIdManager()->GetId(id);
         model->setModelParameter(paramId, value);
+    }
+}
+
+- (void)SetModelMotionIfAutoplay:(Csm::csmBool)autoplay
+{
+    Csm::csmUint32 modelCount = _models.GetSize();
+    for (Csm::csmFloat32 i = 0; i < modelCount; ++i){
+        LAppModel* model = [self getModel:i];
+        model->setIsMotionAutoplayed(autoplay);
     }
 }
 

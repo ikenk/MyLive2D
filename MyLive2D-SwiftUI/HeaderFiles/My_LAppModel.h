@@ -33,32 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 // 初始化方法
 - (instancetype)init;
 
-// 资源加载
-- (void)loadAssetsFromDir:(NSString *)dir fileName:(NSString *)fileName;
-
-// 更新和渲染
-- (void)update;
-- (void)drawWithProjectionMatrix:(matrix_float4x4)matrix;
-- (void)reloadRenderer;
-
-// 动作控制
-- (NSInteger)startMotion:(NSString *)group no:(NSInteger)no priority:(NSInteger)priority;
-- (NSInteger)startRandomMotion:(NSString *)group priority:(NSInteger)priority;
-
-// 表情控制
-- (void)setExpression:(NSString *)expressionID;
-- (void)setRandomExpression;
-
-// 触摸检测
-- (BOOL)hitTest:(NSString *)hitAreaName x:(CGFloat)x y:(CGFloat)y;
-
-// 获取渲染相关属性
-@property (nonatomic, readonly) id<MTLTexture> renderTexture;
-@property (nonatomic, readonly) CGSize renderTextureSize;
-
-// MOC一致性检查
-- (BOOL)hasMocConsistencyFromFile:(NSString *)mocFileName;
-
 @end
 
 NS_ASSUME_NONNULL_END
@@ -174,10 +148,13 @@ public:
      */
     Csm::csmBool HasMocConsistencyFromFile(const Csm::csmChar* mocFileName);
     
+    // MARK: Additional Code
     /**
      @brief モデルのパラメータの値をセットする
      */
     void setModelParameter(Csm::CubismIdHandle parameteId, Csm::csmFloat32 value);
+    
+    void setIsMotionAutoplayed(Csm::csmBool isAutoplayed);
 
 protected:
     /**
@@ -231,7 +208,7 @@ private:
      * すべての表情データを解放する。
      */
     void ReleaseExpressions();
-
+    
     Csm::ICubismModelSetting* _modelSetting; ///< モデルセッティング情報
     Csm::csmString _modelHomeDir; ///< モデルセッティングが置かれたディレクトリ
     Csm::csmFloat32 _userTimeSeconds; ///< デルタ時間の積算値[秒]
@@ -249,6 +226,9 @@ private:
     const Csm::CubismId* _idParamEyeBallY; ///< パラメータID: ParamEyeBallXY
 
     Live2D::Cubism::Framework::Rendering::CubismOffscreenSurface_Metal _renderBuffer;
+    
+    // MARK: Additional Code
+    Csm::csmBool _isMotionAutoplayed;
 };
 
 #endif
