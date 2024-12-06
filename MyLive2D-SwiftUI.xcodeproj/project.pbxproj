@@ -61,7 +61,7 @@
 		44CB6FD42CF7119F0041EE7A /* LDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FD32CF7119F0041EE7A /* LDocumentPicker.swift */; };
 		44CB6FD62CF717B60041EE7A /* LocalDocHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FD52CF717B60041EE7A /* LocalDocHandler.swift */; };
 		44CB6FD92CF728A50041EE7A /* LResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FD82CF728A50041EE7A /* LResourceManager.swift */; };
-		44CB6FDB2CF72A6E0041EE7A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FDA2CF72A6E0041EE7A /* Constants.swift */; };
+		44CB6FDB2CF72A6E0041EE7A /* UserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FDA2CF72A6E0041EE7A /* UserConstants.swift */; };
 		44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */; };
 		44D0B4C82CEDB9D500BFE9D0 /* My_LAppDefine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4C72CEDB9D500BFE9D0 /* My_LAppDefine.mm */; };
 		44D0B4CB2CEDC9B500BFE9D0 /* My_LAppPal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */; };
@@ -69,6 +69,7 @@
 		44D2B5152CFA036800601D51 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2B5142CFA036800601D51 /* SettingsView.swift */; };
 		44D2B5182CFAB51100601D51 /* My_PathSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D2B5172CFAB51000601D51 /* My_PathSearch.m */; };
 		44D6C1A22D00B1AF00B3C145 /* TouchManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA32CEB3DC300CE9D62 /* TouchManager.mm */; };
+		44D6C1A42D019AFA00B3C145 /* ModelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D6C1A32D019AF200B3C145 /* ModelConstants.swift */; };
 		44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E518102CF03C8C008A9BBA /* ViewController.swift */; };
 		44E5181B2CF0AE6D008A9BBA /* MetalUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA52CEB3DC300CE9D62 /* MetalUIView.m */; };
 		44E5181E2CF0C84D008A9BBA /* My_LAppLive2DManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */; };
@@ -373,7 +374,7 @@
 		44CB6FD52CF717B60041EE7A /* LocalDocHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDocHandler.swift; sourceTree = "<group>"; };
 		44CB6FD72CF726890041EE7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		44CB6FD82CF728A50041EE7A /* LResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LResourceManager.swift; sourceTree = "<group>"; };
-		44CB6FDA2CF72A6E0041EE7A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		44CB6FDA2CF72A6E0041EE7A /* UserConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConstants.swift; sourceTree = "<group>"; };
 		44D0B4C12CED936100BFE9D0 /* My_LAppAllocator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppAllocator.h; sourceTree = "<group>"; };
 		44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppAllocator.mm; sourceTree = "<group>"; };
 		44D0B4C62CEDB8C000BFE9D0 /* My_LAppDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppDefine.h; sourceTree = "<group>"; };
@@ -385,6 +386,7 @@
 		44D2B5142CFA036800601D51 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		44D2B5162CFAB4D200601D51 /* My_PathSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_PathSearch.h; sourceTree = "<group>"; };
 		44D2B5172CFAB51000601D51 /* My_PathSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My_PathSearch.m; sourceTree = "<group>"; };
+		44D6C1A32D019AF200B3C145 /* ModelConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelConstants.swift; sourceTree = "<group>"; };
 		44E518102CF03C8C008A9BBA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		44E5181C2CF0C842008A9BBA /* My_LAppLive2DManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppLive2DManager.h; sourceTree = "<group>"; };
 		44E5181D2CF0C84D008A9BBA /* My_LAppLive2DManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppLive2DManager.mm; sourceTree = "<group>"; };
@@ -1291,7 +1293,8 @@
 				44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */,
 				44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */,
 				44CB6FD82CF728A50041EE7A /* LResourceManager.swift */,
-				44CB6FDA2CF72A6E0041EE7A /* Constants.swift */,
+				44CB6FDA2CF72A6E0041EE7A /* UserConstants.swift */,
+				44D6C1A32D019AF200B3C145 /* ModelConstants.swift */,
 				44CB6FDC2CF72B4E0041EE7A /* NotSure */,
 				44158CC32CEB7EB900CE9D62 /* Bridge */,
 				44479BAF2CEA480800BB3C62 /* HeaderFiles */,
@@ -1549,7 +1552,7 @@
 				44D6C1A22D00B1AF00B3C145 /* TouchManager.mm in Sources */,
 				44E5184C2CF31982008A9BBA /* My_LAppSprite.mm in Sources */,
 				44D2B5152CFA036800601D51 /* SettingsView.swift in Sources */,
-				44CB6FDB2CF72A6E0041EE7A /* Constants.swift in Sources */,
+				44CB6FDB2CF72A6E0041EE7A /* UserConstants.swift in Sources */,
 				44E5181F2CF0D257008A9BBA /* MetalView.m in Sources */,
 				44CB6F9B2CF573FA0041EE7A /* LARFaceTrackingView.swift in Sources */,
 				44E5181B2CF0AE6D008A9BBA /* MetalUIView.m in Sources */,
@@ -1557,6 +1560,7 @@
 				44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */,
 				44CB6F9A2CF573FA0041EE7A /* CustomError.swift in Sources */,
 				44158CBE2CEB3F4800CE9D62 /* ContentView.swift in Sources */,
+				44D6C1A42D019AFA00B3C145 /* ModelConstants.swift in Sources */,
 				44E518452CF23661008A9BBA /* My_AppDelegateBridge.mm in Sources */,
 				44CB6F992CF573FA0041EE7A /* LARFaceTrackingViewModel.swift in Sources */,
 				44CB6FD42CF7119F0041EE7A /* LDocumentPicker.swift in Sources */,

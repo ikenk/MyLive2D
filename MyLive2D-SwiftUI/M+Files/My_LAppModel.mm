@@ -485,6 +485,12 @@ void LAppModel::ReleaseExpressions()
 
 void LAppModel::Update()
 {
+    // 在Update开始时记录参数值
+    // Record leftEyeValue at the beginning
+//    const Csm::CubismId* paramId = Csm::CubismFramework::GetIdManager()->GetId("ParamEyeLOpen");
+//    csmFloat32 leftEyeValue = _model->GetParameterValue(paramId);
+//    NSLog(@"[MyLog]Eye parameter value at start of Update: %f", leftEyeValue);
+    
     const csmFloat32 deltaTimeSeconds = LAppPal::GetDeltaTime();
     _userTimeSeconds += deltaTimeSeconds;
 
@@ -518,14 +524,14 @@ void LAppModel::Update()
         if (_eyeBlink != NULL)
         {
             // メインモーションの更新がないとき
-            _eyeBlink->UpdateParameters(_model, deltaTimeSeconds); // 目パチ
+//            _eyeBlink->UpdateParameters(_model, deltaTimeSeconds); // 目パチ
         }
     }
 
-//    if (_expressionManager != NULL)
-//    {
-//        _expressionManager->UpdateMotion(_model, deltaTimeSeconds); // 表情でパラメータ更新（相対変化）
-//    }
+    if (_expressionManager != NULL)
+    {
+        _expressionManager->UpdateMotion(_model, deltaTimeSeconds); // 表情でパラメータ更新（相対変化）
+    }
 
     //ドラッグによる変化
     //ドラッグによる顔の向きの調整
@@ -570,6 +576,10 @@ void LAppModel::Update()
     }
 
     _model->Update();
+    
+    // Record leftEyeValue at the end
+//    leftEyeValue = _model->GetParameterValue(paramId);
+//    NSLog(@"[MyLog]Eye parameter value at end of Update: %f", leftEyeValue);
 
 }
 
@@ -821,4 +831,13 @@ csmBool LAppModel::HasMocConsistencyFromFile(const csmChar* mocFileName)
     DeleteBuffer(buffer);
 
     return consistency;
+}
+
+void LAppModel::setModelParameter(Csm::CubismIdHandle parameterId, Csm::csmFloat32 value){
+//    NSLog(@"[MyLog]parameterId: %@, value: %f", parameterId, value);
+    _model->LoadParameters();
+    _model->SetParameterValue(parameterId, value);
+    _model->SaveParameters(); // 保存状态
+    _model->Update();
+//    NSLog(@"[MyLog]setModelParameter: _model->SetParameterValue");
 }

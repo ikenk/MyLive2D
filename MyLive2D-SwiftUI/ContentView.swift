@@ -24,9 +24,9 @@ struct ContentView : View {
         }
         
         Button {
-            
+            My_LAppLive2DManager.shared().setModelParamter(0.1, forID: "ParamEyeLOpen")
         } label: {
-            Text("Pick Background Image!")
+            Text("Set L/R Eye Status")
                 .font(.title2)
                 .foregroundStyle(.yellow)
         }

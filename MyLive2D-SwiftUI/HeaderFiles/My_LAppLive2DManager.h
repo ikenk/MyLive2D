@@ -31,6 +31,8 @@
 
 - (void)nextScene;
 
+- (void)setModelParamter:(Float32)value forID:(NSString *)paramId;
+
 @end
 
 
@@ -145,6 +147,9 @@ typedef NS_ENUM(NSUInteger, SelectTarget)
  * @param[in]   b   青(0.0~1.0)
  */
 - (void)SetRenderTargetClearColor:(float)r g:(float)g b:(float)b;
+
+
+- (void)SetModelParamForID:(Csm::csmChar*)ID toValue:(Csm::csmFloat32)value;
 
 @end
 #endif

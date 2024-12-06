@@ -11,14 +11,14 @@ import RealityKit
 
 class LARFaceTrackingViewModel: NSObject, ObservableObject {
     @Published var arView: ARView = {
-        let view = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: false)
+        let view = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
         
         // 添加所有可用的调试选项来查看
         view.debugOptions = [
             .showStatistics,
-            .showFeaturePoints,
-            .showAnchorOrigins, // 显示锚点位置
-            .showAnchorGeometry // 显示锚点几何体
+//            .showFeaturePoints,
+//            .showAnchorOrigins, // 显示锚点位置
+//            .showAnchorGeometry // 显示锚点几何体
         ]
         
         return view
@@ -69,6 +69,7 @@ class LARFaceTrackingViewModel: NSObject, ObservableObject {
     }
 }
 
+// MARK: ARSessionDelegate
 extension LARFaceTrackingViewModel: ARSessionDelegate {
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
         guard let faceAnchor = anchors.first as? ARFaceAnchor else { return }
@@ -84,7 +85,18 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
             modelEntity?.removeFromParent()
         }
         
-        createFaceMask(from: faceAnchor)
+        guard let eyeBlinkLeft = faceAnchor.blendShapes[.eyeBlinkLeft] as? Float,
+              let eyeBlinkRight = faceAnchor.blendShapes[.eyeBlinkRight] as? Float,
+              let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
+              let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float
+        else { return }
+        
+        My_LAppLive2DManager.shared().setModelParamter((1 - eyeBlinkLeft), forID: ParamEyeLOpen)
+        My_LAppLive2DManager.shared().setModelParamter((1 - eyeBlinkRight), forID: ParamEyeROpen)
+        My_LAppLive2DManager.shared().setModelParamter(jawOpen * 1.5, forID: ParamMouthOpenY)
+        My_LAppLive2DManager.shared().setModelParamter(1 - mouthFunnel * 2, forID: ParamMouthForm)
+        
+//        createFaceMask(from: faceAnchor)
         
 //        print("[MyLog]faceAnchor.geometry.vertices: \(faceAnchor.geometry.vertices)")
 //        print("[MyLog]faceAnchor.geometry.triangleCount: \(faceAnchor.geometry.triangleCount)")
@@ -94,6 +106,7 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
     }
 }
 
+// MARK: Create Face Mask
 extension LARFaceTrackingViewModel {
     func createFaceMask(from faceAnchor: ARFaceAnchor) {
         // 创建网格材质

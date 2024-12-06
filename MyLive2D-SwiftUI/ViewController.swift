@@ -10,7 +10,7 @@ import QuartzCore
 import SwiftUI
 import UIKit
 
-class ViewController: UIViewController, MetalViewDelegate {
+class ViewController: UIViewController {
     private var commandQueue: MTLCommandQueue?
     private var depthTexture: MTLTexture?
     
@@ -18,6 +18,7 @@ class ViewController: UIViewController, MetalViewDelegate {
     
     var lResourceManager: LResourceManager = .shared
     
+    // MARK: ViewController Lifecycle Function
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
         myViewControllerBridge.setToViewController(self)
@@ -45,7 +46,7 @@ class ViewController: UIViewController, MetalViewDelegate {
         
         createContentViewController()
         
-//        createLARFaceTrackingViewController()
+        createLARFaceTrackingViewController()
         
         print("[MyLog]UserDefaults.standard.bool(forKey: NOT_FIRST_RUN): \(UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))")
         
@@ -60,8 +61,10 @@ class ViewController: UIViewController, MetalViewDelegate {
         
         print("[MyLog]view Controller Start")
     }
+}
 
-    // Implement MetalViewDelegate Protocol
+// MARK: Implement MetalViewDelegate Protocol
+extension ViewController: MetalViewDelegate{
     @objc func drawableResize(_ size: CGSize) {
 //        print("[MyLog]drawableResize run")
         myViewControllerBridge.drawableResize(size)
@@ -71,7 +74,9 @@ class ViewController: UIViewController, MetalViewDelegate {
 //        print("[MyLog]renderToMetalLayer run")
         myViewControllerBridge.renderToMetalLayer(metalLayer)
     }
-    
+}
+
+extension ViewController {
     // MARK: - Touch Events
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
@@ -102,13 +107,14 @@ class ViewController: UIViewController, MetalViewDelegate {
     
 //    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        print("[MyLog]Touch cancelled")
-//        
+//
 //        // Deal With TouchesCancelled Event
 //    }
 }
 
 extension ViewController {
-    // Create Other Views
+    // MARK: Create Views
+    // Create ContentView
     func createContentViewController() {
         // 创建 SwiftUI 视图
         let contentView = ContentView()
@@ -143,6 +149,7 @@ extension ViewController {
         hostingContentViewController.didMove(toParent: self)
     }
     
+    // Create ARFaceTrackingView
     func createLARFaceTrackingViewController() {
         let lARFaceTrackingView = LARFaceTrackingView()
                
@@ -158,6 +165,8 @@ extension ViewController {
             width: 500,
             height: 500
         )
+        
+//        hostingLARFaceTrackingViewController.view.isHidden = true
         
         hostingLARFaceTrackingViewController.didMove(toParent: self)
     }

@@ -86,10 +86,11 @@ using namespace LAppDefine;
 }
 
 - (void)touchesMovedAt:(CGFloat)x Y:(CGFloat)y {
+    [_touchManager touchesMoved:x DeviceY:y];
+    
     float viewX = [self transformViewX:[_touchManager getX]];
     float viewY = [self transformViewY:[_touchManager getY]];
-
-    [_touchManager touchesMoved:x DeviceY:y];
+    
     [[LAppLive2DManager getInstance] onDrag:viewX floatY:viewY];
 }
 
@@ -99,6 +100,7 @@ using namespace LAppDefine;
     // タッチ終了
     LAppLive2DManager* live2DManager = [LAppLive2DManager getInstance];
     [live2DManager onDrag:0.0f floatY:0.0f];
+    
     {
         // シングルタップ
         float getX = [_touchManager getX];// 論理座標変換した座標を取得。
@@ -468,7 +470,7 @@ using namespace LAppDefine;
     _viewMatrix = nil;
     delete(_deviceToScreen);
     _deviceToScreen = nil;
-//    _touchManager = nil;
+    _touchManager = nil;
 }
 
 - (void)dealloc

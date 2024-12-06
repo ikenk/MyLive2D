@@ -18,6 +18,8 @@
 #import <CubismFramework.hpp>
 #import <Model/CubismUserModel.hpp>
 #import <ICubismModelSetting.hpp>
+#import <Id/CubismId.hpp>
+#import <Type/CubismBasicType.hpp>
 #import <Type/csmRectF.hpp>
 #import <Rendering/Metal/CubismOffscreenSurface_Metal.hpp>
 #endif
@@ -171,6 +173,11 @@ public:
      * @return      MOC3に整合性があれば'true'、そうでなければ'false'。
      */
     Csm::csmBool HasMocConsistencyFromFile(const Csm::csmChar* mocFileName);
+    
+    /**
+     @brief モデルのパラメータの値をセットする
+     */
+    void setModelParameter(Csm::CubismIdHandle parameteId, Csm::csmFloat32 value);
 
 protected:
     /**

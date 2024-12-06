@@ -14,7 +14,9 @@
 
 // Cubism
 #import <Rendering/Metal/CubismRenderer_Metal.hpp>
-#import "Rendering/Metal/CubismRenderingInstanceSingleton_Metal.h"
+#import <Id/CubismIdManager.hpp>
+#import <Id/CubismId.hpp>
+#import <Rendering/Metal/CubismRenderingInstanceSingleton_Metal.h>
 
 
 // Custom
@@ -73,6 +75,11 @@
 
 - (void)changeScene:(NSInteger)index {
     [self.lAppLive2DManager changeScene:(Csm::csmInt32)index];
+}
+
+- (void)setModelParamter:(Float32)value forID:(NSString *)paramId {
+//    NSLog(@"[MyLog]My_LAppLive2DManager.setModelParamter parameterId: %@, value: %f", paramId, value);
+    [self.lAppLive2DManager SetModelParamForID:(char*)[paramId UTF8String] toValue:value];
 }
 
 @end
@@ -520,4 +527,15 @@ Csm::csmString GetPath(CFURLRef url)
     _clearColorG = g;
     _clearColorB = b;
 }
+
+- (void)SetModelParamForID:(Csm::csmChar *)id toValue:(Csm::csmFloat32)value
+{
+    Csm::csmUint32 modelCount = _models.GetSize();
+    for (Csm::csmFloat32 i = 0; i < modelCount; ++i){
+        LAppModel* model = [self getModel:i];
+        const Csm::CubismId* paramId = Csm::CubismFramework::GetIdManager()->GetId(id);
+        model->setModelParameter(paramId, value);
+    }
+}
+
 @end
