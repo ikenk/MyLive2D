@@ -72,7 +72,7 @@ extension LARFaceTrackingView {
             guard let faceAnchor = anchors.first as? ARFaceAnchor else { return }
             //        session.add(anchor: faceAnchor) // 移除对 session.add(anchor: faceAnchor) 的调用，因为这是重复的,系统已经在追踪这个锚点了
             
-            print("[MyLog]modelManager.isGlobalAutoplayed: \(modelManager.isGlobalAutoplayed)")
+//            print("[MyLog]modelManager.isGlobalAutoplayed: \(modelManager.isGlobalAutoplayed)")
             
             updateCounter += 1
             if updateCounter % updateInterval == 0 {

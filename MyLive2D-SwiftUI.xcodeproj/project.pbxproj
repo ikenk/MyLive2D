@@ -443,13 +443,21 @@
 			path = FileManager;
 			sourceTree = "<group>";
 		};
-		441FC6F92D043ACD001B0515 /* ARFaceTracking */ = {
+		441FC6F92D043ACD001B0515 /* ARFaceTrackingView */ = {
 			isa = PBXGroup;
 			children = (
 				44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */,
+				441FC6FA2D0453C9001B0515 /* Archived */,
+			);
+			path = ARFaceTrackingView;
+			sourceTree = "<group>";
+		};
+		441FC6FA2D0453C9001B0515 /* Archived */ = {
+			isa = PBXGroup;
+			children = (
 				44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */,
 			);
-			path = ARFaceTracking;
+			path = Archived;
 			sourceTree = "<group>";
 		};
 		444793822CE98A6600BB3C62 = {
@@ -1315,10 +1323,10 @@
 				44479B982CE99F4E00BB3C62 /* ContentView.swift */,
 				44CB6F952CF573FA0041EE7A /* CustomError.swift */,
 				441FC6F52D0439FB001B0515 /* ModelManager.swift */,
-				441FC6F92D043ACD001B0515 /* ARFaceTracking */,
+				44CB6FDC2CF72B4E0041EE7A /* NotSure */,
+				441FC6F92D043ACD001B0515 /* ARFaceTrackingView */,
 				441FC6F82D043AAF001B0515 /* FileManager */,
 				441FC6F72D043A0D001B0515 /* Constants */,
-				44CB6FDC2CF72B4E0041EE7A /* NotSure */,
 				44158CC32CEB7EB900CE9D62 /* Bridge */,
 				44479BAF2CEA480800BB3C62 /* HeaderFiles */,
 				44479BB12CEA482A00BB3C62 /* M+Files */,
