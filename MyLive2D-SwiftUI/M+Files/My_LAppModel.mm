@@ -85,7 +85,7 @@ LAppModel::LAppModel()
 , _modelSetting(NULL)
 , _userTimeSeconds(0.0f)
 // MARK: Additional Code
-, _isMotionAutoplayed(true)
+, _isMotionAutoplayed(_isGlobalMotionAutoplayed)
 {
     if (MocConsistencyValidationEnable)
     {
@@ -756,6 +756,9 @@ csmBool LAppModel::HasMocConsistencyFromFile(const csmChar* mocFileName)
 }
 
 // MARK: Additional Code
+// [中文]确保每次更换模型时都能保持原有的是否自动播放动画的设置
+bool LAppModel::_isGlobalMotionAutoplayed = true;
+
 void LAppModel::setModelParameter(Csm::CubismIdHandle parameterId, Csm::csmFloat32 value){
 //    NSLog(@"[MyLog]parameterId: %@, value: %f", parameterId, value);
     _model->LoadParameters();
@@ -764,7 +767,11 @@ void LAppModel::setModelParameter(Csm::CubismIdHandle parameterId, Csm::csmFloat
     _model->Update();
 //    NSLog(@"[MyLog]setModelParameter: _model->SetParameterValue");
 }
-
+// [中文]设置当前模型是否自动播放
 void LAppModel::setIsMotionAutoplayed(Csm::csmBool isAutoplayed){
     _isMotionAutoplayed = isAutoplayed;
+}
+// [中文]设置全局下所有模型是否自动播放
+void LAppModel::setIsGlobalMotionAutoplayed(Csm::csmBool isGlobalAutoplayed){
+    _isGlobalMotionAutoplayed = isGlobalAutoplayed;
 }

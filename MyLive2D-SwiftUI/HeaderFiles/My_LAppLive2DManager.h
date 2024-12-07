@@ -33,7 +33,7 @@
 
 - (void)setModelParamForID:(NSString *)ID toValue:(Float32)value NS_SWIFT_NAME(setModelParam(forID:toValue:));
 
-- (void)setModelMotionIfAutoplay:(bool) autoplay;
+- (void)setModelMotionGlobalAutoplayed:(bool) autoplay;
 
 @end
 
@@ -153,7 +153,7 @@ typedef NS_ENUM(NSUInteger, SelectTarget)
 // MARK: Additional Code
 - (void)SetModelParamForID:(Csm::csmChar*)ID toValue:(Csm::csmFloat32)value;
 
-- (void)SetModelMotionIfAutoplay:(Csm::csmBool) autoplay;
+- (void)SetModelMotionGlobalAutoplayed:(Csm::csmBool) autoplay;
 
 @end
 #endif

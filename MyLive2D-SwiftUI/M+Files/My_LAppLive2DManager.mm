@@ -82,8 +82,8 @@
     [self.lAppLive2DManager SetModelParamForID:(char*)[ID UTF8String] toValue:value];
 }
 
-- (void)setModelMotionIfAutoplay:(bool) autoplay {
-    [self.lAppLive2DManager SetModelMotionIfAutoplay:autoplay];
+- (void)setModelMotionGlobalAutoplayed:(bool) autoplay {
+    [self.lAppLive2DManager SetModelMotionGlobalAutoplayed:autoplay];
 }
 
 @end
@@ -543,13 +543,16 @@ Csm::csmString GetPath(CFURLRef url)
     }
 }
 
-- (void)SetModelMotionIfAutoplay:(Csm::csmBool)autoplay
+- (void)SetModelMotionGlobalAutoplayed:(Csm::csmBool)autoplay
 {
+    // [中文]保证可以单独调整当前模型是否自动播放
     Csm::csmUint32 modelCount = _models.GetSize();
     for (Csm::csmFloat32 i = 0; i < modelCount; ++i){
         LAppModel* model = [self getModel:i];
         model->setIsMotionAutoplayed(autoplay);
     }
+    // [中文]调整当前模型是否自动播放的同时也保证了下一个模型的设置与当前一致
+    LAppModel::setIsGlobalMotionAutoplayed(autoplay);
 }
 
 @end

@@ -86,14 +86,61 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
             modelEntity?.removeFromParent()
         }
         
-        guard let eyeBlinkLeft = faceAnchor.blendShapes[.eyeBlinkLeft] as? Float,
-              let eyeBlinkRight = faceAnchor.blendShapes[.eyeBlinkRight] as? Float,
-              let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
-              let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float
-        else { return }
+        guard
+            // Eye Open
+            let eyeBlinkLeft = faceAnchor.blendShapes[.eyeBlinkLeft] as? Float,
+            let eyeBlinkRight = faceAnchor.blendShapes[.eyeBlinkRight] as? Float,
+            // Eyeball Movement
+//            let eyeballMovementLeft = faceAnchor.blendShapes[] as? Float,
+//            let eyeballMovementRight = faceAnchor.blendShapes[] as? Float,
+            // Mouth Open
+            let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
+            let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float
+        else {
+            return
+        }
         
+        // Matrix for translating Face Coordinates to World Coordinates
+        let transformMatrix = faceAnchor.transform
+        
+        // Calculate pitch, yaw and roll Radians
+        let pitch = atan2(transformMatrix.columns.1.z, transformMatrix.columns.2.z)
+        let yaw = asin(-transformMatrix.columns.0.z)
+        let roll = atan2(transformMatrix.columns.0.y, transformMatrix.columns.0.x)
+        
+//        let newFaceMatrix = SCNMatrix4(faceAnchor.transform)
+//        let faceNode = SCNNode()
+//        faceNode.transform = newFaceMatrix
+        
+        // Convert radians to degrees
+        // FIXME: pitchDegrees 角度很奇怪,总是有+26度的余量(低头为+,抬头为-)
+        let pitchDegrees = pitch * 180 / .pi
+        let yawDegrees = yaw * 180 / .pi
+        let rollDegrees = roll * 180 / .pi
+        
+        // FIXME: pitchDegrees 角度很奇怪,总是有+26度的余量(低头为+,抬头为-)
+//        let pitchDegrees = faceNode.eulerAngles.x * 180 / .pi
+//        let yawDegrees = faceNode.eulerAngles.y * 180 / .pi
+//        let rollDegrees = faceNode.eulerAngles.z * 180 / .pi
+        
+        print("[MyLog]paramAngleX: \(pitchDegrees)")
+        print("[MyLog]paramAngleY: \(yawDegrees)")
+        print("[MyLog]paramAngleZ: \(rollDegrees)")
+        
+        // Head Movement
+//        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleX, toValue: pitchDegrees)
+//        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleY, toValue: yawDegrees)
+//        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleZ, toValue: rollDegrees)
+        
+        // Eye Open
         My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeLOpen, toValue: 1 - eyeBlinkLeft * 2)
         My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeROpen, toValue: 1 - eyeBlinkRight * 2)
+        
+        // Eyeball Movement
+        My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeBallX, toValue: faceAnchor.lookAtPoint.x * 2)
+        My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeBallY, toValue: faceAnchor.lookAtPoint.y * 2)
+        
+        // Mouth Open
         My_LAppLive2DManager.shared().setModelParam(forID: ParamMouthOpenY, toValue: jawOpen * 1.5)
         My_LAppLive2DManager.shared().setModelParam(forID: ParamMouthForm, toValue: 1 - mouthFunnel * 2)
         

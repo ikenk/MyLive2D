@@ -11,6 +11,7 @@
 		44158C9F2CEB367900CE9D62 /* libCubismSdkFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B962CE99F4E00BB3C62 /* AppDelegate.swift */; };
 		44158CBE2CEB3F4800CE9D62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B982CE99F4E00BB3C62 /* ContentView.swift */; };
+		441FC6F62D0439FB001B0515 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FC6F52D0439FB001B0515 /* ModelManager.swift */; };
 		444799E22CE9900300BB3C62 /* CubismEyeBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799B92CE9900200BB3C62 /* CubismEyeBlink.cpp */; };
 		444799E32CE9900300BB3C62 /* CubismMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BA2CE9900200BB3C62 /* CubismMotion.cpp */; };
 		444799E42CE9900300BB3C62 /* CubismRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BB2CE9900200BB3C62 /* CubismRenderer.cpp */; };
@@ -55,7 +56,6 @@
 		44479B9B2CE99F4F00BB3C62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */; };
 		44479B9E2CE99F4F00BB3C62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9D2CE99F4F00BB3C62 /* Preview Assets.xcassets */; };
 		44CB6F822CF467570041EE7A /* My_Live2DCubism.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */; };
-		44CB6F992CF573FA0041EE7A /* LARFaceTrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */; };
 		44CB6F9A2CF573FA0041EE7A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F952CF573FA0041EE7A /* CustomError.swift */; };
 		44CB6F9B2CF573FA0041EE7A /* LARFaceTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */; };
 		44CB6FD42CF7119F0041EE7A /* LDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FD32CF7119F0041EE7A /* LDocumentPicker.swift */; };
@@ -66,7 +66,6 @@
 		44D0B4C82CEDB9D500BFE9D0 /* My_LAppDefine.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4C72CEDB9D500BFE9D0 /* My_LAppDefine.mm */; };
 		44D0B4CB2CEDC9B500BFE9D0 /* My_LAppPal.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */; };
 		44D0B4CE2CEDF7E400BFE9D0 /* My_LAppModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4CD2CEDF7E400BFE9D0 /* My_LAppModel.mm */; };
-		44D2B5152CFA036800601D51 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D2B5142CFA036800601D51 /* SettingsView.swift */; };
 		44D2B5182CFAB51100601D51 /* My_PathSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 44D2B5172CFAB51000601D51 /* My_PathSearch.m */; };
 		44D6C1A22D00B1AF00B3C145 /* TouchManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44158CA32CEB3DC300CE9D62 /* TouchManager.mm */; };
 		44D6C1A42D019AFA00B3C145 /* ModelConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D6C1A32D019AF200B3C145 /* ModelConstants.swift */; };
@@ -108,6 +107,7 @@
 		44158CA52CEB3DC300CE9D62 /* MetalUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalUIView.m; sourceTree = "<group>"; };
 		44158CAD2CEB3DC400CE9D62 /* MetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalView.m; sourceTree = "<group>"; };
 		44158CAF2CEB3DC400CE9D62 /* My_LAppSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppSprite.mm; sourceTree = "<group>"; };
+		441FC6F52D0439FB001B0515 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCubismSdkFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		444798772CE98FD800BB3C62 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		444798792CE98FD800BB3C62 /* CubismDebug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismDebug.hpp; sourceTree = "<group>"; };
@@ -383,7 +383,6 @@
 		44D0B4CA2CEDC9B500BFE9D0 /* My_LAppPal.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppPal.mm; sourceTree = "<group>"; };
 		44D0B4CC2CEDF7DB00BFE9D0 /* My_LAppModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_LAppModel.h; sourceTree = "<group>"; };
 		44D0B4CD2CEDF7E400BFE9D0 /* My_LAppModel.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppModel.mm; sourceTree = "<group>"; };
-		44D2B5142CFA036800601D51 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		44D2B5162CFAB4D200601D51 /* My_PathSearch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_PathSearch.h; sourceTree = "<group>"; };
 		44D2B5172CFAB51000601D51 /* My_PathSearch.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = My_PathSearch.m; sourceTree = "<group>"; };
 		44D6C1A32D019AF200B3C145 /* ModelConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelConstants.swift; sourceTree = "<group>"; };
@@ -425,6 +424,32 @@
 				44E518402CF22B1E008A9BBA /* MyLive2D_SwiftUI-Swift.h */,
 			);
 			path = Bridge;
+			sourceTree = "<group>";
+		};
+		441FC6F72D043A0D001B0515 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				44D6C1A32D019AF200B3C145 /* ModelConstants.swift */,
+				44CB6FDA2CF72A6E0041EE7A /* UserConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		441FC6F82D043AAF001B0515 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				44CB6FD82CF728A50041EE7A /* LResourceManager.swift */,
+			);
+			path = FileManager;
+			sourceTree = "<group>";
+		};
+		441FC6F92D043ACD001B0515 /* ARFaceTracking */ = {
+			isa = PBXGroup;
+			children = (
+				44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */,
+				44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */,
+			);
+			path = ARFaceTracking;
 			sourceTree = "<group>";
 		};
 		444793822CE98A6600BB3C62 = {
@@ -1288,13 +1313,11 @@
 				44479B962CE99F4E00BB3C62 /* AppDelegate.swift */,
 				44E518102CF03C8C008A9BBA /* ViewController.swift */,
 				44479B982CE99F4E00BB3C62 /* ContentView.swift */,
-				44D2B5142CFA036800601D51 /* SettingsView.swift */,
 				44CB6F952CF573FA0041EE7A /* CustomError.swift */,
-				44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */,
-				44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */,
-				44CB6FD82CF728A50041EE7A /* LResourceManager.swift */,
-				44CB6FDA2CF72A6E0041EE7A /* UserConstants.swift */,
-				44D6C1A32D019AF200B3C145 /* ModelConstants.swift */,
+				441FC6F52D0439FB001B0515 /* ModelManager.swift */,
+				441FC6F92D043ACD001B0515 /* ARFaceTracking */,
+				441FC6F82D043AAF001B0515 /* FileManager */,
+				441FC6F72D043A0D001B0515 /* Constants */,
 				44CB6FDC2CF72B4E0041EE7A /* NotSure */,
 				44158CC32CEB7EB900CE9D62 /* Bridge */,
 				44479BAF2CEA480800BB3C62 /* HeaderFiles */,
@@ -1551,7 +1574,6 @@
 			files = (
 				44D6C1A22D00B1AF00B3C145 /* TouchManager.mm in Sources */,
 				44E5184C2CF31982008A9BBA /* My_LAppSprite.mm in Sources */,
-				44D2B5152CFA036800601D51 /* SettingsView.swift in Sources */,
 				44CB6FDB2CF72A6E0041EE7A /* UserConstants.swift in Sources */,
 				44E5181F2CF0D257008A9BBA /* MetalView.m in Sources */,
 				44CB6F9B2CF573FA0041EE7A /* LARFaceTrackingView.swift in Sources */,
@@ -1562,7 +1584,7 @@
 				44158CBE2CEB3F4800CE9D62 /* ContentView.swift in Sources */,
 				44D6C1A42D019AFA00B3C145 /* ModelConstants.swift in Sources */,
 				44E518452CF23661008A9BBA /* My_AppDelegateBridge.mm in Sources */,
-				44CB6F992CF573FA0041EE7A /* LARFaceTrackingViewModel.swift in Sources */,
+				441FC6F62D0439FB001B0515 /* ModelManager.swift in Sources */,
 				44CB6FD42CF7119F0041EE7A /* LDocumentPicker.swift in Sources */,
 				44E518482CF2D531008A9BBA /* My_ViewControllerBridge.mm in Sources */,
 				44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */,

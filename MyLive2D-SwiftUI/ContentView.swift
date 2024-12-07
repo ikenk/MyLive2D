@@ -9,37 +9,42 @@ import SwiftUI
 import RealityKit
 
 struct ContentView : View {
+    @EnvironmentObject var modelManager:ModelManager
+    
     @State private var sceneIndex:Int = 0
     
-    @State private var isAutoplayed:Bool = true
+    @State private var modelParameter:ModelParameter = .init()
+    
+//    @State private var isGlobalAutoplayed:Bool = true
+    
     var body: some View {
-        Text("Hello World!!!")
+        Text("Hello!!!")
             .font(.largeTitle)
         
         Button {
-//            My_LAppLive2DManager.shared().changeScene(1)
             My_LAppLive2DManager.shared().nextScene()
         } label: {
-            Text("Tap it!!!")
+            Text("Next Model")
                 .font(.title2)
                 .foregroundStyle(.red)
         }
         
-        Button {
-            
-        } label: {
-            Text("Set L/R Eye Status")
-                .font(.title2)
-                .foregroundStyle(.yellow)
-        }
-        
-        Toggle("Model Is Autoplayed", isOn: $isAutoplayed)
-            .padding(.horizontal, 10)
+        Toggle("Model Is Autoplayed", isOn: $modelManager.isGlobalAutoplayed)
+            .padding(10)
             .foregroundStyle(.indigo)
-            .border(.purple)
-            .onChange(of: isAutoplayed) { newValue in
-                My_LAppLive2DManager.shared().setModelMotionIfAutoplay(newValue)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .strokeBorder(.purple, lineWidth: 1)
+            )
+            .padding(.horizontal,10)
+            .onChange(of: modelManager.isGlobalAutoplayed) { newValue in
+                My_LAppLive2DManager.shared().setModelMotionGlobalAutoplayed(newValue)
             }
+        Group{
+            Slider(value: $modelParameter.xTranslation)
+            Slider(value: $modelParameter.yTranslation)
+            Slider(value: $modelParameter.scale)
+        }
     }
 }
 
@@ -47,3 +52,10 @@ struct ContentView : View {
 //#Preview {
 //    ContentView()
 //}
+
+struct ModelParameter {
+    var xTranslation:Float = .zero
+    var yTranslation:Float = .zero
+    var scale:Float = .zero
+    var rotation:Float = .zero
+}

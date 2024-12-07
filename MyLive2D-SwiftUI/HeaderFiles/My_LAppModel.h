@@ -154,7 +154,9 @@ public:
      */
     void setModelParameter(Csm::CubismIdHandle parameteId, Csm::csmFloat32 value);
     
-    void setIsMotionAutoplayed(Csm::csmBool isAutoplayed);
+    static void setIsGlobalMotionAutoplayed(Csm::csmBool isGlobalAutoplayed);
+    
+    void setIsMotionAutoplayed(Csm::csmBool isMotionAutoplayed);
 
 protected:
     /**
@@ -229,6 +231,8 @@ private:
     
     // MARK: Additional Code
     Csm::csmBool _isMotionAutoplayed;
+    
+    static Csm::csmBool _isGlobalMotionAutoplayed;
 };
 
 #endif

@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     var lResourceManager: LResourceManager = .shared
     
+    let modelManager:ModelManager = .init()
+    
     // MARK: ViewController Lifecycle Function
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
@@ -117,7 +119,7 @@ extension ViewController {
     // Create ContentView
     func createContentViewController() {
         // 创建 SwiftUI 视图
-        let contentView = ContentView()
+        let contentView = ContentView().environmentObject(modelManager)
                
         // 使用 UIHostingController 包装 SwiftUI 视图
         let hostingContentViewController = UIHostingController(rootView: contentView)
@@ -151,7 +153,7 @@ extension ViewController {
     
     // Create ARFaceTrackingView
     func createLARFaceTrackingViewController() {
-        let lARFaceTrackingView = LARFaceTrackingView()
+        let lARFaceTrackingView = LARFaceTrackingView().environmentObject(modelManager)
                
         let hostingLARFaceTrackingViewController = UIHostingController(rootView: lARFaceTrackingView)
                
