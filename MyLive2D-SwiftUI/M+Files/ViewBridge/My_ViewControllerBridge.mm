@@ -317,17 +317,15 @@ using namespace LAppDefine;
     _back = [[LAppSprite alloc] initWithMyVar:x Y:y Width:fWidth Height:fHeight MaxWidth:width MaxHeight:height Texture:backgroundTexture.textureId];
 
 //    //モデル変更ボタン
-    imageName = GearImageName;
-//    TextureInfo* gearTexture = [textureManager createTextureFromPngFile:resourcesPath+imageName];
-//    filePath = @((resourcesPath + imageName).c_str());
-    filePath = [resourcesPath stringByAppendingString:@((imageName).c_str())];
-    My_LAppTextureInfo* gearTexture = [textureManager createTextureFromPngFile:filePath];
-    x = static_cast<float>(width - gearTexture.width * 0.5f);
-    y = static_cast<float>(height - gearTexture.height * 0.5f);
-    fWidth = static_cast<float>(gearTexture.width);
-    fHeight = static_cast<float>(gearTexture.height);
-    _gear = [[LAppSprite alloc] initWithMyVar:x Y:y Width:fWidth Height:fHeight MaxWidth:width MaxHeight:height Texture:gearTexture.textureId];
-//
+//    imageName = GearImageName;
+//    filePath = [resourcesPath stringByAppendingString:@((imageName).c_str())];
+//    My_LAppTextureInfo* gearTexture = [textureManager createTextureFromPngFile:filePath];
+//    x = static_cast<float>(width - gearTexture.width * 0.5f);
+//    y = static_cast<float>(height - gearTexture.height * 0.5f);
+//    fWidth = static_cast<float>(gearTexture.width);
+//    fHeight = static_cast<float>(gearTexture.height);
+//    _gear = [[LAppSprite alloc] initWithMyVar:x Y:y Width:fWidth Height:fHeight MaxWidth:width MaxHeight:height Texture:gearTexture.textureId];
+
 //    //電源ボタン
 //    imageName = PowerImageName;
 //    TextureInfo* powerTexture = [textureManager createTextureFromPngFile:resourcesPath+imageName];
@@ -374,7 +372,7 @@ using namespace LAppDefine;
 {
     [_back renderImmidiate:renderEncoder];
 
-    [_gear renderImmidiate:renderEncoder];
+//    [_gear renderImmidiate:renderEncoder];
 
 //    [_power renderImmidiate:renderEncoder];
 }
@@ -400,6 +398,7 @@ using namespace LAppDefine;
 {
     return _deviceToScreen->TransformY(deviceY);
 }
+
 - (float)transformTapY:(float)deviceY
 {
     float height = self.viewController.view.frame.size.height;

@@ -96,7 +96,8 @@ extension LARFaceTrackingView {
                 //            let eyeballMovementRight = faceAnchor.blendShapes[] as? Float,
                 // Mouth Open
                 let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
-                let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float
+                let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float,
+                let cheekPuff = faceAnchor.blendShapes[.cheekPuff] as? Float
             else {
                 return
             }
@@ -124,9 +125,9 @@ extension LARFaceTrackingView {
             //        let yawDegrees = faceNode.eulerAngles.y * 180 / .pi
             //        let rollDegrees = faceNode.eulerAngles.z * 180 / .pi
             
-            print("[MyLog]paramAngleX: \(pitchDegrees)")
-            print("[MyLog]paramAngleY: \(yawDegrees)")
-            print("[MyLog]paramAngleZ: \(rollDegrees)")
+//            print("[MyLog]paramAngleX: \(pitchDegrees)")
+//            print("[MyLog]paramAngleY: \(yawDegrees)")
+//            print("[MyLog]paramAngleZ: \(rollDegrees)")
             
             // Head Movement
             //        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleX, toValue: pitchDegrees)
@@ -144,6 +145,10 @@ extension LARFaceTrackingView {
             // Mouth Open
             My_LAppLive2DManager.shared().setModelParam(forID: ParamMouthOpenY, toValue: jawOpen * 1.5)
             My_LAppLive2DManager.shared().setModelParam(forID: ParamMouthForm, toValue: 1 - mouthFunnel * 2)
+            
+            // Cheek Puff
+            My_LAppLive2DManager.shared().setModelParam(forID: ParamCheek, toValue: cheekPuff)
+            
             
             //        print("[MyLog]faceAnchor.geometry.vertices: \(faceAnchor.geometry.vertices)")
             //        print("[MyLog]faceAnchor.geometry.triangleCount: \(faceAnchor.geometry.triangleCount)")

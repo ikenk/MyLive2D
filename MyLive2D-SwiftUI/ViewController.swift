@@ -119,10 +119,10 @@ extension ViewController {
     // Create ContentView
     func createContentViewController() {
         // 创建 SwiftUI 视图
-        let contentView = ContentView().environmentObject(modelManager)
+        let configurationView = ConfigurationView().environmentObject(modelManager)
                
         // 使用 UIHostingController 包装 SwiftUI 视图
-        let hostingContentViewController = UIHostingController(rootView: contentView)
+        let hostingContentViewController = UIHostingController(rootView: configurationView)
                
         // 添加为子视图控制器
         addChild(hostingContentViewController)
@@ -164,8 +164,8 @@ extension ViewController {
         hostingLARFaceTrackingViewController.view.frame = CGRect(
             x: 0,
             y: 300,
-            width: 500,
-            height: 500
+            width: 300,
+            height: 300
         )
         
 //        hostingLARFaceTrackingViewController.view.isHidden = true

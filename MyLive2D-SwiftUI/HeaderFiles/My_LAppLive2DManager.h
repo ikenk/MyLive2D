@@ -31,9 +31,17 @@
 
 - (void)nextScene;
 
+- (void)previousScene;
+
 - (void)setModelParamForID:(NSString *)ID toValue:(Float32)value NS_SWIFT_NAME(setModelParam(forID:toValue:));
 
 - (void)setModelMotionGlobalAutoplayed:(bool) autoplay;
+
+- (void)setModelScaleOnX:(float)x andY:(float)y NS_SWIFT_NAME (setModelScale(x:y:));
+
+- (void)setModelPositionOnX:(float)x;
+
+- (void)setModelPositionOnY:(float)y;
 
 @end
 
@@ -151,9 +159,17 @@ typedef NS_ENUM(NSUInteger, SelectTarget)
 - (void)SetRenderTargetClearColor:(float)r g:(float)g b:(float)b;
 
 // MARK: Additional Code
+- (void)previousScene;
+
 - (void)SetModelParamForID:(Csm::csmChar*)ID toValue:(Csm::csmFloat32)value;
 
-- (void)SetModelMotionGlobalAutoplayed:(Csm::csmBool) autoplay;
+- (void)SetModelMotionGlobalAutoplayed:(Csm::csmBool)autoplay;
+
+- (void)SetModelScaleOnX:(Csm::csmFloat32)x andY:(Csm::csmFloat32)y;
+
+- (void)SetModelPositionOnX:(float)x;
+
+- (void)SetModelPositionOnY:(float)y;
 
 @end
 #endif

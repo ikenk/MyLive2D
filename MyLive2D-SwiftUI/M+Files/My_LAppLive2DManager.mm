@@ -73,6 +73,10 @@
     [self.lAppLive2DManager nextScene];
 }
 
+- (void)previousScene {
+    [self.lAppLive2DManager previousScene];
+}
+
 - (void)changeScene:(NSInteger)index {
     [self.lAppLive2DManager changeScene:(Csm::csmInt32)index];
 }
@@ -84,6 +88,18 @@
 
 - (void)setModelMotionGlobalAutoplayed:(bool) autoplay {
     [self.lAppLive2DManager SetModelMotionGlobalAutoplayed:autoplay];
+}
+
+- (void)setModelScaleOnX:(float)x andY:(float)y {
+    [self.lAppLive2DManager SetModelScaleOnX:x andY:y];
+}
+
+- (void)setModelPositionOnX:(float)x {
+    [self.lAppLive2DManager SetModelPositionOnX:x];
+}
+
+- (void)setModelPositionOnY:(float)y {
+    [self.lAppLive2DManager SetModelPositionOnY:y];
 }
 
 @end
@@ -533,6 +549,19 @@ Csm::csmString GetPath(CFURLRef url)
 }
 
 // MARK: Additional Code
+- (void)previousScene;
+{
+    if (_sceneIndex - 1 < 0){
+        _sceneIndex = _modelDir.GetSize();
+        Csm::csmInt32 no = (_sceneIndex - 1) % _modelDir.GetSize();
+        NSLog(@"[MyLog](sceneIndex - 1) % modelDir.GetSize(): %d", (_sceneIndex - 1) % _modelDir.GetSize());
+        [self changeScene:no];
+    } else {
+        Csm::csmInt32 no = (_sceneIndex - 1) % _modelDir.GetSize();
+        [self changeScene:no];
+    }
+}
+
 - (void)SetModelParamForID:(Csm::csmChar *)id toValue:(Csm::csmFloat32)value
 {
     Csm::csmUint32 modelCount = _models.GetSize();
@@ -553,6 +582,27 @@ Csm::csmString GetPath(CFURLRef url)
     }
     // [中文]调整当前模型是否自动播放的同时也保证了下一个模型的设置与当前一致
     LAppModel::setIsGlobalMotionAutoplayed(autoplay);
+}
+
+- (void)SetModelScaleOnX:(Csm::csmFloat32)x andY:(Csm::csmFloat32)y{
+    Csm::csmUint32 modelCount = _models.GetSize();
+    for (Csm::csmUint32 i = 0; i < modelCount; ++i){
+        _models[i]->GetModelMatrix()->Scale(x, y);
+    }
+}
+
+- (void)SetModelPositionOnX:(float)x {
+    Csm::csmUint32 modelCount = _models.GetSize();
+    for (Csm::csmUint32 i = 0; i < modelCount; ++i){
+        _models[i]->GetModelMatrix()->TranslateX(x);
+    }
+}
+
+- (void)SetModelPositionOnY:(float)y {
+    Csm::csmUint32 modelCount = _models.GetSize();
+    for (Csm::csmUint32 i = 0; i < modelCount; ++i){
+        _models[i]->GetModelMatrix()->TranslateY(y);
+    }
 }
 
 @end
