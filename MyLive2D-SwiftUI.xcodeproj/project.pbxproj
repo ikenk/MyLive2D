@@ -10,8 +10,9 @@
 		44158C902CEB235D00CE9D62 /* MetalShaders.metal in Resources */ = {isa = PBXBuildFile; fileRef = 444798BB2CE98FD800BB3C62 /* MetalShaders.metal */; };
 		44158C9F2CEB367900CE9D62 /* libCubismSdkFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B962CE99F4E00BB3C62 /* AppDelegate.swift */; };
-		44158CBE2CEB3F4800CE9D62 /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B982CE99F4E00BB3C62 /* ConfigurationView.swift */; };
-		441FC6F62D0439FB001B0515 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FC6F52D0439FB001B0515 /* ModelManager.swift */; };
+		44158CBE2CEB3F4800CE9D62 /* LConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B982CE99F4E00BB3C62 /* LConfigurationView.swift */; };
+		4416DF8A2D0AC0FF00C2E3B2 /* ConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416DF892D0AC0F700C2E3B2 /* ConfigConstants.swift */; };
+		441FC6F62D0439FB001B0515 /* LModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FC6F52D0439FB001B0515 /* LModelManager.swift */; };
 		444799E22CE9900300BB3C62 /* CubismEyeBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799B92CE9900200BB3C62 /* CubismEyeBlink.cpp */; };
 		444799E32CE9900300BB3C62 /* CubismMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BA2CE9900200BB3C62 /* CubismMotion.cpp */; };
 		444799E42CE9900300BB3C62 /* CubismRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BB2CE9900200BB3C62 /* CubismRenderer.cpp */; };
@@ -107,7 +108,8 @@
 		44158CA52CEB3DC300CE9D62 /* MetalUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalUIView.m; sourceTree = "<group>"; };
 		44158CAD2CEB3DC400CE9D62 /* MetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalView.m; sourceTree = "<group>"; };
 		44158CAF2CEB3DC400CE9D62 /* My_LAppSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppSprite.mm; sourceTree = "<group>"; };
-		441FC6F52D0439FB001B0515 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		4416DF892D0AC0F700C2E3B2 /* ConfigConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigConstants.swift; sourceTree = "<group>"; };
+		441FC6F52D0439FB001B0515 /* LModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LModelManager.swift; sourceTree = "<group>"; };
 		444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCubismSdkFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		444798772CE98FD800BB3C62 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		444798792CE98FD800BB3C62 /* CubismDebug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismDebug.hpp; sourceTree = "<group>"; };
@@ -354,7 +356,7 @@
 		44479B3F2CE9979000BB3C62 /* RedistributableFiles.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RedistributableFiles.txt; sourceTree = "<group>"; };
 		44479B942CE99F4E00BB3C62 /* MyLive2D-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyLive2D-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44479B962CE99F4E00BB3C62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44479B982CE99F4E00BB3C62 /* ConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationView.swift; sourceTree = "<group>"; };
+		44479B982CE99F4E00BB3C62 /* LConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LConfigurationView.swift; sourceTree = "<group>"; };
 		44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44479B9D2CE99F4F00BB3C62 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		44479BB62CEA485300BB3C62 /* My_LAppSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = My_LAppSprite.h; sourceTree = "<group>"; };
@@ -426,21 +428,32 @@
 			path = Bridge;
 			sourceTree = "<group>";
 		};
+		4416DF882D0A8F8800C2E3B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44479B982CE99F4E00BB3C62 /* LConfigurationView.swift */,
+				441FC6F92D043ACD001B0515 /* ARFaceTrackingView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		441FC6F72D043A0D001B0515 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
 				44D6C1A32D019AF200B3C145 /* ModelConstants.swift */,
 				44CB6FDA2CF72A6E0041EE7A /* UserConstants.swift */,
+				4416DF892D0AC0F700C2E3B2 /* ConfigConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		441FC6F82D043AAF001B0515 /* FileManager */ = {
+		441FC6F82D043AAF001B0515 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				441FC6F52D0439FB001B0515 /* LModelManager.swift */,
 				44CB6FD82CF728A50041EE7A /* LResourceManager.swift */,
 			);
-			path = FileManager;
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		441FC6F92D043ACD001B0515 /* ARFaceTrackingView */ = {
@@ -1320,12 +1333,9 @@
 				44CB6FD72CF726890041EE7A /* Info.plist */,
 				44479B962CE99F4E00BB3C62 /* AppDelegate.swift */,
 				44E518102CF03C8C008A9BBA /* ViewController.swift */,
-				44479B982CE99F4E00BB3C62 /* ConfigurationView.swift */,
-				44CB6F952CF573FA0041EE7A /* CustomError.swift */,
-				441FC6F52D0439FB001B0515 /* ModelManager.swift */,
 				44CB6FDC2CF72B4E0041EE7A /* NotSure */,
-				441FC6F92D043ACD001B0515 /* ARFaceTrackingView */,
-				441FC6F82D043AAF001B0515 /* FileManager */,
+				4416DF882D0A8F8800C2E3B2 /* View */,
+				441FC6F82D043AAF001B0515 /* Manager */,
 				441FC6F72D043A0D001B0515 /* Constants */,
 				44158CC32CEB7EB900CE9D62 /* Bridge */,
 				44479BAF2CEA480800BB3C62 /* HeaderFiles */,
@@ -1434,6 +1444,7 @@
 			children = (
 				44CB6FD32CF7119F0041EE7A /* LDocumentPicker.swift */,
 				44CB6FD52CF717B60041EE7A /* LocalDocHandler.swift */,
+				44CB6F952CF573FA0041EE7A /* CustomError.swift */,
 			);
 			path = NotSure;
 			sourceTree = "<group>";
@@ -1589,10 +1600,11 @@
 				44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */,
 				44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */,
 				44CB6F9A2CF573FA0041EE7A /* CustomError.swift in Sources */,
-				44158CBE2CEB3F4800CE9D62 /* ConfigurationView.swift in Sources */,
+				44158CBE2CEB3F4800CE9D62 /* LConfigurationView.swift in Sources */,
 				44D6C1A42D019AFA00B3C145 /* ModelConstants.swift in Sources */,
+				4416DF8A2D0AC0FF00C2E3B2 /* ConfigConstants.swift in Sources */,
 				44E518452CF23661008A9BBA /* My_AppDelegateBridge.mm in Sources */,
-				441FC6F62D0439FB001B0515 /* ModelManager.swift in Sources */,
+				441FC6F62D0439FB001B0515 /* LModelManager.swift in Sources */,
 				44CB6FD42CF7119F0041EE7A /* LDocumentPicker.swift in Sources */,
 				44E518482CF2D531008A9BBA /* My_ViewControllerBridge.mm in Sources */,
 				44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */,
@@ -1812,6 +1824,7 @@
 				INFOPLIST_FILE = "MyLive2D-SwiftUI/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
@@ -1872,6 +1885,7 @@
 				INFOPLIST_FILE = "MyLive2D-SwiftUI/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(MARKETING_VERSION)";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;

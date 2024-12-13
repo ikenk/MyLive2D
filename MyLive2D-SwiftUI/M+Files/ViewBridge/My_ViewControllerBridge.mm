@@ -354,11 +354,11 @@ using namespace LAppDefine;
     [_back resizeImmidiate:x Y:y Width:fWidth Height:fHeight MaxWidth:maxWidth MaxHeight:maxHeight];
 
 //    //モデル変更ボタン
-    x = static_cast<float>(width - _gear.GetTextureId.width * 0.5f);
-    y = static_cast<float>(height - _gear.GetTextureId.height * 0.5f);
-    fWidth = static_cast<float>(_gear.GetTextureId.width);
-    fHeight = static_cast<float>(_gear.GetTextureId.height);
-    [_gear resizeImmidiate:x Y:y Width:fWidth Height:fHeight MaxWidth:maxWidth MaxHeight:maxHeight];
+//    x = static_cast<float>(width - _gear.GetTextureId.width * 0.5f);
+//    y = static_cast<float>(height - _gear.GetTextureId.height * 0.5f);
+//    fWidth = static_cast<float>(_gear.GetTextureId.width);
+//    fHeight = static_cast<float>(_gear.GetTextureId.height);
+//    [_gear resizeImmidiate:x Y:y Width:fWidth Height:fHeight MaxWidth:maxWidth MaxHeight:maxHeight];
 
 //    //電源ボタン
 //    x = static_cast<float>(width - _power.GetTextureId.width * 0.5f);

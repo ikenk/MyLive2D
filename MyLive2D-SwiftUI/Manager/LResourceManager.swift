@@ -68,6 +68,7 @@ class LResourceManager {
         return resourcesDir
     }
     
+    // Copy the documents at BundleURL to localURL synchronously
     func copyBundleResourcesToLocalDirectorySync(from sourceDir: URL) -> URL?{
         guard let url = rootURL else {
             return nil
@@ -98,7 +99,7 @@ class LResourceManager {
         return nil
     }
     
-    // Copy the documents at BundleURL to localURL
+    // Copy the documents at BundleURL to localURL asynchronously
     func copyBundleResourcesToLocalDirectoryAsync(from sourceDir: URL) async -> URL? {
         return await withCheckedContinuation { continuation in
             guard let url = rootURL else {
@@ -126,4 +127,7 @@ class LResourceManager {
             }
         }
     }
+    
+    // Copy the photo from PhotoLibrary to localURL
+    
 }

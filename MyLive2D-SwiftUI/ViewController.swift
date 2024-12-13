@@ -18,9 +18,10 @@ class ViewController: UIViewController {
     
     var lResourceManager: LResourceManager = .shared
     
-    let modelManager:ModelManager = .init()
+    let modelManager: LModelManager = .init()
     
     // MARK: ViewController Lifecycle Function
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nil, bundle: nil)
         myViewControllerBridge.setToViewController(self)
@@ -46,7 +47,7 @@ class ViewController: UIViewController {
         // Ensure ViewController Can be Touched
         view.isUserInteractionEnabled = true
         
-        createContentViewController()
+        createLConfigurationViewController()
         
         createLARFaceTrackingViewController()
         
@@ -66,7 +67,8 @@ class ViewController: UIViewController {
 }
 
 // MARK: Implement MetalViewDelegate Protocol
-extension ViewController: MetalViewDelegate{
+
+extension ViewController: MetalViewDelegate {
     @objc func drawableResize(_ size: CGSize) {
 //        print("[MyLog]drawableResize run")
         myViewControllerBridge.drawableResize(size)
@@ -78,8 +80,9 @@ extension ViewController: MetalViewDelegate{
     }
 }
 
+// MARK: - Touch Events
+
 extension ViewController {
-    // MARK: - Touch Events
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location: CGPoint = touch.location(in: view)
@@ -114,15 +117,17 @@ extension ViewController {
 //    }
 }
 
+// MARK: Create Views
+
 extension ViewController {
-    // MARK: Create Views
-    // Create ContentView
-    func createContentViewController() {
+    // MARK: Create ConfigurationView
+
+    func createLConfigurationViewController() {
         // 创建 SwiftUI 视图
-        let configurationView = ConfigurationView().environmentObject(modelManager)
+        let lConfigurationView = LConfigurationView().environmentObject(modelManager)
                
         // 使用 UIHostingController 包装 SwiftUI 视图
-        let hostingContentViewController = UIHostingController(rootView: configurationView)
+        let hostingContentViewController = UIHostingController(rootView: lConfigurationView)
                
         // 添加为子视图控制器
         addChild(hostingContentViewController)
@@ -151,7 +156,8 @@ extension ViewController {
         hostingContentViewController.didMove(toParent: self)
     }
     
-    // Create ARFaceTrackingView
+    // MARK: Create ARFaceTrackingView
+
     func createLARFaceTrackingViewController() {
         let lARFaceTrackingView = LARFaceTrackingView().environmentObject(modelManager)
                

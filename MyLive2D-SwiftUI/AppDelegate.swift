@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let defaults = UserDefaults.standard
         let isNotFirstRun = defaults.bool(forKey: NOT_FIRST_RUN)
-//        print("[MyLog]isNotFirstRun: \(isNotFirstRun)")
+        print("[MyLog]isNotFirstRun: \(isNotFirstRun)")
         
         textureManager = .init()
         

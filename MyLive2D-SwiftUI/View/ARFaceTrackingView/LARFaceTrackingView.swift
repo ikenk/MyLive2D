@@ -10,8 +10,9 @@ import RealityKit
 import SwiftUI
 
 struct LARFaceTrackingView: UIViewRepresentable {
-    @EnvironmentObject var modelManager: ModelManager
+    @EnvironmentObject var modelManager: LModelManager
     
+//    Archived Code
 //    @StateObject var lARFaceTrackingViewModel: LARFaceTrackingViewModel = .init()
     
     let arView: ARView = {
@@ -54,7 +55,7 @@ struct LARFaceTrackingView: UIViewRepresentable {
 extension LARFaceTrackingView {
     class Coordinator: NSObject, ARSessionDelegate {
         var parent: LARFaceTrackingView
-        var modelManager: ModelManager
+        var modelManager: LModelManager
         
         var faceAnchorEntity: AnchorEntity?
         var modelEntity: ModelEntity?
@@ -62,7 +63,7 @@ extension LARFaceTrackingView {
         private var updateCounter = 0
         private let updateInterval = 5
         
-        init(_ parent: LARFaceTrackingView, modelManager: ModelManager) {
+        init(_ parent: LARFaceTrackingView, modelManager: LModelManager) {
             self.parent = parent
             self.modelManager = modelManager
             super.init()
@@ -70,7 +71,6 @@ extension LARFaceTrackingView {
         
         func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
             guard let faceAnchor = anchors.first as? ARFaceAnchor else { return }
-            //        session.add(anchor: faceAnchor) // 移除对 session.add(anchor: faceAnchor) 的调用，因为这是重复的,系统已经在追踪这个锚点了
             
 //            print("[MyLog]modelManager.isGlobalAutoplayed: \(modelManager.isGlobalAutoplayed)")
             
