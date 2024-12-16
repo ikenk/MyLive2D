@@ -284,6 +284,34 @@ using namespace LAppDefine;
 
 }
 
+- (void)setBackgroundImage
+{
+    float width = My_ViewControllerBridge.shared.viewController.view.frame.size.width;
+    float height = My_ViewControllerBridge.shared.viewController.view.frame.size.height;
+    
+    NSLog(@"[MyLog]func setBackgroundImage: width and height: %f,%f",width,height);
+    
+    My_LAppTextureManager* textureManager = My_AppDelegateBridge.shared.textureManager;
+    NSString* resourcesPath = [My_PathSearch searchResourcesFilePath];
+
+    //背景
+    string imageName = BackImageName;
+    NSString *filePath = [resourcesPath stringByAppendingString:@((imageName).c_str())];
+    
+    if (_back != nil) {
+        [_back dealloc];
+        _back = nil;
+    }
+    [textureManager releaseTextureByName:filePath];
+    
+    My_LAppTextureInfo* backgroundTexture = [textureManager createTextureFromPngFile:filePath];
+    float x = width * 0.5f;
+    float y = height * 0.5f;
+    float fWidth = static_cast<float>(width); // 让背景图撑满背景
+    float fHeight = static_cast<float>(height); // 让背景图撑满背景
+    _back = [[LAppSprite alloc] initWithMyVar:x Y:y Width:fWidth Height:fHeight MaxWidth:width MaxHeight:height Texture:backgroundTexture.textureId];
+}
+
 - (void)initializeSprite
 {
 //    AppDelegate *delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -452,7 +480,7 @@ using namespace LAppDefine;
 - (void)releaseView
 {
     _renderSprite = nil;
-    [_gear release];
+//    [_gear release];
     [_back release];
 //    [_power release];
     _gear = nil;

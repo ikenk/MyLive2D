@@ -49,6 +49,8 @@
 
 - (void)touchesEndedAt:(CGFloat)x Y:(CGFloat)y NS_SWIFT_NAME(touchesEndedAt(x:y:));
 
+- (void)setBackgroundImage;
+
 /**
  * @brief 解放処理
  */

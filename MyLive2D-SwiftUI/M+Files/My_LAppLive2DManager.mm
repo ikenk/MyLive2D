@@ -165,6 +165,7 @@ Csm::csmString GetPath(CFURLRef url)
 {
     self = [super init];
     if ( self ) {
+        NSLog(@"[MyLog]LAppLive2DManager init");
         _renderBuffer = nil;
         _sprite = nil;
         _viewMatrix = nil;
@@ -445,6 +446,9 @@ Csm::csmString GetPath(CFURLRef url)
 - (void)nextScene;
 {
     Csm::csmInt32 no = (_sceneIndex + 1) % _modelDir.GetSize();
+    if (no == 0) {
+        [self refreshModel];
+    }
     [self changeScene:no];
 }
 
@@ -549,9 +553,15 @@ Csm::csmString GetPath(CFURLRef url)
 }
 
 // MARK: Additional Code
-- (void)previousScene;
+- (void)refreshModel
+{
+    [self setUpModel];
+}
+
+- (void)previousScene
 {
     if (_sceneIndex - 1 < 0){
+        [self refreshModel];
         _sceneIndex = _modelDir.GetSize();
         Csm::csmInt32 no = (_sceneIndex - 1) % _modelDir.GetSize();
         NSLog(@"[MyLog](sceneIndex - 1) % modelDir.GetSize(): %d", (_sceneIndex - 1) % _modelDir.GetSize());

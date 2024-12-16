@@ -12,6 +12,7 @@
 		44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B962CE99F4E00BB3C62 /* AppDelegate.swift */; };
 		44158CBE2CEB3F4800CE9D62 /* LConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B982CE99F4E00BB3C62 /* LConfigurationView.swift */; };
 		4416DF8A2D0AC0FF00C2E3B2 /* ConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416DF892D0AC0F700C2E3B2 /* ConfigConstants.swift */; };
+		4416DF8C2D107EF000C2E3B2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4416DF8B2D107EF000C2E3B2 /* Localizable.xcstrings */; };
 		441FC6F62D0439FB001B0515 /* LModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FC6F52D0439FB001B0515 /* LModelManager.swift */; };
 		444799E22CE9900300BB3C62 /* CubismEyeBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799B92CE9900200BB3C62 /* CubismEyeBlink.cpp */; };
 		444799E32CE9900300BB3C62 /* CubismMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BA2CE9900200BB3C62 /* CubismMotion.cpp */; };
@@ -109,6 +110,7 @@
 		44158CAD2CEB3DC400CE9D62 /* MetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalView.m; sourceTree = "<group>"; };
 		44158CAF2CEB3DC400CE9D62 /* My_LAppSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppSprite.mm; sourceTree = "<group>"; };
 		4416DF892D0AC0F700C2E3B2 /* ConfigConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigConstants.swift; sourceTree = "<group>"; };
+		4416DF8B2D107EF000C2E3B2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		441FC6F52D0439FB001B0515 /* LModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LModelManager.swift; sourceTree = "<group>"; };
 		444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCubismSdkFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		444798772CE98FD800BB3C62 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -1344,6 +1346,7 @@
 				44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */,
 				44479B9C2CE99F4F00BB3C62 /* Preview Content */,
 				44E5183E2CF1D0D2008A9BBA /* Resources */,
+				4416DF8B2D107EF000C2E3B2 /* Localizable.xcstrings */,
 			);
 			path = "MyLive2D-SwiftUI";
 			sourceTree = "<group>";
@@ -1532,6 +1535,7 @@
 			files = (
 				44158C902CEB235D00CE9D62 /* MetalShaders.metal in Resources */,
 				44479B9E2CE99F4F00BB3C62 /* Preview Assets.xcassets in Resources */,
+				4416DF8C2D107EF000C2E3B2 /* Localizable.xcstrings in Resources */,
 				44479B9B2CE99F4F00BB3C62 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1682,6 +1686,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1738,6 +1743,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

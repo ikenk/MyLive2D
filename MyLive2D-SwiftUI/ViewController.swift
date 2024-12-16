@@ -70,7 +70,7 @@ class ViewController: UIViewController {
 
 extension ViewController: MetalViewDelegate {
     @objc func drawableResize(_ size: CGSize) {
-//        print("[MyLog]drawableResize run")
+        print("[MyLog]drawableResize run")
         myViewControllerBridge.drawableResize(size)
     }
     

@@ -32,6 +32,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int height;
 @property (nonatomic, copy) NSString *fileName;
 
+- (id)init;
+
+- (void)dealloc;
+
 @end
 
 /**

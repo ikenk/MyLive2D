@@ -174,6 +174,7 @@ void LAppModel::LoadAssets(const csmChar* dir, const csmChar* fileName)
 
 void LAppModel::SetupModel(ICubismModelSetting* setting)
 {
+    NSLog(@"[MyLog]SetupModel Run");
     _updating = true;
     _initialized = false;
 

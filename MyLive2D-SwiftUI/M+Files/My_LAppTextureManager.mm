@@ -36,10 +36,39 @@
 // MARK: Objective-C Bridge Implementation
 // Objective-C Bridge Implementation
 @implementation My_LAppTextureInfo
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    NSLog(@"[MyLog]My_LAppTextureInfo dealloc");
+    // 释放 Metal 纹理
+    if (_textureId) {
+        [_textureId release];
+        _textureId = nil;
+    }
+    
+    // 释放文件名字符串
+    if (_fileName) {
+        [_fileName release];
+        _fileName = nil;
+    }
+    
+    [super dealloc];
+}
+
 @end
 
 @interface My_LAppTextureManager()
 @property(strong, nonatomic) LAppTextureManager* appTextureManager;
+@property(strong, nonatomic) My_LAppTextureInfo* myTextureInfo;
 @end
 
 @implementation My_LAppTextureManager
@@ -49,24 +78,25 @@
     self = [super init];
     if (self) {
         _appTextureManager = [[LAppTextureManager alloc] init];
+        _myTextureInfo = [[My_LAppTextureInfo alloc] init];
     }
     return self;
 }
 
 - (void)dealloc {
     [_appTextureManager dealloc];
+    [_myTextureInfo dealloc];
     [super dealloc];
 }
 
 - (My_LAppTextureInfo*)createTextureFromPngFile:(NSString *)fileName {
 //    NSLog(@"[MyLog]createTextureFromPngFile:fileName: %@",fileName);
     TextureInfo* textureInfo = [_appTextureManager createTextureFromPngFile:[fileName UTF8String]];
-    My_LAppTextureInfo* myTextureInfo = [[My_LAppTextureInfo alloc] init];
-    myTextureInfo.textureId = textureInfo->id;
-    myTextureInfo.width = textureInfo->width;
-    myTextureInfo.height = textureInfo->height;
-    myTextureInfo.fileName = @(textureInfo->fileName.c_str());
-    return myTextureInfo;
+    self.myTextureInfo.textureId = textureInfo->id;
+    self.myTextureInfo.width = textureInfo->width;
+    self.myTextureInfo.height = textureInfo->height;
+    self.myTextureInfo.fileName = @(textureInfo->fileName.c_str());
+    return self.myTextureInfo;
 }
 
 
@@ -76,14 +106,17 @@
 
 - (void)releaseTextures {
     [_appTextureManager releaseTextures];
+//    [_myTextureInfo dealloc];
 }
 
 - (void)releaseTextureWithId:(id<MTLTexture>)textureId {
     [_appTextureManager releaseTextureWithId:textureId];
+//    [_myTextureInfo dealloc];
 }
 
 - (void)releaseTextureByName:(NSString *)fileName {
     [_appTextureManager releaseTextureByName:[fileName UTF8String]];
+//    [_myTextureInfo dealloc];
 }
 
 @end

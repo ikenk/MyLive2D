@@ -159,6 +159,8 @@ typedef NS_ENUM(NSUInteger, SelectTarget)
 - (void)SetRenderTargetClearColor:(float)r g:(float)g b:(float)b;
 
 // MARK: Additional Code
+- (void)refreshModel;
+
 - (void)previousScene;
 
 - (void)SetModelParamForID:(Csm::csmChar*)ID toValue:(Csm::csmFloat32)value;

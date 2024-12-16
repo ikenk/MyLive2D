@@ -65,8 +65,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         textureManager = nil
         
-        guard let live2DManager = self.live2DManager else { return }
-        sceneIndexTemp = live2DManager.getSceneIndex()
+//        guard let live2DManager = self.live2DManager else { return }
+//        sceneIndexTemp = live2DManager.getSceneIndex()
         print("[MyLog]applicationDidEnterBackground")
         
     }
@@ -76,9 +76,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         textureManager = .init()
         My_AppDelegateBridge.shared().setToTextureManager(textureManager)
         
-        guard let live2DManager = self.live2DManager, let sceneIndexTemp = self.sceneIndexTemp else { return }
-        print("[MyLog]sceneIndexTemp: \(sceneIndexTemp)")
-        live2DManager.changeScene(sceneIndexTemp)
+//        guard let live2DManager = self.live2DManager, let sceneIndexTemp = self.sceneIndexTemp else { return }
+//        print("[MyLog]sceneIndexTemp: \(sceneIndexTemp)")
+//        live2DManager.changeScene(sceneIndexTemp)
         print("[MyLog]applicationWillEnterForeground")
     }
 
