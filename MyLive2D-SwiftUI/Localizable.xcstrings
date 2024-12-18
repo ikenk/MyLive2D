@@ -1,31 +1,52 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "%@" : {
-
-    },
     "1" : {
 
     },
-    "2" : {
+    "3" : {
 
     },
-    "Anime Autoplayed Switch" : {
+    "Animation" : {
 
     },
-    "Configuration Panel" : {
+    "Anime Autoplay" : {
+
+    },
+    "Change Model" : {
+
+    },
+    "Change Model Position And Size" : {
+
+    },
+    "Down" : {
+
+    },
+    "Left" : {
 
     },
     "Next Model" : {
 
     },
-    "Pick a Image" : {
+    "Pick An Image" : {
 
     },
     "Previous Model" : {
 
     },
+    "Right" : {
+
+    },
     "Scale" : {
+
+    },
+    "Select an image as background" : {
+
+    },
+    "Show AR View" : {
+
+    },
+    "Up" : {
 
     },
     "X Translation" : {

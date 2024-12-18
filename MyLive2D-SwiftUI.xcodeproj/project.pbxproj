@@ -13,6 +13,13 @@
 		44158CBE2CEB3F4800CE9D62 /* LConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B982CE99F4E00BB3C62 /* LConfigurationView.swift */; };
 		4416DF8A2D0AC0FF00C2E3B2 /* ConfigConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416DF892D0AC0F700C2E3B2 /* ConfigConstants.swift */; };
 		4416DF8C2D107EF000C2E3B2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4416DF8B2D107EF000C2E3B2 /* Localizable.xcstrings */; };
+		4416DF8E2D108ADC00C2E3B2 /* LInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416DF8D2D108AD600C2E3B2 /* LInfoButton.swift */; };
+		4416DF932D11B93100C2E3B2 /* LViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416DF922D11B92A00C2E3B2 /* LViewManager.swift */; };
+		4416E12B2D12C8730031F7E0 /* LChangeModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416E12A2D12C8680031F7E0 /* LChangeModelView.swift */; };
+		4416E12F2D12C90C0031F7E0 /* LAnimationControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416E12E2D12C90C0031F7E0 /* LAnimationControllerView.swift */; };
+		4416E1312D12C9A60031F7E0 /* LPickImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416E1302D12C9A60031F7E0 /* LPickImageView.swift */; };
+		4416E1332D12CB5B0031F7E0 /* LSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416E1322D12CB5B0031F7E0 /* LSliderView.swift */; };
+		4416E1352D12CC4F0031F7E0 /* LModelConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416E1342D12CC4F0031F7E0 /* LModelConfigurationParameter.swift */; };
 		441FC6F62D0439FB001B0515 /* LModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FC6F52D0439FB001B0515 /* LModelManager.swift */; };
 		444799E22CE9900300BB3C62 /* CubismEyeBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799B92CE9900200BB3C62 /* CubismEyeBlink.cpp */; };
 		444799E32CE9900300BB3C62 /* CubismMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BA2CE9900200BB3C62 /* CubismMotion.cpp */; };
@@ -111,6 +118,14 @@
 		44158CAF2CEB3DC400CE9D62 /* My_LAppSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = My_LAppSprite.mm; sourceTree = "<group>"; };
 		4416DF892D0AC0F700C2E3B2 /* ConfigConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigConstants.swift; sourceTree = "<group>"; };
 		4416DF8B2D107EF000C2E3B2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		4416DF8D2D108AD600C2E3B2 /* LInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LInfoButton.swift; sourceTree = "<group>"; };
+		4416DF912D11473900C2E3B2 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		4416DF922D11B92A00C2E3B2 /* LViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LViewManager.swift; sourceTree = "<group>"; };
+		4416E12A2D12C8680031F7E0 /* LChangeModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LChangeModelView.swift; sourceTree = "<group>"; };
+		4416E12E2D12C90C0031F7E0 /* LAnimationControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LAnimationControllerView.swift; sourceTree = "<group>"; };
+		4416E1302D12C9A60031F7E0 /* LPickImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LPickImageView.swift; sourceTree = "<group>"; };
+		4416E1322D12CB5B0031F7E0 /* LSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSliderView.swift; sourceTree = "<group>"; };
+		4416E1342D12CC4F0031F7E0 /* LModelConfigurationParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LModelConfigurationParameter.swift; sourceTree = "<group>"; };
 		441FC6F52D0439FB001B0515 /* LModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LModelManager.swift; sourceTree = "<group>"; };
 		444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCubismSdkFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		444798772CE98FD800BB3C62 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -433,10 +448,48 @@
 		4416DF882D0A8F8800C2E3B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				44479B982CE99F4E00BB3C62 /* LConfigurationView.swift */,
+				4416E1362D130F9B0031F7E0 /* LInfoButtonView */,
+				4416E1292D12C8590031F7E0 /* LConfigurationView */,
 				441FC6F92D043ACD001B0515 /* ARFaceTrackingView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4416DF902D11473100C2E3B2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4416DF912D11473900C2E3B2 /* Logger.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4416E1292D12C8590031F7E0 /* LConfigurationView */ = {
+			isa = PBXGroup;
+			children = (
+				4416E1372D13280F0031F7E0 /* Model */,
+				44479B982CE99F4E00BB3C62 /* LConfigurationView.swift */,
+				4416E12A2D12C8680031F7E0 /* LChangeModelView.swift */,
+				4416E12E2D12C90C0031F7E0 /* LAnimationControllerView.swift */,
+				4416E1302D12C9A60031F7E0 /* LPickImageView.swift */,
+				4416E1322D12CB5B0031F7E0 /* LSliderView.swift */,
+			);
+			path = LConfigurationView;
+			sourceTree = "<group>";
+		};
+		4416E1362D130F9B0031F7E0 /* LInfoButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				4416DF8D2D108AD600C2E3B2 /* LInfoButton.swift */,
+			);
+			path = LInfoButtonView;
+			sourceTree = "<group>";
+		};
+		4416E1372D13280F0031F7E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4416E1342D12CC4F0031F7E0 /* LModelConfigurationParameter.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		441FC6F72D043A0D001B0515 /* Constants */ = {
@@ -452,6 +505,7 @@
 		441FC6F82D043AAF001B0515 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				4416DF922D11B92A00C2E3B2 /* LViewManager.swift */,
 				441FC6F52D0439FB001B0515 /* LModelManager.swift */,
 				44CB6FD82CF728A50041EE7A /* LResourceManager.swift */,
 			);
@@ -1338,6 +1392,7 @@
 				44CB6FDC2CF72B4E0041EE7A /* NotSure */,
 				4416DF882D0A8F8800C2E3B2 /* View */,
 				441FC6F82D043AAF001B0515 /* Manager */,
+				4416DF902D11473100C2E3B2 /* Utilities */,
 				441FC6F72D043A0D001B0515 /* Constants */,
 				44158CC32CEB7EB900CE9D62 /* Bridge */,
 				44479BAF2CEA480800BB3C62 /* HeaderFiles */,
@@ -1516,6 +1571,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 444793822CE98A6600BB3C62;
 			productRefGroup = 4447938C2CE98A6600BB3C62 /* Products */;
@@ -1603,16 +1659,23 @@
 				44E5181B2CF0AE6D008A9BBA /* MetalUIView.m in Sources */,
 				44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */,
 				44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */,
+				4416DF8E2D108ADC00C2E3B2 /* LInfoButton.swift in Sources */,
 				44CB6F9A2CF573FA0041EE7A /* CustomError.swift in Sources */,
 				44158CBE2CEB3F4800CE9D62 /* LConfigurationView.swift in Sources */,
 				44D6C1A42D019AFA00B3C145 /* ModelConstants.swift in Sources */,
 				4416DF8A2D0AC0FF00C2E3B2 /* ConfigConstants.swift in Sources */,
+				4416E12B2D12C8730031F7E0 /* LChangeModelView.swift in Sources */,
 				44E518452CF23661008A9BBA /* My_AppDelegateBridge.mm in Sources */,
 				441FC6F62D0439FB001B0515 /* LModelManager.swift in Sources */,
+				4416DF932D11B93100C2E3B2 /* LViewManager.swift in Sources */,
 				44CB6FD42CF7119F0041EE7A /* LDocumentPicker.swift in Sources */,
+				4416E12F2D12C90C0031F7E0 /* LAnimationControllerView.swift in Sources */,
+				4416E1312D12C9A60031F7E0 /* LPickImageView.swift in Sources */,
 				44E518482CF2D531008A9BBA /* My_ViewControllerBridge.mm in Sources */,
 				44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */,
+				4416E1332D12CB5B0031F7E0 /* LSliderView.swift in Sources */,
 				44D0B4CE2CEDF7E400BFE9D0 /* My_LAppModel.mm in Sources */,
+				4416E1352D12CC4F0031F7E0 /* LModelConfigurationParameter.swift in Sources */,
 				44CB6F822CF467570041EE7A /* My_Live2DCubism.mm in Sources */,
 				44CB6FD62CF717B60041EE7A /* LocalDocHandler.swift in Sources */,
 				44D2B5182CFAB51100601D51 /* My_PathSearch.m in Sources */,

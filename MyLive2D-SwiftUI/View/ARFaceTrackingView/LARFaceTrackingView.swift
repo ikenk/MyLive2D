@@ -11,6 +11,7 @@ import SwiftUI
 
 struct LARFaceTrackingView: UIViewRepresentable {
     @EnvironmentObject var modelManager: LModelManager
+    @EnvironmentObject var viewManager: LViewManager
     
 //    Archived Code
 //    @StateObject var lARFaceTrackingViewModel: LARFaceTrackingViewModel = .init()
@@ -23,6 +24,7 @@ struct LARFaceTrackingView: UIViewRepresentable {
 //            .showAnchorOrigins, // 显示锚点位置
 //            .showAnchorGeometry // 显示锚点几何体
         ]
+        
         return view
     }()
     
@@ -43,7 +45,10 @@ struct LARFaceTrackingView: UIViewRepresentable {
         return arView
     }
 
-    func updateUIView(_ uiView: ARView, context: Context) {}
+    func updateUIView(_ uiView: ARView, context: Context) {
+//        uiView.environment.background = .color(.black.withAlphaComponent(0.5))
+//        uiView.isHidden = !viewManager.isShowLARFaceTrackingView
+    }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self, modelManager: modelManager)
@@ -130,9 +135,12 @@ extension LARFaceTrackingView {
 //            print("[MyLog]paramAngleZ: \(rollDegrees)")
             
             // Head Movement
-            //        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleX, toValue: pitchDegrees)
-            //        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleY, toValue: yawDegrees)
-            //        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleZ, toValue: rollDegrees)
+            /// - ParamAngleX: 头部左右转动
+            /// - ParamAngleY: 头部上下点头 ( --pitchDegrees )
+            /// - ParamAngleZ: 头部倾斜 ( --rollDegrees )
+            My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleX, toValue: yawDegrees)
+            My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleY, toValue: -(pitchDegrees - 26))
+            My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleZ, toValue: -rollDegrees)
             
             // Eye Open
             My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeLOpen, toValue: 1 - eyeBlinkLeft * 2)
@@ -148,7 +156,6 @@ extension LARFaceTrackingView {
             
             // Cheek Puff
             My_LAppLive2DManager.shared().setModelParam(forID: ParamCheek, toValue: cheekPuff)
-            
             
             //        print("[MyLog]faceAnchor.geometry.vertices: \(faceAnchor.geometry.vertices)")
             //        print("[MyLog]faceAnchor.geometry.triangleCount: \(faceAnchor.geometry.triangleCount)")

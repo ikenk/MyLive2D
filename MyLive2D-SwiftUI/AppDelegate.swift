@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        textureManager = nil
+//        textureManager = nil
         
 //        guard let live2DManager = self.live2DManager else { return }
 //        sceneIndexTemp = live2DManager.getSceneIndex()
@@ -73,8 +73,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        textureManager = .init()
-        My_AppDelegateBridge.shared().setToTextureManager(textureManager)
+//        textureManager = .init()
+//        My_AppDelegateBridge.shared().setToTextureManager(textureManager)
         
 //        guard let live2DManager = self.live2DManager, let sceneIndexTemp = self.sceneIndexTemp else { return }
 //        print("[MyLog]sceneIndexTemp: \(sceneIndexTemp)")

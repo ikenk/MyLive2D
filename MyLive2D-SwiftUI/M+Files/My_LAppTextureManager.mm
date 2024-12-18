@@ -49,7 +49,6 @@
 - (void)dealloc
 {
     NSLog(@"[MyLog]My_LAppTextureInfo dealloc");
-    // 释放 Metal 纹理
     if (_textureId) {
         [_textureId release];
         _textureId = nil;
