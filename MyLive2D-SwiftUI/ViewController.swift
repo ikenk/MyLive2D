@@ -196,10 +196,10 @@ extension ViewController {
         } else if UIDevice.current.userInterfaceIdiom == .phone {
             if view.frame.width > view.frame.height{
                 NSLayoutConstraint.activate([
-                    hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                    hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 40),
                     hostingLConfigurationViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                     hostingLConfigurationViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1),
-                    hostingLConfigurationViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -5)
+                    hostingLConfigurationViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -25)
                 ])
             } else {
                 NSLayoutConstraint.activate([
@@ -263,7 +263,7 @@ extension ViewController {
                     hostingLARFaceTrackingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
                     hostingLARFaceTrackingViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                     hostingLARFaceTrackingViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1),
-                    hostingLARFaceTrackingViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -5)
+                    hostingLARFaceTrackingViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -25)
                 ])
             } else {
                 NSLayoutConstraint.activate([
