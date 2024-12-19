@@ -14,7 +14,7 @@ struct LAnimationControllerView: View {
     var body: some View {
         Section {
             Toggle(isOn: $modelManager.isGlobalAutoplayed) {
-                Text("Anime Autoplay")
+                Text("Auto-Animate Toggle")
                     .font(.title2)
                     .padding(.leading,10)
             }
@@ -29,7 +29,7 @@ struct LAnimationControllerView: View {
             }
             
             Toggle(isOn: $viewManager.isShowLARFaceTrackingView) {
-                Text("Show AR View")
+                Text("FaceTracking View Toggle")
                     .font(.title2)
                     .padding(.leading,10)
             }

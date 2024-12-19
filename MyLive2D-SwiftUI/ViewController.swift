@@ -46,8 +46,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.layer.borderColor = UIColor.yellow.cgColor
-        view.layer.borderWidth = 2
+//        view.layer.borderColor = UIColor.yellow.cgColor
+//        view.layer.borderWidth = 2
         
         // Ensure ViewController Can be Touched
         view.isUserInteractionEnabled = true
@@ -148,10 +148,10 @@ extension ViewController {
         // Auto Layout
         hostingLInfoButton.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            hostingLInfoButton.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            hostingLInfoButton.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            hostingLInfoButton.view.widthAnchor.constraint(equalToConstant: 30),
-            hostingLInfoButton.view.heightAnchor.constraint(equalToConstant: 30),
+            hostingLInfoButton.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SETTING_BUTTON_OFFSET.y),
+            hostingLInfoButton.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: SETTING_BUTTON_OFFSET.x),
+            hostingLInfoButton.view.widthAnchor.constraint(equalToConstant: SETTING_BUTTON_SIZE.width),
+            hostingLInfoButton.view.heightAnchor.constraint(equalToConstant: SETTING_BUTTON_SIZE.height),
         ])
         
         // Frame Layout
@@ -195,6 +195,7 @@ extension ViewController {
             ])
         } else if UIDevice.current.userInterfaceIdiom == .phone {
             if view.frame.width > view.frame.height{
+                // Landspace
                 NSLayoutConstraint.activate([
                     hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 40),
                     hostingLConfigurationViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -202,11 +203,12 @@ extension ViewController {
                     hostingLConfigurationViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -25)
                 ])
             } else {
+                // Portrait
                 NSLayoutConstraint.activate([
-                    hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                    hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height + 10),
                     hostingLConfigurationViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                    hostingLConfigurationViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: -5),
-                    hostingLConfigurationViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 1)
+                    hostingLConfigurationViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1, constant: 0),
+                    hostingLConfigurationViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -((SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height) / 2 + 10))
                 ])
             }
         }
@@ -225,7 +227,18 @@ extension ViewController {
         
         viewManager.$isShowLConfigurationView
             .sink { [weak hostingLConfigurationViewController] isShow in
-                hostingLConfigurationViewController?.view.isHidden = !isShow
+                if isShow {
+                    hostingLConfigurationViewController?.view.isHidden = false
+                    UIView.animate(withDuration: 0.3) {
+                        hostingLConfigurationViewController?.view.alpha = 1.0
+                    }
+                } else {
+                    UIView.animate(withDuration: 0.3) {
+                        hostingLConfigurationViewController?.view.alpha = 0.0
+                    } completion: { _ in
+                        hostingLConfigurationViewController?.view.isHidden = true
+                    }
+                }
             }
             .store(in: &cancellables)
         
@@ -259,6 +272,7 @@ extension ViewController {
             ])
         } else if UIDevice.current.userInterfaceIdiom == .phone {
             if view.frame.width > view.frame.height{
+                // Landspace
                 NSLayoutConstraint.activate([
                     hostingLARFaceTrackingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
                     hostingLARFaceTrackingViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -266,11 +280,12 @@ extension ViewController {
                     hostingLARFaceTrackingViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -25)
                 ])
             } else {
+                // Portrait
                 NSLayoutConstraint.activate([
                     hostingLARFaceTrackingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
                     hostingLARFaceTrackingViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-                    hostingLARFaceTrackingViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: -5),
-                    hostingLARFaceTrackingViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 1)
+                    hostingLARFaceTrackingViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1, constant: 0),
+                    hostingLARFaceTrackingViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -((SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height) / 2 + 10))
                 ])
             }
         }
@@ -287,7 +302,18 @@ extension ViewController {
         
         viewManager.$isShowLARFaceTrackingView
             .sink { [weak hostingLARFaceTrackingViewController] isShow in
-                hostingLARFaceTrackingViewController?.view.isHidden = !isShow
+                if isShow {
+                    hostingLARFaceTrackingViewController?.view.isHidden = false
+                    UIView.animate(withDuration: 0.3) {
+                        hostingLARFaceTrackingViewController?.view.alpha = 1.0
+                    }
+                } else {
+                    UIView.animate(withDuration: 0.3) {
+                        hostingLARFaceTrackingViewController?.view.alpha = 0.0
+                    } completion: { _ in
+                        hostingLARFaceTrackingViewController?.view.isHidden = true
+                    }
+                }
             }
             .store(in: &cancellables)
         

@@ -17,7 +17,7 @@ struct LPickImageView: View {
         Section {
             HStack(spacing: 5) {
                 PhotosPicker(selection: $imageSelection, matching: createPhotosFilter(), preferredItemEncoding: .compatible) {
-                    Text("Pick An Image")
+                    Text("Choose Image")
                         .font(.title2)
                         .tint(.primary)
                         .frame(maxWidth: .infinity)
@@ -67,10 +67,8 @@ struct LPickImageView: View {
                 }
             }
         } header: {
-            Text("Select an image as background")
+            Text("Choose Background Image")
         }
-
-        
     }
 }
 

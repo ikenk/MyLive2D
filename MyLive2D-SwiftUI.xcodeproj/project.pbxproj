@@ -1572,6 +1572,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				ja,
 			);
 			mainGroup = 444793822CE98A6600BB3C62;
 			productRefGroup = 4447938C2CE98A6600BB3C62 /* Products */;
