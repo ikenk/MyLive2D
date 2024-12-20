@@ -11,47 +11,40 @@ import SwiftUI
 
 struct LARFaceTrackingView: UIViewRepresentable {
     @EnvironmentObject var modelManager: LModelManager
-    @EnvironmentObject var viewManager: LViewManager
-    
-//    Archived Code
-//    @StateObject var lARFaceTrackingViewModel: LARFaceTrackingViewModel = .init()
-    
+
     let arView: ARView = {
         let view = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
-        view.debugOptions = [
-            .showStatistics,
+//        view.debugOptions = [
+//            .showStatistics,
 //            .showFeaturePoints,
 //            .showAnchorOrigins, // 显示锚点位置
 //            .showAnchorGeometry // 显示锚点几何体
-        ]
-        
+//        ]
+
         return view
     }()
-    
+
     private func setupFaceTrackingSession(context: Context) {
-        guard ARFaceTrackingConfiguration.isSupported else { fatalError() }
-        
+        guard ARFaceTrackingConfiguration.isSupported else { print("ARFaceTrackingConfiguration is NOT SUPPORTED!!!"); fatalError() }
+
         let config = ARFaceTrackingConfiguration()
         config.maximumNumberOfTrackedFaces = 1
         config.isLightEstimationEnabled = true
-        
-        arView.session.delegate = context.coordinator
+
         arView.session.run(config, options: [.resetTracking, .removeExistingAnchors])
+        arView.session.delegate = context.coordinator
     }
-    
+
     func makeUIView(context: Context) -> ARView {
         setupFaceTrackingSession(context: context)
         context.coordinator.setupFaceAnchor(in: arView)
         return arView
     }
 
-    func updateUIView(_ uiView: ARView, context: Context) {
-//        uiView.environment.background = .color(.black.withAlphaComponent(0.5))
-//        uiView.isHidden = !viewManager.isShowLARFaceTrackingView
-    }
-    
+    func updateUIView(_ uiView: ARView, context: Context) {}
+
     func makeCoordinator() -> Coordinator {
-        Coordinator(self, modelManager: modelManager)
+        Coordinator(self)
     }
 }
 
@@ -61,36 +54,51 @@ extension LARFaceTrackingView {
     class Coordinator: NSObject, ARSessionDelegate {
         var parent: LARFaceTrackingView
         var modelManager: LModelManager
-        
+
         var faceAnchorEntity: AnchorEntity?
+//        CreateFaceMask
         var modelEntity: ModelEntity?
-        
+
         private var updateCounter = 0
         private let updateInterval = 5
-        
-        init(_ parent: LARFaceTrackingView, modelManager: LModelManager) {
+
+        init(_ parent: LARFaceTrackingView) {
             self.parent = parent
-            self.modelManager = modelManager
+            self.modelManager = parent.modelManager
             super.init()
         }
         
+        func setupFaceAnchor(in arView: ARView) {
+            // 移除现有的 anchor
+            if let existingAnchorEntity = faceAnchorEntity {
+                print("[MyLog]移除现有的 anchor")
+                arView.scene.removeAnchor(existingAnchorEntity)
+            }
+
+            faceAnchorEntity = AnchorEntity(.face)
+
+            guard let faceAnchorEntity = faceAnchorEntity else { return }
+
+            arView.scene.addAnchor(faceAnchorEntity)
+        }
+
         func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
             guard let faceAnchor = anchors.first as? ARFaceAnchor else { return }
-            
+
 //            print("[MyLog]modelManager.isGlobalAutoplayed: \(modelManager.isGlobalAutoplayed)")
-            
+
             updateCounter += 1
             if updateCounter % updateInterval == 0 {
                 updateCounter = 0
                 return
             }
-            
-            if modelEntity != nil {
-                modelEntity?.removeFromParent()
+
+//            CreateFaceMask
+            if let modelEntity {
+                modelEntity.removeFromParent()
             }
-            
 //            createFaceMask(from: faceAnchor)
-            
+
             guard
                 !modelManager.isGlobalAutoplayed,
                 // Eye Open
@@ -106,34 +114,34 @@ extension LARFaceTrackingView {
             else {
                 return
             }
-            
+
             // Matrix for translating Face Coordinates to World Coordinates
             let transformMatrix = faceAnchor.transform
-            
+
             // Calculate pitch, yaw and roll Radians
             let pitch = atan2(transformMatrix.columns.1.z, transformMatrix.columns.2.z)
             let yaw = asin(-transformMatrix.columns.0.z)
             let roll = atan2(transformMatrix.columns.0.y, transformMatrix.columns.0.x)
-            
+
             //        let newFaceMatrix = SCNMatrix4(faceAnchor.transform)
             //        let faceNode = SCNNode()
             //        faceNode.transform = newFaceMatrix
-            
+
             // Convert radians to degrees
             // FIXME: pitchDegrees 角度很奇怪,总是有+26度的余量(低头为+,抬头为-)
             let pitchDegrees = pitch * 180 / .pi
             let yawDegrees = yaw * 180 / .pi
             let rollDegrees = roll * 180 / .pi
-            
+
             // FIXME: pitchDegrees 角度很奇怪,总是有+26度的余量(低头为+,抬头为-)
             //        let pitchDegrees = faceNode.eulerAngles.x * 180 / .pi
             //        let yawDegrees = faceNode.eulerAngles.y * 180 / .pi
             //        let rollDegrees = faceNode.eulerAngles.z * 180 / .pi
-            
-//            print("[MyLog]paramAngleX: \(pitchDegrees)")
-//            print("[MyLog]paramAngleY: \(yawDegrees)")
-//            print("[MyLog]paramAngleZ: \(rollDegrees)")
-            
+
+            print("[MyLog]paramAngleX: \(pitchDegrees)")
+            print("[MyLog]paramAngleY: \(yawDegrees)")
+            print("[MyLog]paramAngleZ: \(rollDegrees)")
+
             // Head Movement
             /// - ParamAngleX: 头部左右转动
             /// - ParamAngleY: 头部上下点头 ( --pitchDegrees )
@@ -141,41 +149,39 @@ extension LARFaceTrackingView {
             My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleX, toValue: yawDegrees)
             My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleY, toValue: -(pitchDegrees - 26))
             My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleZ, toValue: -rollDegrees)
-            
+
             // Eye Open
             My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeLOpen, toValue: 1 - eyeBlinkLeft * 2)
             My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeROpen, toValue: 1 - eyeBlinkRight * 2)
-            
+
             // Eyeball Movement
             My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeBallX, toValue: faceAnchor.lookAtPoint.x * 2)
             My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeBallY, toValue: faceAnchor.lookAtPoint.y * 2)
-            
+
             // Mouth Open
             My_LAppLive2DManager.shared().setModelParam(forID: ParamMouthOpenY, toValue: jawOpen * 1.5)
             My_LAppLive2DManager.shared().setModelParam(forID: ParamMouthForm, toValue: 1 - mouthFunnel * 2)
-            
+
             // Cheek Puff
             My_LAppLive2DManager.shared().setModelParam(forID: ParamCheek, toValue: cheekPuff)
-            
-            //        print("[MyLog]faceAnchor.geometry.vertices: \(faceAnchor.geometry.vertices)")
-            //        print("[MyLog]faceAnchor.geometry.triangleCount: \(faceAnchor.geometry.triangleCount)")
-            //        print("[MyLog]faceAnchor.geometry.triangleIndices: \(faceAnchor.geometry.triangleIndices)")
-            //        print("[MyLog]faceAnchor.transform: \(faceAnchor.transform)")
-            //        print("[MyLog]faceAnchor.blendShapes[.eyeBlinkRight]: \(faceAnchor.blendShapes[.eyeBlinkRight])")
+
+//            print("[MyLog]faceAnchor.geometry.vertices: \(faceAnchor.geometry.vertices)")
+//            print("[MyLog]faceAnchor.geometry.triangleCount: \(faceAnchor.geometry.triangleCount)")
+//            print("[MyLog]faceAnchor.geometry.triangleIndices: \(faceAnchor.geometry.triangleIndices)")
+//            print("[MyLog]faceAnchor.transform: \(faceAnchor.transform)")
+//            print("[MyLog]faceAnchor.blendShapes[.eyeBlinkLeft]: \(faceAnchor.blendShapes[.eyeBlinkLeft] ?? 0)")
+//            print("[MyLog]faceAnchor.blendShapes[.eyeBlinkRight]: \(faceAnchor.blendShapes[.eyeBlinkRight] ?? 0)")
         }
         
-        func setupFaceAnchor(in arView: ARView) {
-            // 移除现有的 anchor
-            if let existingAnchorEntity = faceAnchorEntity {
-                print("[MyLog]移除现有的 anchor")
-                arView.scene.removeAnchor(existingAnchorEntity)
+        func session(_ session: ARSession, didFailWithError error: any Error) {
+            if error is ARError {
+                print("[MyLog]LARFaceTrackingView Session ")
+                let config = ARFaceTrackingConfiguration()
+                config.maximumNumberOfTrackedFaces = 1
+                config.isLightEstimationEnabled = true
+
+                session.run(config, options: [.resetTracking, .removeExistingAnchors])
             }
-            
-            faceAnchorEntity = AnchorEntity(.face)
-            
-            guard let faceAnchorEntity = faceAnchorEntity else { return }
-            
-            arView.scene.addAnchor(faceAnchorEntity)
         }
     }
 }
@@ -189,14 +195,14 @@ extension LARFaceTrackingView {
         material.color = .init(tint: .gray.withAlphaComponent(0.5))
         material.metallic = 0.0
         material.roughness = 1.0
-        
+
         // 创建网格描述符
         let meshDescriptor: MeshDescriptor = createWireMeshDescriptor(from: faceAnchor)
         do {
             // 创建网格模型
             let mesh: MeshResource = try .generate(from: [meshDescriptor])
             context.coordinator.modelEntity = ModelEntity(mesh: mesh, materials: [material])
-            
+
             guard let faceAnchorEntity = context.coordinator.faceAnchorEntity, let modelEntity = context.coordinator.modelEntity else { return }
             modelEntity.position = .init(x: 0, y: 0, z: 0.01)
 //            modelEntity.setPosition(.init(x: 0, y: 0, z: 0.1), relativeTo: faceAnchorEntity)
@@ -210,7 +216,7 @@ extension LARFaceTrackingView {
         let vertices: [simd_float3] = anchor.geometry.vertices
         var triangleIndices: [UInt32] = []
         let texCoords: [simd_float2] = anchor.geometry.textureCoordinates
-        
+
         // 采样顶点，只使用部分顶点
 //        let sampleRate = 3 // 每3个顶点取1个
 //        let sampleVertices: [simd_float3] = stride(from: 0, to: vertices.count, by: sampleRate).map { index in
@@ -224,11 +230,11 @@ extension LARFaceTrackingView {
 //                continue
 //            }
 //        }
-        
+
         for index in anchor.geometry.triangleIndices {
             triangleIndices.append(UInt32(index))
         }
-        
+
         var descriptor = MeshDescriptor(name: "Face_Mesh")
         // 设置顶点位置
         descriptor.positions = MeshBuffers.Positions(vertices)
@@ -236,7 +242,21 @@ extension LARFaceTrackingView {
         descriptor.primitives = .triangles(triangleIndices)
         // 设置纹理坐标
         descriptor.textureCoordinates = MeshBuffers.TextureCoordinates(texCoords)
-        
+
         return descriptor
     }
 }
+
+// MARK: LARFaceTrackingView with LARFaceTrackingViewModel
+// struct LARFaceTrackingView: UIViewRepresentable {
+//    @EnvironmentObject var modelManager: LModelManager
+//
+//    @StateObject var lARFaceTrackingViewModel: LARFaceTrackingViewModel = .init()
+//
+//    func makeUIView(context: Context) -> ARView {
+//        lARFaceTrackingViewModel.setup(modelManager: modelManager)
+//        return lARFaceTrackingViewModel.arView
+//    }
+//
+//    func updateUIView(_ uiView: ARView, context: Context) {}
+// }

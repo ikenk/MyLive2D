@@ -15,7 +15,7 @@ class LARFaceTrackingViewModel: NSObject, ObservableObject {
         
         // 添加所有可用的调试选项来查看
         view.debugOptions = [
-            .showStatistics,
+            //            .showStatistics,
 //            .showFeaturePoints,
 //            .showAnchorOrigins, // 显示锚点位置
 //            .showAnchorGeometry // 显示锚点几何体
@@ -24,6 +24,8 @@ class LARFaceTrackingViewModel: NSObject, ObservableObject {
         return view
     }()
     
+    private var modelManager: LModelManager?
+    
     private var faceAnchorEntity: AnchorEntity?
     private var modelEntity: ModelEntity?
     
@@ -31,8 +33,8 @@ class LARFaceTrackingViewModel: NSObject, ObservableObject {
     private var updateCounter = 0
     private let updateInterval = 5 // 每5帧更新一次
     
-    let features = ["nose", "leftEye", "rightEye", "mouth"]
-    let featureIndices = [[9], [1064], [42], [24, 25]]
+//    let features = ["nose", "leftEye", "rightEye", "mouth"]
+//    let featureIndices = [[9], [1064], [42], [24, 25]]
     
     override init() {
         super.init()
@@ -67,6 +69,10 @@ class LARFaceTrackingViewModel: NSObject, ObservableObject {
         
         arView.scene.addAnchor(faceAnchorEntity)
     }
+    
+    func setup(modelManager: LModelManager) {
+        self.modelManager = modelManager
+    }
 }
 
 // MARK: ARSessionDelegate
@@ -87,15 +93,18 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
         }
         
         guard
+            let modelManager = self.modelManager,
+            !modelManager.isGlobalAutoplayed,
             // Eye Open
             let eyeBlinkLeft = faceAnchor.blendShapes[.eyeBlinkLeft] as? Float,
             let eyeBlinkRight = faceAnchor.blendShapes[.eyeBlinkRight] as? Float,
             // Eyeball Movement
-//            let eyeballMovementLeft = faceAnchor.blendShapes[] as? Float,
-//            let eyeballMovementRight = faceAnchor.blendShapes[] as? Float,
+            //            let eyeballMovementLeft = faceAnchor.blendShapes[] as? Float,
+            //            let eyeballMovementRight = faceAnchor.blendShapes[] as? Float,
             // Mouth Open
             let mouthFunnel = faceAnchor.blendShapes[.mouthFunnel] as? Float,
-            let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float
+            let jawOpen = faceAnchor.blendShapes[.jawOpen] as? Float,
+            let cheekPuff = faceAnchor.blendShapes[.cheekPuff] as? Float
         else {
             return
         }
@@ -108,9 +117,9 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
         let yaw = asin(-transformMatrix.columns.0.z)
         let roll = atan2(transformMatrix.columns.0.y, transformMatrix.columns.0.x)
         
-//        let newFaceMatrix = SCNMatrix4(faceAnchor.transform)
-//        let faceNode = SCNNode()
-//        faceNode.transform = newFaceMatrix
+        //        let newFaceMatrix = SCNMatrix4(faceAnchor.transform)
+        //        let faceNode = SCNNode()
+        //        faceNode.transform = newFaceMatrix
         
         // Convert radians to degrees
         // FIXME: pitchDegrees 角度很奇怪,总是有+26度的余量(低头为+,抬头为-)
@@ -119,18 +128,21 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
         let rollDegrees = roll * 180 / .pi
         
         // FIXME: pitchDegrees 角度很奇怪,总是有+26度的余量(低头为+,抬头为-)
-//        let pitchDegrees = faceNode.eulerAngles.x * 180 / .pi
-//        let yawDegrees = faceNode.eulerAngles.y * 180 / .pi
-//        let rollDegrees = faceNode.eulerAngles.z * 180 / .pi
+        //        let pitchDegrees = faceNode.eulerAngles.x * 180 / .pi
+        //        let yawDegrees = faceNode.eulerAngles.y * 180 / .pi
+        //        let rollDegrees = faceNode.eulerAngles.z * 180 / .pi
         
         print("[MyLog]paramAngleX: \(pitchDegrees)")
         print("[MyLog]paramAngleY: \(yawDegrees)")
         print("[MyLog]paramAngleZ: \(rollDegrees)")
         
         // Head Movement
-//        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleX, toValue: pitchDegrees)
-//        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleY, toValue: yawDegrees)
-//        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleZ, toValue: rollDegrees)
+        /// - ParamAngleX: 头部左右转动
+        /// - ParamAngleY: 头部上下点头 ( --pitchDegrees )
+        /// - ParamAngleZ: 头部倾斜 ( --rollDegrees )
+        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleX, toValue: yawDegrees)
+        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleY, toValue: -(pitchDegrees - 26))
+        My_LAppLive2DManager.shared().setModelParam(forID: ParamAngleZ, toValue: -rollDegrees)
         
         // Eye Open
         My_LAppLive2DManager.shared().setModelParam(forID: ParamEyeLOpen, toValue: 1 - eyeBlinkLeft * 2)
@@ -143,6 +155,9 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
         // Mouth Open
         My_LAppLive2DManager.shared().setModelParam(forID: ParamMouthOpenY, toValue: jawOpen * 1.5)
         My_LAppLive2DManager.shared().setModelParam(forID: ParamMouthForm, toValue: 1 - mouthFunnel * 2)
+        
+        // Cheek Puff
+        My_LAppLive2DManager.shared().setModelParam(forID: ParamCheek, toValue: cheekPuff)
         
 //        createFaceMask(from: faceAnchor)
         

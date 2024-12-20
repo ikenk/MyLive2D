@@ -5,11 +5,11 @@
 //  Created by HT Zhang  on 2024/11/22.
 //
 
+import Combine
 import Metal
 import QuartzCore
 import SwiftUI
 import UIKit
-import Combine
 
 class ViewController: UIViewController {
     private var commandQueue: MTLCommandQueue?
@@ -24,6 +24,12 @@ class ViewController: UIViewController {
     let viewManager: LViewManager = .init()
     
     var cancellables = Set<AnyCancellable>()
+    
+    var lConfigurationViewConstraints: [NSLayoutConstraint] = []
+    var lARFaceTrackingViewConstraints: [NSLayoutConstraint] = []
+    
+    var lConfigurationView: UIView = .init()
+    var lARFaceTrackingView: UIView = .init()
     
     // MARK: ViewController Lifecycle Function
 
@@ -52,9 +58,9 @@ class ViewController: UIViewController {
         // Ensure ViewController Can be Touched
         view.isUserInteractionEnabled = true
         
-        createLConfigurationViewController()
+        lConfigurationView = createLConfigurationViewController()
         
-        createLARFaceTrackingViewController()
+        lARFaceTrackingView = createLARFaceTrackingViewController()
         
         createLInfoButton()
         
@@ -77,6 +83,49 @@ class ViewController: UIViewController {
         let safeAreaInsets = view.safeAreaInsets
         print("[MyLog]SafeArea Top: \(safeAreaInsets.top) and Bottom: \(safeAreaInsets.bottom)")
         print("[MyLog]SafeArea Top: \(safeAreaInsets.top) and Bottom: \(safeAreaInsets.bottom)")
+    }
+    
+    // iPhone ConfigView & ARFaceView Layout 
+    override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
+        print("[MyLog]ViewController viewWillTransition")
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            NSLayoutConstraint.deactivate(lConfigurationViewConstraints)
+            NSLayoutConstraint.deactivate(lARFaceTrackingViewConstraints)
+            if size.width > size.height {
+                // Landspace
+                lConfigurationViewConstraints = [
+                    lConfigurationView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
+                    lConfigurationView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                    lConfigurationView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: -5),
+                    lConfigurationView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 1, constant: -(SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height + 10))
+                ]
+                lARFaceTrackingViewConstraints = [
+                    lARFaceTrackingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                    lARFaceTrackingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                    lARFaceTrackingView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: -5),
+                    lARFaceTrackingView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 1, constant: -(SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height + 10))
+                ]
+            } else {
+                // Portrait
+                lConfigurationViewConstraints = [
+                    lConfigurationView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height + 10),
+                    lConfigurationView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                    lConfigurationView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1, constant: 0),
+                    lConfigurationView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -((SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height) / 2 + 10))
+                ]
+                
+                lARFaceTrackingViewConstraints = [
+                    lARFaceTrackingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+                    lARFaceTrackingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                    lARFaceTrackingView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1, constant: 0),
+                    lARFaceTrackingView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -((SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height) / 2 + 10))
+                ]
+            }
+            NSLayoutConstraint.activate(lConfigurationViewConstraints)
+            NSLayoutConstraint.activate(lARFaceTrackingViewConstraints)
+        }
     }
 }
 
@@ -151,7 +200,7 @@ extension ViewController {
             hostingLInfoButton.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SETTING_BUTTON_OFFSET.y),
             hostingLInfoButton.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: SETTING_BUTTON_OFFSET.x),
             hostingLInfoButton.view.widthAnchor.constraint(equalToConstant: SETTING_BUTTON_SIZE.width),
-            hostingLInfoButton.view.heightAnchor.constraint(equalToConstant: SETTING_BUTTON_SIZE.height),
+            hostingLInfoButton.view.heightAnchor.constraint(equalToConstant: SETTING_BUTTON_SIZE.height)
         ])
         
         // Frame Layout
@@ -168,7 +217,7 @@ extension ViewController {
     
     // MARK: Create ConfigurationView
 
-    func createLConfigurationViewController() {
+    func createLConfigurationViewController() -> UIView {
         // 创建 SwiftUI 视图
         let lConfigurationView = LConfigurationView().environmentObject(modelManager).environmentObject(viewManager)
                
@@ -186,32 +235,34 @@ extension ViewController {
 //            hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
 //            hostingLConfigurationViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
 //        ])
-        if UIDevice.current.userInterfaceIdiom == .pad{
-            NSLayoutConstraint.activate([
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            lConfigurationViewConstraints = [
                 hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                 hostingLConfigurationViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                 hostingLConfigurationViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -5),
-                hostingLConfigurationViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -5),
-            ])
+                hostingLConfigurationViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -5)
+            ]
         } else if UIDevice.current.userInterfaceIdiom == .phone {
-            if view.frame.width > view.frame.height{
+            if UIScreen.main.bounds.width > UIScreen.main.bounds.height {
                 // Landspace
-                NSLayoutConstraint.activate([
-                    hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 40),
+                lConfigurationViewConstraints = [
+                    hostingLConfigurationViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
                     hostingLConfigurationViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                    hostingLConfigurationViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1),
-                    hostingLConfigurationViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -25)
-                ])
+                    hostingLConfigurationViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: -5),
+                    hostingLConfigurationViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 1, constant: -(SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height + 10))
+                ]
             } else {
                 // Portrait
-                NSLayoutConstraint.activate([
-                    hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height + 10),
+                lConfigurationViewConstraints = [
+                    hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height + 10),
                     hostingLConfigurationViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                     hostingLConfigurationViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1, constant: 0),
                     hostingLConfigurationViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -((SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height) / 2 + 10))
-                ])
+                ]
             }
         }
+        
+        NSLayoutConstraint.activate(lConfigurationViewConstraints)
         
         // Frame Layout
 //        hostingLContentViewController.view.frame = CGRect(
@@ -244,11 +295,13 @@ extension ViewController {
         
         // 完成子视图控制器添加
         hostingLConfigurationViewController.didMove(toParent: self)
+        
+        return hostingLConfigurationViewController.view
     }
     
     // MARK: Create ARFaceTrackingView
 
-    func createLARFaceTrackingViewController() {
+    func createLARFaceTrackingViewController() -> UIView {
         let lARFaceTrackingView = LARFaceTrackingView().environmentObject(modelManager)
                
         let hostingLARFaceTrackingViewController = UIHostingController(rootView: lARFaceTrackingView)
@@ -264,31 +317,34 @@ extension ViewController {
 //            hostingLARFaceTrackingViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
 //        ])
         if UIDevice.current.userInterfaceIdiom == .pad {
-            NSLayoutConstraint.activate([
+            lARFaceTrackingViewConstraints = [
                 hostingLARFaceTrackingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
                 hostingLARFaceTrackingViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
                 hostingLARFaceTrackingViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -5),
                 hostingLARFaceTrackingViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -5)
-            ])
+            ]
         } else if UIDevice.current.userInterfaceIdiom == .phone {
-            if view.frame.width > view.frame.height{
+            if UIScreen.main.bounds.width > UIScreen.main.bounds.height {
                 // Landspace
-                NSLayoutConstraint.activate([
+                lARFaceTrackingViewConstraints = [
                     hostingLARFaceTrackingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-                    hostingLARFaceTrackingViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-                    hostingLARFaceTrackingViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1),
-                    hostingLARFaceTrackingViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -25)
-                ])
+                    hostingLARFaceTrackingViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+                    hostingLARFaceTrackingViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.5, constant: -5),
+                    hostingLARFaceTrackingViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 1, constant: -(SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height + 10))
+                ]
             } else {
                 // Portrait
-                NSLayoutConstraint.activate([
+                lARFaceTrackingViewConstraints = [
                     hostingLARFaceTrackingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
                     hostingLARFaceTrackingViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
                     hostingLARFaceTrackingViewController.view.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 1, constant: 0),
                     hostingLARFaceTrackingViewController.view.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5, constant: -((SETTING_BUTTON_OFFSET.y + SETTING_BUTTON_SIZE.height) / 2 + 10))
-                ])
+                ]
             }
         }
+        
+        NSLayoutConstraint.activate(lARFaceTrackingViewConstraints)
+        
         // Frame Layout
 //        hostingLARFaceTrackingViewController.view.frame = CGRect(
 //            x: 0,
@@ -298,7 +354,6 @@ extension ViewController {
 //        )
         
 //        hostingLARFaceTrackingViewController.view.isHidden = true
-        
         
         viewManager.$isShowLARFaceTrackingView
             .sink { [weak hostingLARFaceTrackingViewController] isShow in
@@ -318,5 +373,7 @@ extension ViewController {
             .store(in: &cancellables)
         
         hostingLARFaceTrackingViewController.didMove(toParent: self)
+        
+        return hostingLARFaceTrackingViewController.view
     }
 }
