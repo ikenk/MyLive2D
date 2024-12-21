@@ -128,6 +128,7 @@
 		4416E1342D12CC4F0031F7E0 /* LModelConfigurationParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LModelConfigurationParameter.swift; sourceTree = "<group>"; };
 		441FC6F52D0439FB001B0515 /* LModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LModelManager.swift; sourceTree = "<group>"; };
 		444554692D16924900EFF6F3 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SampleCode.xcconfig; sourceTree = "<group>"; };
+		4445546A2D16969700EFF6F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCubismSdkFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		444798772CE98FD800BB3C62 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		444798792CE98FD800BB3C62 /* CubismDebug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismDebug.hpp; sourceTree = "<group>"; };
@@ -541,6 +542,7 @@
 		444793822CE98A6600BB3C62 = {
 			isa = PBXGroup;
 			children = (
+				4445546A2D16969700EFF6F3 /* README.md */,
 				44479B952CE99F4E00BB3C62 /* MyLive2D-SwiftUI */,
 				444793A22CE98AB900BB3C62 /* CubismSdkFramework */,
 				4447938C2CE98A6600BB3C62 /* Products */,
