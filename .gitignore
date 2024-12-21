@@ -1,4 +1,43 @@
-.DS_Store
-*.xcuserstate
+# Xcode
 xcuserdata/
-Config.xcconfig
+*.xcuserstate
+*.xcscmblueprint
+*.xccheckout
+
+# 构建产生的文件
+build/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+# Obj-C/Swift 特定文件
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods
+Pods/
+*.xcworkspace
+
+# 个人设置文件
+#*.xcconfig
+#!*.xcconfig.sample
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Mac OS X
+.DS_Store
+.AppleDouble
+.LSOverride

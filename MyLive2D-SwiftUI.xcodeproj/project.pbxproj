@@ -127,6 +127,7 @@
 		4416E1322D12CB5B0031F7E0 /* LSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LSliderView.swift; sourceTree = "<group>"; };
 		4416E1342D12CC4F0031F7E0 /* LModelConfigurationParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LModelConfigurationParameter.swift; sourceTree = "<group>"; };
 		441FC6F52D0439FB001B0515 /* LModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LModelManager.swift; sourceTree = "<group>"; };
+		444554692D16924900EFF6F3 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SampleCode.xcconfig; sourceTree = "<group>"; };
 		444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCubismSdkFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		444798772CE98FD800BB3C62 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		444798792CE98FD800BB3C62 /* CubismDebug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismDebug.hpp; sourceTree = "<group>"; };
@@ -529,12 +530,21 @@
 			path = Archived;
 			sourceTree = "<group>";
 		};
+		444554682D1691E500EFF6F3 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				444554692D16924900EFF6F3 /* SampleCode.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		444793822CE98A6600BB3C62 = {
 			isa = PBXGroup;
 			children = (
 				44479B952CE99F4E00BB3C62 /* MyLive2D-SwiftUI */,
 				444793A22CE98AB900BB3C62 /* CubismSdkFramework */,
 				4447938C2CE98A6600BB3C62 /* Products */,
+				444554682D1691E500EFF6F3 /* Configuration */,
 				44479B8C2CE99EBF00BB3C62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -1894,7 +1904,7 @@
 				INFOPLIST_FILE = "MyLive2D-SwiftUI/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(MARKETING_VERSION)";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = 1.0;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
@@ -1910,7 +1920,7 @@
 				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/CubismSdkFramework/Core/lib/ios/$(CONFIGURATION)-$(PLATFORM_NAME)\"";
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-lLive2DCubismCore";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HTZ.MyLive2D-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HTZ.MyLive2D-SwiftUI--SAMPLE-CODE-DISAMBIGUATOR-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = NO;
@@ -1955,7 +1965,7 @@
 				INFOPLIST_FILE = "MyLive2D-SwiftUI/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(MARKETING_VERSION)";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = 1.0;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
@@ -1971,7 +1981,7 @@
 				LIBRARY_SEARCH_PATHS = "\"$(PROJECT_DIR)/CubismSdkFramework/Core/lib/ios/$(CONFIGURATION)-$(PLATFORM_NAME)\"";
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = "-lLive2DCubismCore";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.HTZ.MyLive2D-SwiftUI";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HTZ.MyLive2D-SwiftUI--SAMPLE-CODE-DISAMBIGUATOR-";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_MODULE = NO;
