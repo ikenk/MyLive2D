@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "44479B932CE99F4E00BB3C62"
-               BuildableName = "MyLive2D-SwiftUI.app"
-               BlueprintName = "MyLive2D-SwiftUI"
-               ReferencedContainer = "container:MyLive2D-SwiftUI.xcodeproj">
+               BuildableName = "MyLive2D.app"
+               BlueprintName = "MyLive2D"
+               ReferencedContainer = "container:MyLive2D.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "44479B932CE99F4E00BB3C62"
-            BuildableName = "MyLive2D-SwiftUI.app"
-            BlueprintName = "MyLive2D-SwiftUI"
-            ReferencedContainer = "container:MyLive2D-SwiftUI.xcodeproj">
+            BuildableName = "MyLive2D.app"
+            BlueprintName = "MyLive2D"
+            ReferencedContainer = "container:MyLive2D.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <EnvironmentVariables>
@@ -74,9 +74,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "44479B932CE99F4E00BB3C62"
-            BuildableName = "MyLive2D-SwiftUI.app"
-            BlueprintName = "MyLive2D-SwiftUI"
-            ReferencedContainer = "container:MyLive2D-SwiftUI.xcodeproj">
+            BuildableName = "MyLive2D.app"
+            BlueprintName = "MyLive2D"
+            ReferencedContainer = "container:MyLive2D.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

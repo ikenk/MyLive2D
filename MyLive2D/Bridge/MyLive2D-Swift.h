@@ -5,8 +5,8 @@
 //  Created by HT Zhang  on 2024/11/23.
 //
 
-#ifndef MyLive2D_SwiftUI_Swift_h
-#define MyLive2D_SwiftUI_Swift_h
+#ifndef MyLive2D_Swift_h
+#define MyLive2D_Swift_h
 
 #import "My_AppDelegateBridge.h"
 #import "My_ViewControllerBridge.h"
