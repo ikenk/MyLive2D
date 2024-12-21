@@ -12,4 +12,4 @@
 下载后用 Xcode 打开，找到最顶端名为 `MyLive2D.xcodeproj` 的项目文件，打开该文件后选择左侧导航栏中 **TARGETS** 下的 **MyLive2D**，然后在右侧编辑区域的顶部导航栏中找到 **Signing & Capability**，最后将 **Team** 选项 改成**自己的开发者账户**即可。
 
 ## 感谢
-感谢![@KyokiStudio](https://kyoki.booth.pm/)提供的**芙莉莲和肥伦模型**以及![@Live2D官方](https://docs.live2d.com/cubism-sdk-manual/cubism-sdk-for-native/)提供的技术支持。
+感谢[@KyokiStudio](https://kyoki.booth.pm/)提供的**芙莉莲和肥伦模型**以及[@Live2D官方](https://docs.live2d.com/cubism-sdk-manual/cubism-sdk-for-native/)提供的技术支持。

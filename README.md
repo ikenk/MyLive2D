@@ -12,4 +12,4 @@ Since I really like the game **Azur Lane** and the anime **Frieren: Beyond Journ
 After downloading, open the `MyLive2D.xcodeproj` project file with Xcode. Then, in the left navigation area, select **MyLive2D** under **TARGETS**. On the top of the right editor area, select **Signing & Capability**, and finally set the **Team** option to your own developer account.
 
 ## Ackonwledgement
-Thanks to ![@KyokiStudio](https://kyoki.booth.pm/) for providing the **Frieren and Fern models**, and ![@Live2D Official](https://docs.live2d.com/cubism-sdk-manual/cubism-sdk-for-native/) for technical support!
+Thanks to [@KyokiStudio](https://kyoki.booth.pm/) for providing the **Frieren and Fern models**, and [@Live2D Official](https://docs.live2d.com/cubism-sdk-manual/cubism-sdk-for-native/) for technical support!
