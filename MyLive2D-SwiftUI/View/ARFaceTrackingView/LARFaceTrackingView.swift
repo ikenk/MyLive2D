@@ -14,12 +14,12 @@ struct LARFaceTrackingView: UIViewRepresentable {
 
     let arView: ARView = {
         let view = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
-//        view.debugOptions = [
+        view.debugOptions = [
 //            .showStatistics,
 //            .showFeaturePoints,
 //            .showAnchorOrigins, // 显示锚点位置
 //            .showAnchorGeometry // 显示锚点几何体
-//        ]
+        ]
 
         return view
     }()
@@ -138,9 +138,9 @@ extension LARFaceTrackingView {
             //        let yawDegrees = faceNode.eulerAngles.y * 180 / .pi
             //        let rollDegrees = faceNode.eulerAngles.z * 180 / .pi
 
-            print("[MyLog]paramAngleX: \(pitchDegrees)")
-            print("[MyLog]paramAngleY: \(yawDegrees)")
-            print("[MyLog]paramAngleZ: \(rollDegrees)")
+//            print("[MyLog]paramAngleX: \(pitchDegrees)")
+//            print("[MyLog]paramAngleY: \(yawDegrees)")
+//            print("[MyLog]paramAngleZ: \(rollDegrees)")
 
             // Head Movement
             /// - ParamAngleX: 头部左右转动
