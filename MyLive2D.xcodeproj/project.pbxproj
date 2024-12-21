@@ -129,6 +129,8 @@
 		441FC6F52D0439FB001B0515 /* LModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LModelManager.swift; sourceTree = "<group>"; };
 		444554692D16924900EFF6F3 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SampleCode.xcconfig; sourceTree = "<group>"; };
 		4445546A2D16969700EFF6F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4445546C2D16AB2E00EFF6F3 /* README.zh-CN.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README.zh-CN.md"; sourceTree = "<group>"; };
+		4445546D2D16AB5C00EFF6F3 /* README.ja.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.ja.md; sourceTree = "<group>"; };
 		444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCubismSdkFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		444798772CE98FD800BB3C62 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		444798792CE98FD800BB3C62 /* CubismDebug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismDebug.hpp; sourceTree = "<group>"; };
@@ -539,10 +541,20 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		4445546B2D16AA3400EFF6F3 /* Docs */ = {
+			isa = PBXGroup;
+			children = (
+				4445546C2D16AB2E00EFF6F3 /* README.zh-CN.md */,
+				4445546D2D16AB5C00EFF6F3 /* README.ja.md */,
+			);
+			path = Docs;
+			sourceTree = "<group>";
+		};
 		444793822CE98A6600BB3C62 = {
 			isa = PBXGroup;
 			children = (
 				4445546A2D16969700EFF6F3 /* README.md */,
+				4445546B2D16AA3400EFF6F3 /* Docs */,
 				44479B952CE99F4E00BB3C62 /* MyLive2D */,
 				444793A22CE98AB900BB3C62 /* CubismSdkFramework */,
 				4447938C2CE98A6600BB3C62 /* Products */,
@@ -1893,7 +1905,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MyLive2D/Preview Content\"";
-				DEVELOPMENT_TEAM = 36V8YWAA2V;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1955,7 +1967,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MyLive2D/Preview Content\"";
-				DEVELOPMENT_TEAM = 36V8YWAA2V;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
