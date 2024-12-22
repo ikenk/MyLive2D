@@ -71,7 +71,7 @@ extension LARFaceTrackingView {
         func setupFaceAnchor(in arView: ARView) {
             // 移除现有的 anchor
             if let existingAnchorEntity = faceAnchorEntity {
-//                print("[MyLog]移除现有的 anchor")
+
                 MyLog("移除现有的 anchor")
                 arView.scene.removeAnchor(existingAnchorEntity)
             }
@@ -86,7 +86,7 @@ extension LARFaceTrackingView {
         func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
             guard let faceAnchor = anchors.first as? ARFaceAnchor else { return }
 
-//            print("[MyLog]modelManager.isGlobalAutoplayed: \(modelManager.isGlobalAutoplayed)")
+
 //            MyLog("modelManager.isGlobalAutoplayed", modelManager.isGlobalAutoplayed)
 
             updateCounter += 1
@@ -140,11 +140,11 @@ extension LARFaceTrackingView {
             //        let yawDegrees = faceNode.eulerAngles.y * 180 / .pi
             //        let rollDegrees = faceNode.eulerAngles.z * 180 / .pi
 
-//            print("[MyLog]paramAngleX: \(pitchDegrees)")
+
 //            MyLog("paramAngleX", pitchDegrees)
-//            print("[MyLog]paramAngleY: \(yawDegrees)")
+
 //            MyLog("paramAngleY", yawDegrees)
-//            print("[MyLog]paramAngleZ: \(rollDegrees)")
+
 //            MyLog("paramAngleZ", rollDegrees)
 
             // Head Movement
@@ -170,23 +170,23 @@ extension LARFaceTrackingView {
             // Cheek Puff
             My_LAppLive2DManager.shared().setModelParam(forID: ParamCheek, toValue: cheekPuff)
 
-//            print("[MyLog]faceAnchor.geometry.vertices: \(faceAnchor.geometry.vertices)")
+
 //            MyLog("faceAnchor.geometry.vertices", faceAnchor.geometry.vertices)
-//            print("[MyLog]faceAnchor.geometry.triangleCount: \(faceAnchor.geometry.triangleCount)")
+
 //            MyLog("faceAnchor.geometry.triangleCount", faceAnchor.geometry.triangleCount)
-//            print("[MyLog]faceAnchor.geometry.triangleIndices: \(faceAnchor.geometry.triangleIndices)")
+
 //            MyLog("faceAnchor.geometry.triangleIndices", faceAnchor.geometry.triangleIndices)
-//            print("[MyLog]faceAnchor.transform: \(faceAnchor.transform)")
+
 //            MyLog("faceAnchor.transform", faceAnchor.transform)
-//            print("[MyLog]faceAnchor.blendShapes[.eyeBlinkLeft]: \(faceAnchor.blendShapes[.eyeBlinkLeft] ?? 0)")
+
 //            MyLog("faceAnchor.blendShapes[.eyeBlinkLeft]", faceAnchor.blendShapes[.eyeBlinkLeft] ?? 0)
-//            print("[MyLog]faceAnchor.blendShapes[.eyeBlinkRight]: \(faceAnchor.blendShapes[.eyeBlinkRight] ?? 0)")
+
 //            MyLog("faceAnchor.blendShapes[.eyeBlinkRight]", faceAnchor.blendShapes[.eyeBlinkRight] ?? 0)
         }
         
         func session(_ session: ARSession, didFailWithError error: any Error) {
             if error is ARError {
-//                print("[MyLog]LARFaceTrackingView Session")
+
                 MyLog("LARFaceTrackingView Session")
                 let config = ARFaceTrackingConfiguration()
                 config.maximumNumberOfTrackedFaces = 1
@@ -220,7 +220,7 @@ extension LARFaceTrackingView {
 //            modelEntity.setPosition(.init(x: 0, y: 0, z: 0.1), relativeTo: faceAnchorEntity)
             faceAnchorEntity.addChild(modelEntity)
         } catch {
-//            print("[MyLog]Error: \(error)")
+
             MyLog("Error", error)
         }
     }

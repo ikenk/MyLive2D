@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let defaults = UserDefaults.standard
         let isNotFirstRun = defaults.bool(forKey: NOT_FIRST_RUN)
-//        print("[MyLog]isNotFirstRun: \(isNotFirstRun)")
+
         MyLog("isNotFirstRun", isNotFirstRun)
         
         textureManager = .init()
@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.set(true, forKey: NOT_FIRST_RUN)
         }
         
-//        print("[MyLog]application Start")
+
         MyLog("application Start")
         
         return true
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-//        print("[MyLog]applicationWillResignActive")
+
         MyLog("applicationWillResignActive")
     }
 
@@ -80,16 +80,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        My_AppDelegateBridge.shared().setToTextureManager(textureManager)
         
 //        guard let live2DManager = self.live2DManager, let sceneIndexTemp = self.sceneIndexTemp else { return }
-//        print("[MyLog]sceneIndexTemp: \(sceneIndexTemp)")
+
 //        MyLog("sceneIndexTemp", sceneIndexTemp)
 //        live2DManager.changeScene(sceneIndexTemp)
-//        print("[MyLog]applicationWillEnterForeground")
+
         MyLog("applicationWillEnterForeground")
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-//        print("[MyLog]applicationDidBecomeActive")
+
         MyLog("applicationDidBecomeActive")
     }
     
@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.viewController = nil
         
-//        print("[MyLog]applicationWillTerminate")
+
         MyLog("applicationWillTerminate")
     }
 }

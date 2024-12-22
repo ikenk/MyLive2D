@@ -43,7 +43,7 @@ struct LPickImageView: View {
                             let rootURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
                             let resourcePath = rootURL.appending(path: "Resources", directoryHint: .isDirectory)
                             let filePath = resourcePath.appending(path: "back_class_normal", directoryHint: .notDirectory).appendingPathExtension("png")
-//                            print("[MyLog]PhotosPicker filePath: \(filePath)")
+
                             MyLog("PhotosPicker filePath", filePath)
 
     //                            try imageData.write(to: filePath)
@@ -58,7 +58,7 @@ struct LPickImageView: View {
                             await MainActor.run {
                                 isLoading = false
                             }
-//                            print("[MyLog]PhotosPicker Error: \(error)")
+
                             MyLog("PhotosPicker Error", error)
                         }
                     }

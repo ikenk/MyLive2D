@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         MyLog("UserDefaults.standard.bool(forKey: NOT_FIRST_RUN)", UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))
         
 //        if !UserDefaults.standard.bool(forKey: NOT_FIRST_RUN){
-//        print("[MyLog]UserDefaults.standard.bool run")
+
         MyLog("UserDefaults.standard.bool", UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))
         guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
             
@@ -77,21 +77,21 @@ class ViewController: UIViewController {
         
         myViewControllerBridge.viewDidLoad()
         
-//        print("[MyLog]view Controller Start")
+
         MyLog("view Controller Start")
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let safeAreaInsets = view.safeAreaInsets
-//        print("[MyLog]SafeArea Top: \(safeAreaInsets.top) and Bottom: \(safeAreaInsets.bottom)")
+
         MyLog("SafeArea Top", safeAreaInsets.top)
         MyLog("and Bottom", safeAreaInsets.bottom)
     }
     
     // iPhone ConfigView & ARFaceView Layout 
     override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
-//        print("[MyLog]ViewController viewWillTransition")
+
         MyLog("ViewController viewWillTransition")
         super.viewWillTransition(to: size, with: coordinator)
         
@@ -138,13 +138,13 @@ class ViewController: UIViewController {
 
 extension ViewController: MetalViewDelegate {
     @objc func drawableResize(_ size: CGSize) {
-//        print("[MyLog]drawableResize run")
+
         MyLog("drawableResize run")
         myViewControllerBridge.drawableResize(size)
     }
     
     @objc func renderToMetalLayer(_ metalLayer: CAMetalLayer) {
-//        print("[MyLog]renderToMetalLayer run")
+
         MyLog("renderToMetalLayer run")
         myViewControllerBridge.renderToMetalLayer(metalLayer)
     }
@@ -156,7 +156,7 @@ extension ViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location: CGPoint = touch.location(in: view)
-//        print("[MyLog]Touch began at: \(location)")
+
         MyLog("Touch began at", location)
         
         // TouchesBegan Event
@@ -166,7 +166,7 @@ extension ViewController {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: view)
-//        print("[MyLog]Touch moved to: \(location)")
+
         MyLog("Touch moved at", location)
         
         // Deal With TouchesMoved Event
@@ -176,7 +176,7 @@ extension ViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: view)
-//        print("[MyLog]Touch ended at: \(location)")
+
         MyLog("Touch ended at", location)
         
         // Deal With TouchesEnded Event

@@ -87,7 +87,7 @@ struct LConfigurationView: View {
 ////                            let rootURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
 ////                            let resourcePath = rootURL.appending(path: "Resources", directoryHint: .isDirectory)
 ////                            let filePath = resourcePath.appending(path: "back_class_normal", directoryHint: .notDirectory).appendingPathExtension("png")
-////                            print("[MyLog]PhotosPicker filePath: \(filePath)")
+//
 ////
 //////                            try imageData.write(to: filePath)
 ////                            try pngData.write(to: filePath)
@@ -101,7 +101,7 @@ struct LConfigurationView: View {
 ////                            await MainActor.run {
 ////                                isLoading = false
 ////                            }
-////                            print("[MyLog]PhotosPicker Error: \(error)")
+//
 ////                        }
 ////                    }
 ////                }
@@ -130,7 +130,7 @@ struct LConfigurationView: View {
 ////                            .font(.callout)
 ////                    }
 ////                    .onChange(of: modelParameter.xTranslation) { newValue in
-////                        print("[MyLog]modelParameter.xTranslation: \(newValue)")
+//
 ////                        My_LAppLive2DManager.shared().setModelPositionOnX(newValue)
 ////                    }
 ////                }
@@ -153,7 +153,7 @@ struct LConfigurationView: View {
 ////                            .font(.callout)
 ////                    }
 ////                    .onChange(of: modelParameter.yTranslation) { newValue in
-////                        print("[MyLog]modelParameter.yTranslation: \(newValue)")
+//
 ////                        My_LAppLive2DManager.shared().setModelPositionOnY(newValue)
 ////                    }
 ////                }
@@ -172,7 +172,7 @@ struct LConfigurationView: View {
 ////                            .font(.callout)
 ////                    }
 ////                    .onChange(of: modelParameter.scale) { newValue in
-////                        print("[MyLog]modelParameter.scale: \(newValue)")
+//
 ////                        My_LAppLive2DManager.shared().setModelScale(x: newValue, y: newValue)
 ////                    }
 ////                }
