@@ -11,3 +11,4 @@ func MyLog(_ message: String, _ items: Any..., file: String = #file, function: S
     print("[MyLog][\(file):\(line)] \(function) - \(message)\(itemsString)")
     #endif
 }
+
