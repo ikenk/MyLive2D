@@ -12,7 +12,8 @@ struct LInfoButton: View {
     
     var body: some View {
         Button {
-            print("[MyLog] LInfoButton Tap")
+//            print("[MyLog]LInfoButton Tap")
+            MyLog("LInfoButton Tap")
             if viewManager.isShowLARFaceTrackingView {
                 viewManager.isShowLARFaceTrackingView.toggle()
             }

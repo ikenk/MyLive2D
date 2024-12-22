@@ -7,6 +7,7 @@
 
 func MyLog(_ message: String, _ items: Any..., file: String = #file, function: String = #function, line: Int = #line) {
     #if DEBUG
-    print("[MyLog][\(file):\(line)] \(function) - \(message): \(items)")
+    let itemsString = items.isEmpty ? "" : ": \(items)"
+    print("[MyLog][\(file):\(line)] \(function) - \(message)\(itemsString)")
     #endif
 }

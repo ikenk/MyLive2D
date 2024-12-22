@@ -21,6 +21,7 @@
 		4416E1332D12CB5B0031F7E0 /* LSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416E1322D12CB5B0031F7E0 /* LSliderView.swift */; };
 		4416E1352D12CC4F0031F7E0 /* LModelConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416E1342D12CC4F0031F7E0 /* LModelConfigurationParameter.swift */; };
 		441FC6F62D0439FB001B0515 /* LModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FC6F52D0439FB001B0515 /* LModelManager.swift */; };
+		4445546F2D17BD5D00EFF6F3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416DF912D11473900C2E3B2 /* Logger.swift */; };
 		444799E22CE9900300BB3C62 /* CubismEyeBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799B92CE9900200BB3C62 /* CubismEyeBlink.cpp */; };
 		444799E32CE9900300BB3C62 /* CubismMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BA2CE9900200BB3C62 /* CubismMotion.cpp */; };
 		444799E42CE9900300BB3C62 /* CubismRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BB2CE9900200BB3C62 /* CubismRenderer.cpp */; };
@@ -1676,6 +1677,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4445546F2D17BD5D00EFF6F3 /* Logger.swift in Sources */,
 				44D6C1A22D00B1AF00B3C145 /* TouchManager.mm in Sources */,
 				44E5184C2CF31982008A9BBA /* My_LAppSprite.mm in Sources */,
 				44CB6FDB2CF72A6E0041EE7A /* UserConstants.swift in Sources */,
@@ -1905,7 +1907,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MyLive2D/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 36V8YWAA2V;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1967,7 +1969,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"MyLive2D/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 36V8YWAA2V;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

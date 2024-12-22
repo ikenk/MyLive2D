@@ -22,10 +22,12 @@ class LResourceManager {
                 rootURL = fileManagerURL
             } else {
                 rootURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-                print("[MyLog]RootURL: \(rootURL?.description ?? "None")")
+//                print("[MyLog]RootURL: \(rootURL?.description ?? "None")")
+                MyLog("RootURL", rootURL?.description ?? "None")
             }
         } catch {
-            print("[MyLog]Error:\(error)")
+//            print("[MyLog]Error:\(error)")
+            MyLog("Error", error)
         }
         
         startstartupActivities()
@@ -46,7 +48,8 @@ class LResourceManager {
             do {
                 try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: true)
             } catch {
-                print("[MyLog]Error:\(error)")
+//                print("[MyLog]Error:\(error)")
+                MyLog("Error", error)
             }
         }
     }
@@ -55,7 +58,9 @@ class LResourceManager {
         guard let resourcePath = Bundle.main.resourcePath else { return nil }
         let resourcesDir = URL(fileURLWithPath: resourcePath).appending(path: MyLAppDefine.resourcesPath, directoryHint: .isDirectory)
 //        print("[MyLog]resoucePath: \(resourcePath)")
+//        MyLog("resoucePath", resourcePath)
 //        print("[MyLog]bundlePath: \(resourcesDir)")
+//        MyLog("bundlePath", resourcesDir)
         
 //        do{
 //            let resourcesFiles = try FileManager.default.contentsOfDirectory(at: resourcesDir, includingPropertiesForKeys: nil)
@@ -63,6 +68,7 @@ class LResourceManager {
 //            dump(files)
 //        }catch{
 //            print("[MyLog]Error:\(error)")
+//            MyLog("Error", error)
 //        }
         
         return resourcesDir
@@ -83,17 +89,21 @@ class LResourceManager {
                 try FileManager.default.removeItem(at: destinationDocumentsURL)
             }
             
-            print("[MyLog]sourceDir: \(sourceDir)")
+//            print("[MyLog]sourceDir: \(sourceDir)")
+            MyLog("sourceDir", sourceDir)
             
             try FileManager.default.copyItem(at: sourceDir, to: destinationDocumentsURL)
             
-            print("[MyLog]destinationDocumentsURL: \(destinationDocumentsURL.path())")
+//            print("[MyLog]destinationDocumentsURL: \(destinationDocumentsURL.path())")
+            MyLog("sourcdestinationDocumentsURLeDir", destinationDocumentsURL.path())
             
-            print("[MyLog]FileManager.default.fileExists(atPath: destinationDocumentsURL.path()): \(FileManager.default.fileExists(atPath: destinationDocumentsURL.path()))")
+//            print("[MyLog]FileManager.default.fileExists(atPath: destinationDocumentsURL.path()): \(FileManager.default.fileExists(atPath: destinationDocumentsURL.path()))")
+            MyLog("FileManager.default.fileExists(atPath: destinationDocumentsURL.path())", FileManager.default.fileExists(atPath: destinationDocumentsURL.path()))
             
             return destinationDocumentsURL
         } catch {
-            print("[MyLog]Error:\(error)")
+//            print("[MyLog]Error:\(error)")
+            MyLog("Error", error)
         }
         
         return nil
@@ -116,13 +126,15 @@ class LResourceManager {
                     try FileManager.default.removeItem(at: destinationDocumentsURL)
                 }
                 
-                print("[MyLog]sourceDir: \(sourceDir)")
+//                print("[MyLog]sourceDir: \(sourceDir)")
+                MyLog("sourceDir", sourceDir)
                 
                 try FileManager.default.copyItem(at: sourceDir, to: destinationDocumentsURL)
                 
                 continuation.resume(returning: destinationDocumentsURL)
             } catch {
-                print("[MyLog]Error:\(error)")
+//                print("[MyLog]Error:\(error)")
+                MyLog("Error", error)
                 continuation.resume(returning: nil)
             }
         }

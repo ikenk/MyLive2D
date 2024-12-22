@@ -31,7 +31,8 @@ struct LSliderView: View {
                             .font(.callout)
                     }
                     .onChange(of: modelParameter.xTranslation) { newValue in
-                        print("[MyLog]modelParameter.xTranslation: \(newValue)")
+//                        print("[MyLog]modelParameter.xTranslation: \(newValue)")
+                        MyLog("modelParameter.xTranslation", newValue)
                         My_LAppLive2DManager.shared().setModelPositionOnX(newValue)
                     }
                 }
@@ -54,7 +55,8 @@ struct LSliderView: View {
                             .font(.callout)
                     }
                     .onChange(of: modelParameter.yTranslation) { newValue in
-                        print("[MyLog]modelParameter.yTranslation: \(newValue)")
+//                        print("[MyLog]modelParameter.yTranslation: \(newValue)")
+                        MyLog("modelParameter.yTranslation", newValue)
                         My_LAppLive2DManager.shared().setModelPositionOnY(newValue)
                     }
                 }
@@ -73,7 +75,8 @@ struct LSliderView: View {
                             .font(.callout)
                     }
                     .onChange(of: modelParameter.scale) { newValue in
-                        print("[MyLog]modelParameter.scale: \(newValue)")
+//                        print("[MyLog]modelParameter.scale: \(newValue)")
+                        MyLog("modelParameter.scale", newValue)
                         My_LAppLive2DManager.shared().setModelScale(x: newValue, y: newValue)
                     }
                 }
