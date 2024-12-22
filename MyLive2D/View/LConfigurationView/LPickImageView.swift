@@ -5,14 +5,14 @@
 //  Created by HT Zhang  on 2024/12/18.
 //
 
-import SwiftUI
 import PhotosUI
+import SwiftUI
 
 struct LPickImageView: View {
     @State var imageSelection: PhotosPickerItem? = nil
 
     @State var isLoading: Bool = false
-    
+
     var body: some View {
         Section {
             HStack(spacing: 5) {
@@ -46,7 +46,7 @@ struct LPickImageView: View {
 
                             MyLog("PhotosPicker filePath", filePath)
 
-    //                            try imageData.write(to: filePath)
+                            //                            try imageData.write(to: filePath)
                             try pngData.write(to: filePath)
 
                             My_ViewControllerBridge.shared().setBackgroundImage()

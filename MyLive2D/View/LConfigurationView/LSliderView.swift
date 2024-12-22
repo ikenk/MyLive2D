@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LSliderView: View {
     @State private var modelParameter: LModelConfigurationParameter = .init()
-    
+
     var body: some View {
         Section {
             Group {
@@ -91,7 +91,5 @@ struct LSliderView: View {
         } header: {
             Text("Change Model Position And Size")
         }
-
     }
 }
-

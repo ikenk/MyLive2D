@@ -5,25 +5,23 @@
 //  Created by HT Zhang  on 2024/11/17.
 //
 
-import UIKit
 import SwiftUI
+import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     
-    var myViewController: My_ViewControllerBridge = My_ViewControllerBridge.shared()
+    var myViewController: My_ViewControllerBridge = .shared()
     var viewController: (UIViewController & MetalViewDelegate)?
     
-    var textureManager:My_LAppTextureManager?
+    var textureManager: My_LAppTextureManager?
     
-    var live2DManager:My_LAppLive2DManager?
+    var live2DManager: My_LAppLive2DManager?
     
-    var sceneIndexTemp:Int?
+    var sceneIndexTemp: Int?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
         let defaults = UserDefaults.standard
         let isNotFirstRun = defaults.bool(forKey: NOT_FIRST_RUN)
 
@@ -51,7 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             defaults.set(true, forKey: NOT_FIRST_RUN)
         }
         
-
         MyLog("application Start")
         
         return true
@@ -71,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        guard let live2DManager = self.live2DManager else { return }
 //        sceneIndexTemp = live2DManager.getSceneIndex()
         print("[MyLog]applicationDidEnterBackground")
-        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -100,12 +96,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Live2DCubism.deinitializeCubism()
         
-        self.window = nil
+        window = nil
         
-        self.viewController = nil
+        viewController = nil
         
-
         MyLog("applicationWillTerminate")
     }
 }
-

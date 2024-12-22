@@ -15,7 +15,7 @@ struct LARFaceTrackingView: UIViewRepresentable {
     let arView: ARView = {
         let view = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
         view.debugOptions = [
-//            .showStatistics,
+            //            .showStatistics,
 //            .showFeaturePoints,
 //            .showAnchorOrigins, // 显示锚点位置
 //            .showAnchorGeometry // 显示锚点几何体
@@ -67,11 +67,10 @@ extension LARFaceTrackingView {
             self.modelManager = parent.modelManager
             super.init()
         }
-        
+
         func setupFaceAnchor(in arView: ARView) {
             // 移除现有的 anchor
             if let existingAnchorEntity = faceAnchorEntity {
-
                 MyLog("移除现有的 anchor")
                 arView.scene.removeAnchor(existingAnchorEntity)
             }
@@ -85,7 +84,6 @@ extension LARFaceTrackingView {
 
         func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
             guard let faceAnchor = anchors.first as? ARFaceAnchor else { return }
-
 
 //            MyLog("modelManager.isGlobalAutoplayed", modelManager.isGlobalAutoplayed)
 
@@ -125,21 +123,11 @@ extension LARFaceTrackingView {
             let yaw = asin(-transformMatrix.columns.0.z)
             let roll = atan2(transformMatrix.columns.0.y, transformMatrix.columns.0.x)
 
-            //        let newFaceMatrix = SCNMatrix4(faceAnchor.transform)
-            //        let faceNode = SCNNode()
-            //        faceNode.transform = newFaceMatrix
-
             // Convert radians to degrees
             // FIXME: pitchDegrees 角度很奇怪,总是有+26度的余量(低头为+,抬头为-)
             let pitchDegrees = pitch * 180 / .pi
             let yawDegrees = yaw * 180 / .pi
             let rollDegrees = roll * 180 / .pi
-
-            // FIXME: pitchDegrees 角度很奇怪,总是有+26度的余量(低头为+,抬头为-)
-            //        let pitchDegrees = faceNode.eulerAngles.x * 180 / .pi
-            //        let yawDegrees = faceNode.eulerAngles.y * 180 / .pi
-            //        let rollDegrees = faceNode.eulerAngles.z * 180 / .pi
-
 
 //            MyLog("paramAngleX", pitchDegrees)
 
@@ -170,7 +158,6 @@ extension LARFaceTrackingView {
             // Cheek Puff
             My_LAppLive2DManager.shared().setModelParam(forID: ParamCheek, toValue: cheekPuff)
 
-
 //            MyLog("faceAnchor.geometry.vertices", faceAnchor.geometry.vertices)
 
 //            MyLog("faceAnchor.geometry.triangleCount", faceAnchor.geometry.triangleCount)
@@ -183,10 +170,9 @@ extension LARFaceTrackingView {
 
 //            MyLog("faceAnchor.blendShapes[.eyeBlinkRight]", faceAnchor.blendShapes[.eyeBlinkRight] ?? 0)
         }
-        
+
         func session(_ session: ARSession, didFailWithError error: any Error) {
             if error is ARError {
-
                 MyLog("LARFaceTrackingView Session")
                 let config = ARFaceTrackingConfiguration()
                 config.maximumNumberOfTrackedFaces = 1
@@ -201,66 +187,67 @@ extension LARFaceTrackingView {
 // MARK: Create Face Mask
 
 extension LARFaceTrackingView {
-    func createFaceMask(from faceAnchor: ARFaceAnchor, in context: Context) {
-        // 创建网格材质
-        var material = SimpleMaterial()
-        material.color = .init(tint: .gray.withAlphaComponent(0.5))
-        material.metallic = 0.0
-        material.roughness = 1.0
-
-        // 创建网格描述符
-        let meshDescriptor: MeshDescriptor = createWireMeshDescriptor(from: faceAnchor)
-        do {
-            // 创建网格模型
-            let mesh: MeshResource = try .generate(from: [meshDescriptor])
-            context.coordinator.modelEntity = ModelEntity(mesh: mesh, materials: [material])
-
-            guard let faceAnchorEntity = context.coordinator.faceAnchorEntity, let modelEntity = context.coordinator.modelEntity else { return }
-            modelEntity.position = .init(x: 0, y: 0, z: 0.01)
-//            modelEntity.setPosition(.init(x: 0, y: 0, z: 0.1), relativeTo: faceAnchorEntity)
-            faceAnchorEntity.addChild(modelEntity)
-        } catch {
-
-            MyLog("Error", error)
-        }
-    }
-
-    func createWireMeshDescriptor(from anchor: ARFaceAnchor) -> MeshDescriptor {
-        let vertices: [simd_float3] = anchor.geometry.vertices
-        var triangleIndices: [UInt32] = []
-        let texCoords: [simd_float2] = anchor.geometry.textureCoordinates
-
-        // 采样顶点，只使用部分顶点
-//        let sampleRate = 3 // 每3个顶点取1个
-//        let sampleVertices: [simd_float3] = stride(from: 0, to: vertices.count, by: sampleRate).map { index in
-//            vertices[index]
+//    func createFaceMask(from faceAnchor: ARFaceAnchor, in context: Context) {
+//        // 创建网格材质
+//        var material = SimpleMaterial()
+//        material.color = .init(tint: .gray.withAlphaComponent(0.5))
+//        material.metallic = 0.0
+//        material.roughness = 1.0
+//
+//        // 创建网格描述符
+//        let meshDescriptor: MeshDescriptor = createWireMeshDescriptor(from: faceAnchor)
+//        do {
+//            // 创建网格模型
+//            let mesh: MeshResource = try .generate(from: [meshDescriptor])
+//            context.coordinator.modelEntity = ModelEntity(mesh: mesh, materials: [material])
+//
+//            guard let faceAnchorEntity = context.coordinator.faceAnchorEntity, let modelEntity = context.coordinator.modelEntity else { return }
+//            modelEntity.position = .init(x: 0, y: 0, z: 0.01)
+    ////            modelEntity.setPosition(.init(x: 0, y: 0, z: 0.1), relativeTo: faceAnchorEntity)
+//            faceAnchorEntity.addChild(modelEntity)
+//        } catch {
+//
+//            MyLog("Error", error)
 //        }
+//    }
+//
+//    func createWireMeshDescriptor(from anchor: ARFaceAnchor) -> MeshDescriptor {
+//        let vertices: [simd_float3] = anchor.geometry.vertices
+//        var triangleIndices: [UInt32] = []
+//        let texCoords: [simd_float2] = anchor.geometry.textureCoordinates
+//
+//        // 采样顶点，只使用部分顶点
+    ////        let sampleRate = 3 // 每3个顶点取1个
+    ////        let sampleVertices: [simd_float3] = stride(from: 0, to: vertices.count, by: sampleRate).map { index in
+    ////            vertices[index]
+    ////        }
+    ////
+    ////        for index in anchor.geometry.triangleIndices {
+    ////            if Int(UInt32(index)) % sampleRate == 0 {
+    ////                triangleIndices.append(UInt32(index))
+    ////            } else {
+    ////                continue
+    ////            }
+    ////        }
 //
 //        for index in anchor.geometry.triangleIndices {
-//            if Int(UInt32(index)) % sampleRate == 0 {
-//                triangleIndices.append(UInt32(index))
-//            } else {
-//                continue
-//            }
+//            triangleIndices.append(UInt32(index))
 //        }
-
-        for index in anchor.geometry.triangleIndices {
-            triangleIndices.append(UInt32(index))
-        }
-
-        var descriptor = MeshDescriptor(name: "Face_Mesh")
-        // 设置顶点位置
-        descriptor.positions = MeshBuffers.Positions(vertices)
-        // 设置三角形索引
-        descriptor.primitives = .triangles(triangleIndices)
-        // 设置纹理坐标
-        descriptor.textureCoordinates = MeshBuffers.TextureCoordinates(texCoords)
-
-        return descriptor
-    }
+//
+//        var descriptor = MeshDescriptor(name: "Face_Mesh")
+//        // 设置顶点位置
+//        descriptor.positions = MeshBuffers.Positions(vertices)
+//        // 设置三角形索引
+//        descriptor.primitives = .triangles(triangleIndices)
+//        // 设置纹理坐标
+//        descriptor.textureCoordinates = MeshBuffers.TextureCoordinates(texCoords)
+//
+//        return descriptor
+//    }
 }
 
-// MARK: LARFaceTrackingView with LARFaceTrackingViewModel
+// MARK: Another Method to build LARFaceTrackingView: LARFaceTrackingView with LARFaceTrackingViewModel
+
 // struct LARFaceTrackingView: UIViewRepresentable {
 //    @EnvironmentObject var modelManager: LModelManager
 //

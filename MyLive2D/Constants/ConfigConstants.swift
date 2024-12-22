@@ -6,7 +6,6 @@
 //
 import Foundation
 
-let SETTING_BUTTON_SIZE:CGSize = .init(width: 30, height: 30)
+let SETTING_BUTTON_SIZE: CGSize = .init(width: 30, height: 30)
 
-let SETTING_BUTTON_OFFSET:CGPoint = .init(x: -10, y: 10)
-
+let SETTING_BUTTON_OFFSET: CGPoint = .init(x: -10, y: 10)

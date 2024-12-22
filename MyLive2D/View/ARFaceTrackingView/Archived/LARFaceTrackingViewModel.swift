@@ -59,7 +59,6 @@ class LARFaceTrackingViewModel: NSObject, ObservableObject {
     private func setupFaceAnchor() {
         // 移除现有的 anchor
         if let existingAnchorEntity = faceAnchorEntity {
-
             MyLog("移除现有的 anchor")
             arView.scene.removeAnchor(existingAnchorEntity)
         }
@@ -94,7 +93,7 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
         }
         
         guard
-            let modelManager = self.modelManager,
+            let modelManager = modelManager,
             !modelManager.isGlobalAutoplayed,
             // Eye Open
             let eyeBlinkLeft = faceAnchor.blendShapes[.eyeBlinkLeft] as? Float,
@@ -118,22 +117,12 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
         let yaw = asin(-transformMatrix.columns.0.z)
         let roll = atan2(transformMatrix.columns.0.y, transformMatrix.columns.0.x)
         
-        //        let newFaceMatrix = SCNMatrix4(faceAnchor.transform)
-        //        let faceNode = SCNNode()
-        //        faceNode.transform = newFaceMatrix
-        
         // Convert radians to degrees
         // FIXME: pitchDegrees 角度很奇怪,总是有+26度的余量(低头为+,抬头为-)
         let pitchDegrees = pitch * 180 / .pi
         let yawDegrees = yaw * 180 / .pi
         let rollDegrees = roll * 180 / .pi
         
-        // FIXME: pitchDegrees 角度很奇怪,总是有+26度的余量(低头为+,抬头为-)
-        //        let pitchDegrees = faceNode.eulerAngles.x * 180 / .pi
-        //        let yawDegrees = faceNode.eulerAngles.y * 180 / .pi
-        //        let rollDegrees = faceNode.eulerAngles.z * 180 / .pi
-        
-
 //        MyLog("paramAngleX", pitchDegrees)
 
 //        MyLog("paramAngleY", yawDegrees)
@@ -165,7 +154,6 @@ extension LARFaceTrackingViewModel: ARSessionDelegate {
         
 //        createFaceMask(from: faceAnchor)
         
-
 //        MyLog("faceAnchor.geometry.vertices", faceAnchor.geometry.vertices)
 
 //        MyLog("faceAnchor.geometry.triangleCount", faceAnchor.geometry.triangleCount)
@@ -202,7 +190,6 @@ extension LARFaceTrackingViewModel {
 //            modelEntity.setPosition(.init(x: 0, y: 0, z: 0.1), relativeTo: faceAnchorEntity)
             faceAnchorEntity.addChild(modelEntity)
         } catch {
-
             MyLog("Error", error)
         }
     }

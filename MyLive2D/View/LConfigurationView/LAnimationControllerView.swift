@@ -10,13 +10,13 @@ import SwiftUI
 struct LAnimationControllerView: View {
     @EnvironmentObject var modelManager: LModelManager
     @EnvironmentObject var viewManager: LViewManager
-    
+
     var body: some View {
         Section {
             Toggle(isOn: $modelManager.isGlobalAutoplayed) {
                 Text("Auto-Animate Toggle")
                     .font(.title2)
-                    .padding(.leading,10)
+                    .padding(.leading, 10)
             }
             .padding(10)
             .overlay(
@@ -27,11 +27,11 @@ struct LAnimationControllerView: View {
             .onChange(of: modelManager.isGlobalAutoplayed) { newValue in
                 My_LAppLive2DManager.shared().setModelMotionGlobalAutoplayed(newValue)
             }
-            
+
             Toggle(isOn: $viewManager.isShowLARFaceTrackingView) {
                 Text("FaceTracking View Toggle")
                     .font(.title2)
-                    .padding(.leading,10)
+                    .padding(.leading, 10)
             }
             .padding(10)
             .overlay(
@@ -42,6 +42,5 @@ struct LAnimationControllerView: View {
         } header: {
             Text("Animation")
         }
-
     }
 }

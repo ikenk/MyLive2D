@@ -7,6 +7,6 @@
 
 import Foundation
 
-class LModelManager:ObservableObject{
-    @Published var isGlobalAutoplayed:Bool = true
+class LModelManager: ObservableObject {
+    @Published var isGlobalAutoplayed: Bool = true
 }

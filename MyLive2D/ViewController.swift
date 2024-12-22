@@ -67,17 +67,15 @@ class ViewController: UIViewController {
         print("[MyLog]UserDefaults.standard.bool(forKey: NOT_FIRST_RUN): \(UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))")
         MyLog("UserDefaults.standard.bool(forKey: NOT_FIRST_RUN)", UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))
         
-//        if !UserDefaults.standard.bool(forKey: NOT_FIRST_RUN){
-
-        MyLog("UserDefaults.standard.bool", UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))
-        guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
+        if !UserDefaults.standard.bool(forKey: NOT_FIRST_RUN) {
+            MyLog("UserDefaults.standard.bool", UserDefaults.standard.bool(forKey: NOT_FIRST_RUN))
+            guard let bundleResourcesDir = lResourceManager.getBundleResoucesDir() else { return }
             
-        let _ = lResourceManager.copyBundleResourcesToLocalDirectorySync(from: bundleResourcesDir)
-//        }
+            let _ = lResourceManager.copyBundleResourcesToLocalDirectorySync(from: bundleResourcesDir)
+        }
         
         myViewControllerBridge.viewDidLoad()
         
-
         MyLog("view Controller Start")
     }
     
@@ -89,9 +87,8 @@ class ViewController: UIViewController {
         MyLog("and Bottom", safeAreaInsets.bottom)
     }
     
-    // iPhone ConfigView & ARFaceView Layout 
+    // iPhone ConfigView & ARFaceView Layout
     override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
-
         MyLog("ViewController viewWillTransition")
         super.viewWillTransition(to: size, with: coordinator)
         
@@ -138,13 +135,11 @@ class ViewController: UIViewController {
 
 extension ViewController: MetalViewDelegate {
     @objc func drawableResize(_ size: CGSize) {
-
         MyLog("drawableResize run")
         myViewControllerBridge.drawableResize(size)
     }
     
     @objc func renderToMetalLayer(_ metalLayer: CAMetalLayer) {
-
         MyLog("renderToMetalLayer run")
         myViewControllerBridge.renderToMetalLayer(metalLayer)
     }
@@ -222,8 +217,6 @@ extension ViewController {
 //        hostingLInfoButton.view.layer.borderWidth = 2
         
         hostingLInfoButton.didMove(toParent: self)
-        
-//        view.bringSubviewToFront(hostingLInfoButton.view)
     }
     
     // MARK: Create ConfigurationView
@@ -242,10 +235,6 @@ extension ViewController {
         
         // Auto Layout
         hostingLConfigurationViewController.view.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            hostingLConfigurationViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
-//        ])
         if UIDevice.current.userInterfaceIdiom == .pad {
             lConfigurationViewConstraints = [
                 hostingLConfigurationViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -282,7 +271,7 @@ extension ViewController {
 //            width: 300,
 //            height: UIScreen.main.bounds.height / 2 - 10
 //        )
-//        hostingLConfigurationViewController.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+        
         hostingLConfigurationViewController.view.backgroundColor = UIColor.systemBackground.withAlphaComponent(0.5)
 //        hostingLConfigurationViewController.view.layer.borderColor = UIColor.red.cgColor
 //        hostingLConfigurationViewController.view.layer.borderWidth = 2
@@ -323,10 +312,6 @@ extension ViewController {
         
         // Auto Layout
         hostingLARFaceTrackingViewController.view.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            hostingLARFaceTrackingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-//            hostingLARFaceTrackingViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
-//        ])
         if UIDevice.current.userInterfaceIdiom == .pad {
             lARFaceTrackingViewConstraints = [
                 hostingLARFaceTrackingViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -363,8 +348,6 @@ extension ViewController {
 //            width: 300,
 //            height: UIScreen.main.bounds.height / 2 - 10
 //        )
-        
-//        hostingLARFaceTrackingViewController.view.isHidden = true
         
         viewManager.$isShowLARFaceTrackingView
             .sink { [weak hostingLARFaceTrackingViewController] isShow in

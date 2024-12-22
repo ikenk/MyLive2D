@@ -5,8 +5,8 @@
 //  Created by HT Zhang  on 2024/11/27.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 class LResourceManager {
     static var shared: LResourceManager = .init()
@@ -22,11 +22,9 @@ class LResourceManager {
                 rootURL = fileManagerURL
             } else {
                 rootURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-")
                 MyLog("RootURL", rootURL?.description ?? "None")
             }
         } catch {
-
             MyLog("Error", error)
         }
         
@@ -48,7 +46,6 @@ class LResourceManager {
             do {
                 try FileManager.default.createDirectory(at: newURL, withIntermediateDirectories: true)
             } catch {
-
                 MyLog("Error", error)
             }
         }
@@ -64,10 +61,8 @@ class LResourceManager {
         
 //        do{
 //            let resourcesFiles = try FileManager.default.contentsOfDirectory(at: resourcesDir, includingPropertiesForKeys: nil)
-
-//            dump(files)
+//            MyLog("resourcesFiles", dump(files))
 //        }catch{
-
 //            MyLog("Error", error)
 //        }
         
@@ -75,7 +70,7 @@ class LResourceManager {
     }
     
     // Copy the documents at BundleURL to localURL synchronously
-    func copyBundleResourcesToLocalDirectorySync(from sourceDir: URL) -> URL?{
+    func copyBundleResourcesToLocalDirectorySync(from sourceDir: URL) -> URL? {
         guard let url = rootURL else {
             return nil
         }
@@ -89,20 +84,16 @@ class LResourceManager {
                 try FileManager.default.removeItem(at: destinationDocumentsURL)
             }
             
-
             MyLog("sourceDir", sourceDir)
             
             try FileManager.default.copyItem(at: sourceDir, to: destinationDocumentsURL)
             
-
             MyLog("sourcdestinationDocumentsURLeDir", destinationDocumentsURL.path())
             
-
             MyLog("FileManager.default.fileExists(atPath: destinationDocumentsURL.path())", FileManager.default.fileExists(atPath: destinationDocumentsURL.path()))
             
             return destinationDocumentsURL
         } catch {
-
             MyLog("Error", error)
         }
         
@@ -126,14 +117,12 @@ class LResourceManager {
                     try FileManager.default.removeItem(at: destinationDocumentsURL)
                 }
                 
-
                 MyLog("sourceDir", sourceDir)
                 
                 try FileManager.default.copyItem(at: sourceDir, to: destinationDocumentsURL)
                 
                 continuation.resume(returning: destinationDocumentsURL)
             } catch {
-
                 MyLog("Error", error)
                 continuation.resume(returning: nil)
             }
@@ -141,5 +130,4 @@ class LResourceManager {
     }
     
     // Copy the photo from PhotoLibrary to localURL
-    
 }

@@ -9,10 +9,9 @@ import SwiftUI
 
 struct LInfoButton: View {
     @EnvironmentObject var viewManager: LViewManager
-    
+
     var body: some View {
         Button {
-
             MyLog("LInfoButton Tap")
             if viewManager.isShowLARFaceTrackingView {
                 viewManager.isShowLARFaceTrackingView.toggle()
