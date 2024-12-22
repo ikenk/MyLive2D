@@ -66,10 +66,7 @@
 		44479B9B2CE99F4F00BB3C62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */; };
 		44479B9E2CE99F4F00BB3C62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9D2CE99F4F00BB3C62 /* Preview Assets.xcassets */; };
 		44CB6F822CF467570041EE7A /* My_Live2DCubism.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */; };
-		44CB6F9A2CF573FA0041EE7A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F952CF573FA0041EE7A /* CustomError.swift */; };
 		44CB6F9B2CF573FA0041EE7A /* LARFaceTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */; };
-		44CB6FD42CF7119F0041EE7A /* LDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FD32CF7119F0041EE7A /* LDocumentPicker.swift */; };
-		44CB6FD62CF717B60041EE7A /* LocalDocHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FD52CF717B60041EE7A /* LocalDocHandler.swift */; };
 		44CB6FD92CF728A50041EE7A /* LResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FD82CF728A50041EE7A /* LResourceManager.swift */; };
 		44CB6FDB2CF72A6E0041EE7A /* UserConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6FDA2CF72A6E0041EE7A /* UserConstants.swift */; };
 		44D0B4C52CED9AB900BFE9D0 /* My_LAppAllocator.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44D0B4C42CED9AB900BFE9D0 /* My_LAppAllocator.mm */; };
@@ -392,10 +389,7 @@
 		44CB6F802CF4674A0041EE7A /* My_Live2DCubism.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_Live2DCubism.h; sourceTree = "<group>"; };
 		44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_Live2DCubism.mm; sourceTree = "<group>"; };
 		44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LARFaceTrackingViewModel.swift; sourceTree = "<group>"; };
-		44CB6F952CF573FA0041EE7A /* CustomError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomError.swift; sourceTree = "<group>"; };
 		44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LARFaceTrackingView.swift; sourceTree = "<group>"; };
-		44CB6FD32CF7119F0041EE7A /* LDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDocumentPicker.swift; sourceTree = "<group>"; };
-		44CB6FD52CF717B60041EE7A /* LocalDocHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDocHandler.swift; sourceTree = "<group>"; };
 		44CB6FD72CF726890041EE7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		44CB6FD82CF728A50041EE7A /* LResourceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LResourceManager.swift; sourceTree = "<group>"; };
 		44CB6FDA2CF72A6E0041EE7A /* UserConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConstants.swift; sourceTree = "<group>"; };
@@ -1414,7 +1408,6 @@
 				44CB6FD72CF726890041EE7A /* Info.plist */,
 				44479B962CE99F4E00BB3C62 /* AppDelegate.swift */,
 				44E518102CF03C8C008A9BBA /* ViewController.swift */,
-				44CB6FDC2CF72B4E0041EE7A /* NotSure */,
 				4416DF882D0A8F8800C2E3B2 /* View */,
 				441FC6F82D043AAF001B0515 /* Manager */,
 				4416DF902D11473100C2E3B2 /* Utilities */,
@@ -1520,16 +1513,6 @@
 				44E518472CF2D531008A9BBA /* My_ViewControllerBridge.mm */,
 			);
 			path = ViewBridge;
-			sourceTree = "<group>";
-		};
-		44CB6FDC2CF72B4E0041EE7A /* NotSure */ = {
-			isa = PBXGroup;
-			children = (
-				44CB6FD32CF7119F0041EE7A /* LDocumentPicker.swift */,
-				44CB6FD52CF717B60041EE7A /* LocalDocHandler.swift */,
-				44CB6F952CF573FA0041EE7A /* CustomError.swift */,
-			);
-			path = NotSure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1687,7 +1670,6 @@
 				44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */,
 				44E518112CF03C8C008A9BBA /* ViewController.swift in Sources */,
 				4416DF8E2D108ADC00C2E3B2 /* LInfoButton.swift in Sources */,
-				44CB6F9A2CF573FA0041EE7A /* CustomError.swift in Sources */,
 				44158CBE2CEB3F4800CE9D62 /* LConfigurationView.swift in Sources */,
 				44D6C1A42D019AFA00B3C145 /* ModelConstants.swift in Sources */,
 				4416DF8A2D0AC0FF00C2E3B2 /* ConfigConstants.swift in Sources */,
@@ -1695,7 +1677,6 @@
 				44E518452CF23661008A9BBA /* My_AppDelegateBridge.mm in Sources */,
 				441FC6F62D0439FB001B0515 /* LModelManager.swift in Sources */,
 				4416DF932D11B93100C2E3B2 /* LViewManager.swift in Sources */,
-				44CB6FD42CF7119F0041EE7A /* LDocumentPicker.swift in Sources */,
 				4416E12F2D12C90C0031F7E0 /* LAnimationControllerView.swift in Sources */,
 				4416E1312D12C9A60031F7E0 /* LPickImageView.swift in Sources */,
 				44E518482CF2D531008A9BBA /* My_ViewControllerBridge.mm in Sources */,
@@ -1704,7 +1685,6 @@
 				44D0B4CE2CEDF7E400BFE9D0 /* My_LAppModel.mm in Sources */,
 				4416E1352D12CC4F0031F7E0 /* LModelConfigurationParameter.swift in Sources */,
 				44CB6F822CF467570041EE7A /* My_Live2DCubism.mm in Sources */,
-				44CB6FD62CF717B60041EE7A /* LocalDocHandler.swift in Sources */,
 				44D2B5182CFAB51100601D51 /* My_PathSearch.m in Sources */,
 				44CB6FD92CF728A50041EE7A /* LResourceManager.swift in Sources */,
 				44D0B4CB2CEDC9B500BFE9D0 /* My_LAppPal.mm in Sources */,
