@@ -113,8 +113,8 @@ A: 建议：
 
 ### 使用条款
 - 请遵守 Live2D 授权协议
-- 遵守相关隐私政策
-- 遵守用户协议
+- 请遵守相关隐私政策
+- 请遵守用户协议
 
 ## 感谢
 感谢[@KyokiStudio](https://kyoki.booth.pm/)提供的**芙莉莲和肥伦模型**以及[@Live2D官方](https://docs.live2d.com/cubism-sdk-manual/cubism-sdk-for-native/)提供的技术支持。
