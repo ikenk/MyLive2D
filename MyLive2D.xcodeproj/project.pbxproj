@@ -28,9 +28,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4445546A2D16969700EFF6F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4445546C2D16AB2E00EFF6F3 /* README.zh-CN.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README.zh-CN.md"; sourceTree = "<group>"; };
-		4445546D2D16AB5C00EFF6F3 /* README.ja.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.ja.md; sourceTree = "<group>"; };
+		4445546A2D16969700EFF6F3 /* SUPPORT.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SUPPORT.md; sourceTree = "<group>"; };
+		4445546C2D16AB2E00EFF6F3 /* SUPPORT.zh-CN.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "SUPPORT.zh-CN.md"; sourceTree = "<group>"; };
+		4445546D2D16AB5C00EFF6F3 /* SUPPORT.ja.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = SUPPORT.ja.md; sourceTree = "<group>"; };
 		444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCubismSdkFramework.a; path = "/Users/zhanghaoting/CodeFile/XCode/Project_Live2D/MyLive2D-SwiftUI/build/Debug-iphoneos/libCubismSdkFramework.a"; sourceTree = "<absolute>"; };
 		44479B942CE99F4E00BB3C62 /* MyLive2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = MyLive2D.app; path = "/Users/zhanghaoting/CodeFile/XCode/Project_Live2D/MyLive2D-SwiftUI/build/Debug-iphoneos/MyLive2D.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
@@ -56,8 +56,8 @@
 		4445546B2D16AA3400EFF6F3 /* Docs */ = {
 			isa = PBXGroup;
 			children = (
-				4445546C2D16AB2E00EFF6F3 /* README.zh-CN.md */,
-				4445546D2D16AB5C00EFF6F3 /* README.ja.md */,
+				4445546C2D16AB2E00EFF6F3 /* SUPPORT.zh-CN.md */,
+				4445546D2D16AB5C00EFF6F3 /* SUPPORT.ja.md */,
 			);
 			path = Docs;
 			sourceTree = "<group>";
@@ -65,7 +65,7 @@
 		444793822CE98A6600BB3C62 = {
 			isa = PBXGroup;
 			children = (
-				4445546A2D16969700EFF6F3 /* README.md */,
+				4445546A2D16969700EFF6F3 /* SUPPORT.md */,
 				4445546B2D16AA3400EFF6F3 /* Docs */,
 			);
 			sourceTree = "<group>";
