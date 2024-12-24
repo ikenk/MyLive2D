@@ -22,6 +22,7 @@
 		4416E1352D12CC4F0031F7E0 /* LModelConfigurationParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416E1342D12CC4F0031F7E0 /* LModelConfigurationParameter.swift */; };
 		441FC6F62D0439FB001B0515 /* LModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FC6F52D0439FB001B0515 /* LModelManager.swift */; };
 		4445546F2D17BD5D00EFF6F3 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416DF912D11473900C2E3B2 /* Logger.swift */; };
+		4445547C2D1B048D00EFF6F3 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 4445547B2D1B048D00EFF6F3 /* InfoPlist.xcstrings */; };
 		444799E22CE9900300BB3C62 /* CubismEyeBlink.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799B92CE9900200BB3C62 /* CubismEyeBlink.cpp */; };
 		444799E32CE9900300BB3C62 /* CubismMotion.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BA2CE9900200BB3C62 /* CubismMotion.cpp */; };
 		444799E42CE9900300BB3C62 /* CubismRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799BB2CE9900200BB3C62 /* CubismRenderer.cpp */; };
@@ -129,6 +130,7 @@
 		4445546A2D16969700EFF6F3 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4445546C2D16AB2E00EFF6F3 /* README.zh-CN.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README.zh-CN.md"; sourceTree = "<group>"; };
 		4445546D2D16AB5C00EFF6F3 /* README.ja.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.ja.md; sourceTree = "<group>"; };
+		4445547B2D1B048D00EFF6F3 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCubismSdkFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		444798772CE98FD800BB3C62 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		444798792CE98FD800BB3C62 /* CubismDebug.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CubismDebug.hpp; sourceTree = "<group>"; };
@@ -1420,6 +1422,7 @@
 				44479B9C2CE99F4F00BB3C62 /* Preview Content */,
 				44E5183E2CF1D0D2008A9BBA /* Resources */,
 				4416DF8B2D107EF000C2E3B2 /* Localizable.xcstrings */,
+				4445547B2D1B048D00EFF6F3 /* InfoPlist.xcstrings */,
 			);
 			path = MyLive2D;
 			sourceTree = "<group>";
@@ -1599,6 +1602,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44158C902CEB235D00CE9D62 /* MetalShaders.metal in Resources */,
+				4445547C2D1B048D00EFF6F3 /* InfoPlist.xcstrings in Resources */,
 				44479B9E2CE99F4F00BB3C62 /* Preview Assets.xcassets in Resources */,
 				4416DF8C2D107EF000C2E3B2 /* Localizable.xcstrings in Resources */,
 				44479B9B2CE99F4F00BB3C62 /* Assets.xcassets in Resources */,
@@ -1902,7 +1906,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = 1.0;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
@@ -1970,7 +1974,7 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = 1.0;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
