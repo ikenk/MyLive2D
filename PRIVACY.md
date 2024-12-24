@@ -12,10 +12,25 @@ Welcome to MyLive2D ("we", "us", "the App"). We value your privacy and are commi
 
 The App only collects the minimum amount of data necessary for operation:
 
-1. Camera Data
-   - Purpose: To enable AR facial tracking
-   - Explanation: Camera data is processed in real-time within the app and will not be saved or uploaded
-   - When Used: Camera is accessed only when you use the AR functionality.
+1. Camera Data and TrueDepth API
+   * Types of data collected:
+     - Facial expression data
+     - Head pose data
+     - Facial feature point position data
+   * Purposes of use:
+     - Real-time synchronization of facial expressions for virtual avatars
+     - Tracking head movements and mapping them to virtual avatars
+     - Enabling AR functionality for facial motion capture
+   * Data processing methods:
+     - All facial data collected by the TrueDepth API is processed locally and in real-time on the device.
+     - Data is stored only in device memory for real-time rendering.
+     - No facial data is recorded, stored, or transmitted.
+     - All facial data is cleared immediately after the session ends.
+   * Data protection:
+     - Strict adherence to Apple's guidelines for the use of the TrueDepth API
+     - Facial data will not be used for advertising or other commercial purposes.
+     - Facial data will not be shared with any third parties.
+     - Industry-standard security measures are employed to protect the real-time processing.
 
 2. Application Data
    - Live2D model files
