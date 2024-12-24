@@ -33,6 +33,9 @@
 		4445546D2D16AB5C00EFF6F3 /* README.ja.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.ja.md; sourceTree = "<group>"; };
 		444554742D19A4EF00EFF6F3 /* MyLive2D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLive2D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		444554752D19A4EF00EFF6F3 /* libCubismSdkFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCubismSdkFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		444554762D19D4A800EFF6F3 /* PRIVACY.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY.md; sourceTree = "<group>"; };
+		444554772D19D4BD00EFF6F3 /* PRIVACY.zh-CN.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "PRIVACY.zh-CN.md"; sourceTree = "<group>"; };
+		444554782D19D4ED00EFF6F3 /* PRIVACY.ja.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = PRIVACY.ja.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				4445546C2D16AB2E00EFF6F3 /* README.zh-CN.md */,
+				444554772D19D4BD00EFF6F3 /* PRIVACY.zh-CN.md */,
 				4445546D2D16AB5C00EFF6F3 /* README.ja.md */,
+				444554782D19D4ED00EFF6F3 /* PRIVACY.ja.md */,
 			);
 			path = Docs;
 			sourceTree = "<group>";
@@ -66,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				4445546A2D16969700EFF6F3 /* README.md */,
+				444554762D19D4A800EFF6F3 /* PRIVACY.md */,
 				4445546B2D16AA3400EFF6F3 /* Docs */,
 				444554742D19A4EF00EFF6F3 /* MyLive2D.app */,
 				444554752D19A4EF00EFF6F3 /* libCubismSdkFramework.a */,
