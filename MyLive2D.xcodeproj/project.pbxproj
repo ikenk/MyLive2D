@@ -65,6 +65,19 @@
 		44479A0A2CE9900300BB3C62 /* CubismDebug.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 444799E12CE9900300BB3C62 /* CubismDebug.cpp */; };
 		44479B9B2CE99F4F00BB3C62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */; };
 		44479B9E2CE99F4F00BB3C62 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44479B9D2CE99F4F00BB3C62 /* Preview Assets.xcassets */; };
+		446DD4362DA11A29009AB427 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4332DA11A29009AB427 /* ContentView.swift */; };
+		446DD4372DA11A29009AB427 /* MyLive2D_AIChatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4342DA11A29009AB427 /* MyLive2D_AIChatApp.swift */; };
+		446DD4382DA11A29009AB427 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 446DD4322DA11A29009AB427 /* Assets.xcassets */; };
+		446DD4472DA11AEE009AB427 /* GPTSoVITSParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD43E2DA11AEE009AB427 /* GPTSoVITSParameters.swift */; };
+		446DD4482DA11AEE009AB427 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD43B2DA11AEE009AB427 /* Character.swift */; };
+		446DD4492DA11AEE009AB427 /* LMStudioParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD43F2DA11AEE009AB427 /* LMStudioParameters.swift */; };
+		446DD44A2DA11AEE009AB427 /* MessageRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4412DA11AEE009AB427 /* MessageRole.swift */; };
+		446DD44B2DA11AEE009AB427 /* mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4392DA11AEE009AB427 /* mocks.swift */; };
+		446DD44C2DA11AEE009AB427 /* CharacterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD43C2DA11AEE009AB427 /* CharacterSettings.swift */; };
+		446DD44D2DA11AEE009AB427 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4402DA11AEE009AB427 /* Message.swift */; };
+		446DD44E2DA11AEE009AB427 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD43D2DA11AEE009AB427 /* Conversation.swift */; };
+		446DD44F2DA11AEE009AB427 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4442DA11AEE009AB427 /* ChatView.swift */; };
+		446DD4512DA12543009AB427 /* Message+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4502DA1253A009AB427 /* Message+Mocks.swift */; };
 		44CB6F822CF467570041EE7A /* My_Live2DCubism.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */; };
 		44CB6F9A2CF573FA0041EE7A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F952CF573FA0041EE7A /* CustomError.swift */; };
 		44CB6F9B2CF573FA0041EE7A /* LARFaceTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */; };
@@ -389,6 +402,20 @@
 		44479BE02CEA562000BB3C62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		44479BE42CEA619F00BB3C62 /* MetalConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetalConfig.h; sourceTree = "<group>"; };
 		444E9DC02CEB01D3009EF853 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		446DD4272DA11A19009AB427 /* MyLive2D-AIChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyLive2D-AIChat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		446DD4322DA11A29009AB427 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		446DD4332DA11A29009AB427 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		446DD4342DA11A29009AB427 /* MyLive2D_AIChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLive2D_AIChatApp.swift; sourceTree = "<group>"; };
+		446DD4392DA11AEE009AB427 /* mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mocks.swift; sourceTree = "<group>"; };
+		446DD43B2DA11AEE009AB427 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		446DD43C2DA11AEE009AB427 /* CharacterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSettings.swift; sourceTree = "<group>"; };
+		446DD43D2DA11AEE009AB427 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		446DD43E2DA11AEE009AB427 /* GPTSoVITSParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTSoVITSParameters.swift; sourceTree = "<group>"; };
+		446DD43F2DA11AEE009AB427 /* LMStudioParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LMStudioParameters.swift; sourceTree = "<group>"; };
+		446DD4402DA11AEE009AB427 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		446DD4412DA11AEE009AB427 /* MessageRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRole.swift; sourceTree = "<group>"; };
+		446DD4442DA11AEE009AB427 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		446DD4502DA1253A009AB427 /* Message+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+Mocks.swift"; sourceTree = "<group>"; };
 		44CB6F802CF4674A0041EE7A /* My_Live2DCubism.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_Live2DCubism.h; sourceTree = "<group>"; };
 		44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_Live2DCubism.mm; sourceTree = "<group>"; };
 		44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LARFaceTrackingViewModel.swift; sourceTree = "<group>"; };
@@ -436,6 +463,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				44158C9F2CEB367900CE9D62 /* libCubismSdkFramework.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		446DD4242DA11A19009AB427 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +590,7 @@
 			children = (
 				4445546A2D16969700EFF6F3 /* README.md */,
 				4445546B2D16AA3400EFF6F3 /* Docs */,
+				446DD4352DA11A29009AB427 /* MyLive2D-AIChat */,
 				44479B952CE99F4E00BB3C62 /* MyLive2D */,
 				444793A22CE98AB900BB3C62 /* CubismSdkFramework */,
 				4447938C2CE98A6600BB3C62 /* Products */,
@@ -569,6 +604,7 @@
 			children = (
 				444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */,
 				44479B942CE99F4E00BB3C62 /* MyLive2D.app */,
+				446DD4272DA11A19009AB427 /* MyLive2D-AIChat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1485,6 +1521,90 @@
 			path = ThirdParty;
 			sourceTree = "<group>";
 		};
+		446DD4352DA11A29009AB427 /* MyLive2D-AIChat */ = {
+			isa = PBXGroup;
+			children = (
+				446DD4522DA2CEFD009AB427 /* Network */,
+				446DD43A2DA11AEE009AB427 /* Mocks */,
+				446DD4422DA11AEE009AB427 /* Model */,
+				446DD4432DA11AEE009AB427 /* ViewModel */,
+				446DD4452DA11AEE009AB427 /* Views */,
+				446DD4322DA11A29009AB427 /* Assets.xcassets */,
+				446DD4332DA11A29009AB427 /* ContentView.swift */,
+				446DD4342DA11A29009AB427 /* MyLive2D_AIChatApp.swift */,
+			);
+			path = "MyLive2D-AIChat";
+			sourceTree = "<group>";
+		};
+		446DD43A2DA11AEE009AB427 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				446DD4502DA1253A009AB427 /* Message+Mocks.swift */,
+				446DD4392DA11AEE009AB427 /* mocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		446DD4422DA11AEE009AB427 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				446DD43B2DA11AEE009AB427 /* Character.swift */,
+				446DD43C2DA11AEE009AB427 /* CharacterSettings.swift */,
+				446DD43D2DA11AEE009AB427 /* Conversation.swift */,
+				446DD43E2DA11AEE009AB427 /* GPTSoVITSParameters.swift */,
+				446DD43F2DA11AEE009AB427 /* LMStudioParameters.swift */,
+				446DD4402DA11AEE009AB427 /* Message.swift */,
+				446DD4412DA11AEE009AB427 /* MessageRole.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		446DD4432DA11AEE009AB427 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		446DD4452DA11AEE009AB427 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				446DD4442DA11AEE009AB427 /* ChatView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		446DD4522DA2CEFD009AB427 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				446DD4552DA2CF12009AB427 /* Models */,
+				446DD4542DA2CF0A009AB427 /* Services */,
+				446DD4532DA2CF05009AB427 /* Core */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		446DD4532DA2CF05009AB427 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		446DD4542DA2CF0A009AB427 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		446DD4552DA2CF12009AB427 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		44CB6F832CF4C8610041EE7A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1560,6 +1680,7 @@
 				44479B902CE99F4E00BB3C62 /* Sources */,
 				44479B922CE99F4E00BB3C62 /* Resources */,
 				44E5183B2CF1CFEC008A9BBA /* CopyFiles */,
+				44CD7F072DA0D09C000CEC2C /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -1570,6 +1691,25 @@
 			productReference = 44479B942CE99F4E00BB3C62 /* MyLive2D.app */;
 			productType = "com.apple.product-type.application";
 		};
+		446DD4262DA11A19009AB427 /* MyLive2D-AIChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 446DD42F2DA11A1B009AB427 /* Build configuration list for PBXNativeTarget "MyLive2D-AIChat" */;
+			buildPhases = (
+				446DD4232DA11A19009AB427 /* Sources */,
+				446DD4242DA11A19009AB427 /* Frameworks */,
+				446DD4252DA11A19009AB427 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MyLive2D-AIChat";
+			packageProductDependencies = (
+			);
+			productName = "MyLive2D-AIChat";
+			productReference = 446DD4272DA11A19009AB427 /* MyLive2D-AIChat.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1577,7 +1717,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1540;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					444797542CE98D5400BB3C62 = {
@@ -1586,6 +1726,9 @@
 					44479B932CE99F4E00BB3C62 = {
 						CreatedOnToolsVersion = 15.4;
 						LastSwiftMigration = 1540;
+					};
+					446DD4262DA11A19009AB427 = {
+						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
@@ -1600,12 +1743,16 @@
 				ja,
 			);
 			mainGroup = 444793822CE98A6600BB3C62;
+			packageReferences = (
+				44705C672D96EA8600795BC3 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+			);
 			productRefGroup = 4447938C2CE98A6600BB3C62 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				44479B932CE99F4E00BB3C62 /* MyLive2D */,
 				444797542CE98D5400BB3C62 /* CubismSdkFramework */,
+				446DD4262DA11A19009AB427 /* MyLive2D-AIChat */,
 			);
 		};
 /* End PBXProject section */
@@ -1622,7 +1769,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		446DD4252DA11A19009AB427 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				446DD4382DA11A29009AB427 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44CD7F072DA0D09C000CEC2C /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		444797512CE98D5400BB3C62 /* Sources */ = {
@@ -1711,6 +1887,25 @@
 				44D0B4C82CEDB9D500BFE9D0 /* My_LAppDefine.mm in Sources */,
 				44E5181E2CF0C84D008A9BBA /* My_LAppLive2DManager.mm in Sources */,
 				44E5184B2CF2E786008A9BBA /* My_LAppTextureManager.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		446DD4232DA11A19009AB427 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				446DD4362DA11A29009AB427 /* ContentView.swift in Sources */,
+				446DD4472DA11AEE009AB427 /* GPTSoVITSParameters.swift in Sources */,
+				446DD4482DA11AEE009AB427 /* Character.swift in Sources */,
+				446DD4512DA12543009AB427 /* Message+Mocks.swift in Sources */,
+				446DD4492DA11AEE009AB427 /* LMStudioParameters.swift in Sources */,
+				446DD44A2DA11AEE009AB427 /* MessageRole.swift in Sources */,
+				446DD44B2DA11AEE009AB427 /* mocks.swift in Sources */,
+				446DD44C2DA11AEE009AB427 /* CharacterSettings.swift in Sources */,
+				446DD44D2DA11AEE009AB427 /* Message.swift in Sources */,
+				446DD44E2DA11AEE009AB427 /* Conversation.swift in Sources */,
+				446DD44F2DA11AEE009AB427 /* ChatView.swift in Sources */,
+				446DD4372DA11A29009AB427 /* MyLive2D_AIChatApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1909,6 +2104,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyLive2D/Preview Content\"";
 				DEVELOPMENT_TEAM = 36V8YWAA2V;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = NO;
@@ -1971,6 +2167,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyLive2D/Preview Content\"";
 				DEVELOPMENT_TEAM = 36V8YWAA2V;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = NO;
@@ -2016,6 +2213,64 @@
 			};
 			name = Release;
 		};
+		446DD4302DA11A1B009AB427 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 36V8YWAA2V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HTZ.MyLive2D-AIChat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		446DD4312DA11A1B009AB427 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 36V8YWAA2V;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.HTZ.MyLive2D-AIChat";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2046,7 +2301,27 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		446DD42F2DA11A1B009AB427 /* Build configuration list for PBXNativeTarget "MyLive2D-AIChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				446DD4302DA11A1B009AB427 /* Debug */,
+				446DD4312DA11A1B009AB427 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		44705C672D96EA8600795BC3 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.58.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 444793832CE98A6600BB3C62 /* Project object */;
 }
