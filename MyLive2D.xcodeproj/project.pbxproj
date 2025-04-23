@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4404E93B2DB751E80028759F /* ModelSturcture.md in Resources */ = {isa = PBXBuildFile; fileRef = 4404E93A2DB751D50028759F /* ModelSturcture.md */; };
+		4404E93D2DB767B40028759F /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E93C2DB767B20028759F /* HTTPRequest.swift */; };
+		4404E93F2DB769760028759F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E93E2DB769760028759F /* NetworkManager.swift */; };
+		4404E9422DB7D6AE0028759F /* CharacterStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E9412DB7D6AA0028759F /* CharacterStore.swift */; };
+		4404E9442DB87E7F0028759F /* DirectoryStructure.md in Sources */ = {isa = PBXBuildFile; fileRef = 4404E9432DB87E6F0028759F /* DirectoryStructure.md */; };
+		4404E9462DB8DAB90028759F /* Character+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E9452DB8DAB20028759F /* Character+Mocks.swift */; };
+		4404E9482DB8E12D0028759F /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E9472DB8E12A0028759F /* ConversationListView.swift */; };
 		44158C902CEB235D00CE9D62 /* MetalShaders.metal in Resources */ = {isa = PBXBuildFile; fileRef = 444798BB2CE98FD800BB3C62 /* MetalShaders.metal */; };
 		44158C9F2CEB367900CE9D62 /* libCubismSdkFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B962CE99F4E00BB3C62 /* AppDelegate.swift */; };
@@ -78,6 +85,8 @@
 		446DD44E2DA11AEE009AB427 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD43D2DA11AEE009AB427 /* Conversation.swift */; };
 		446DD44F2DA11AEE009AB427 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4442DA11AEE009AB427 /* ChatView.swift */; };
 		446DD4512DA12543009AB427 /* Message+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4502DA1253A009AB427 /* Message+Mocks.swift */; };
+		446DD4572DA8225E009AB427 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4562DA8225C009AB427 /* NetworkError.swift */; };
+		446DD4592DA82CE6009AB427 /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4582DA82CE4009AB427 /* ChatService.swift */; };
 		44CB6F822CF467570041EE7A /* My_Live2DCubism.mm in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */; };
 		44CB6F9A2CF573FA0041EE7A /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F952CF573FA0041EE7A /* CustomError.swift */; };
 		44CB6F9B2CF573FA0041EE7A /* LARFaceTrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CB6F962CF573FA0041EE7A /* LARFaceTrackingView.swift */; };
@@ -126,6 +135,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4404E93A2DB751D50028759F /* ModelSturcture.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ModelSturcture.md; sourceTree = "<group>"; };
+		4404E93C2DB767B20028759F /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		4404E93E2DB769760028759F /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		4404E9412DB7D6AA0028759F /* CharacterStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStore.swift; sourceTree = "<group>"; };
+		4404E9432DB87E6F0028759F /* DirectoryStructure.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DirectoryStructure.md; sourceTree = "<group>"; };
+		4404E9452DB8DAB20028759F /* Character+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Mocks.swift"; sourceTree = "<group>"; };
+		4404E9472DB8E12A0028759F /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
 		44158CA32CEB3DC300CE9D62 /* TouchManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TouchManager.mm; sourceTree = "<group>"; };
 		44158CA52CEB3DC300CE9D62 /* MetalUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalUIView.m; sourceTree = "<group>"; };
 		44158CAD2CEB3DC400CE9D62 /* MetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalView.m; sourceTree = "<group>"; };
@@ -416,6 +432,8 @@
 		446DD4412DA11AEE009AB427 /* MessageRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRole.swift; sourceTree = "<group>"; };
 		446DD4442DA11AEE009AB427 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		446DD4502DA1253A009AB427 /* Message+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Message+Mocks.swift"; sourceTree = "<group>"; };
+		446DD4562DA8225C009AB427 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		446DD4582DA82CE4009AB427 /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		44CB6F802CF4674A0041EE7A /* My_Live2DCubism.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = My_Live2DCubism.h; sourceTree = "<group>"; };
 		44CB6F812CF467570041EE7A /* My_Live2DCubism.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = My_Live2DCubism.mm; sourceTree = "<group>"; };
 		44CB6F942CF573FA0041EE7A /* LARFaceTrackingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LARFaceTrackingViewModel.swift; sourceTree = "<group>"; };
@@ -476,6 +494,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4404E9402DB7D69F0028759F /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				4404E9432DB87E6F0028759F /* DirectoryStructure.md */,
+				4404E9412DB7D6AA0028759F /* CharacterStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		4404E9492DB9319D0028759F /* ChatViews */ = {
+			isa = PBXGroup;
+			children = (
+				4404E9472DB8E12A0028759F /* ConversationListView.swift */,
+				446DD4442DA11AEE009AB427 /* ChatView.swift */,
+			);
+			path = ChatViews;
+			sourceTree = "<group>";
+		};
+		4404E94A2DB931AB0028759F /* CameraViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CameraViews;
+			sourceTree = "<group>";
+		};
+		4404E94B2DB931CB0028759F /* ChatModels */ = {
+			isa = PBXGroup;
+			children = (
+				4404E93A2DB751D50028759F /* ModelSturcture.md */,
+				446DD43B2DA11AEE009AB427 /* Character.swift */,
+				446DD43C2DA11AEE009AB427 /* CharacterSettings.swift */,
+				446DD43D2DA11AEE009AB427 /* Conversation.swift */,
+				446DD43E2DA11AEE009AB427 /* GPTSoVITSParameters.swift */,
+				446DD43F2DA11AEE009AB427 /* LMStudioParameters.swift */,
+				446DD4402DA11AEE009AB427 /* Message.swift */,
+				446DD4412DA11AEE009AB427 /* MessageRole.swift */,
+			);
+			path = ChatModels;
+			sourceTree = "<group>";
+		};
+		4404E94C2DB931E40028759F /* PhotoModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PhotoModels;
+			sourceTree = "<group>";
+		};
 		44158CC32CEB7EB900CE9D62 /* Bridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -1460,9 +1525,9 @@
 				44479BB12CEA482A00BB3C62 /* M+Files */,
 				444E9DBF2CEB01C8009EF853 /* ThirdParty */,
 				44479B9A2CE99F4F00BB3C62 /* Assets.xcassets */,
-				44479B9C2CE99F4F00BB3C62 /* Preview Content */,
 				44E5183E2CF1D0D2008A9BBA /* Resources */,
 				4416DF8B2D107EF000C2E3B2 /* Localizable.xcstrings */,
+				44479B9C2CE99F4F00BB3C62 /* Preview Content */,
 			);
 			path = MyLive2D;
 			sourceTree = "<group>";
@@ -1524,9 +1589,10 @@
 		446DD4352DA11A29009AB427 /* MyLive2D-AIChat */ = {
 			isa = PBXGroup;
 			children = (
+				4404E9402DB7D69F0028759F /* Store */,
 				446DD4522DA2CEFD009AB427 /* Network */,
 				446DD43A2DA11AEE009AB427 /* Mocks */,
-				446DD4422DA11AEE009AB427 /* Model */,
+				446DD4422DA11AEE009AB427 /* Models */,
 				446DD4432DA11AEE009AB427 /* ViewModel */,
 				446DD4452DA11AEE009AB427 /* Views */,
 				446DD4322DA11A29009AB427 /* Assets.xcassets */,
@@ -1539,24 +1605,20 @@
 		446DD43A2DA11AEE009AB427 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				4404E9452DB8DAB20028759F /* Character+Mocks.swift */,
 				446DD4502DA1253A009AB427 /* Message+Mocks.swift */,
 				446DD4392DA11AEE009AB427 /* mocks.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
 		};
-		446DD4422DA11AEE009AB427 /* Model */ = {
+		446DD4422DA11AEE009AB427 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				446DD43B2DA11AEE009AB427 /* Character.swift */,
-				446DD43C2DA11AEE009AB427 /* CharacterSettings.swift */,
-				446DD43D2DA11AEE009AB427 /* Conversation.swift */,
-				446DD43E2DA11AEE009AB427 /* GPTSoVITSParameters.swift */,
-				446DD43F2DA11AEE009AB427 /* LMStudioParameters.swift */,
-				446DD4402DA11AEE009AB427 /* Message.swift */,
-				446DD4412DA11AEE009AB427 /* MessageRole.swift */,
+				4404E94C2DB931E40028759F /* PhotoModels */,
+				4404E94B2DB931CB0028759F /* ChatModels */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		446DD4432DA11AEE009AB427 /* ViewModel */ = {
@@ -1569,7 +1631,8 @@
 		446DD4452DA11AEE009AB427 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				446DD4442DA11AEE009AB427 /* ChatView.swift */,
+				4404E94A2DB931AB0028759F /* CameraViews */,
+				4404E9492DB9319D0028759F /* ChatViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1587,6 +1650,9 @@
 		446DD4532DA2CF05009AB427 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				4404E93C2DB767B20028759F /* HTTPRequest.swift */,
+				446DD4562DA8225C009AB427 /* NetworkError.swift */,
+				4404E93E2DB769760028759F /* NetworkManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1594,6 +1660,7 @@
 		446DD4542DA2CF0A009AB427 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				446DD4582DA82CE4009AB427 /* ChatService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1773,6 +1840,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4404E93B2DB751E80028759F /* ModelSturcture.md in Resources */,
 				446DD4382DA11A29009AB427 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1898,12 +1966,20 @@
 				446DD4472DA11AEE009AB427 /* GPTSoVITSParameters.swift in Sources */,
 				446DD4482DA11AEE009AB427 /* Character.swift in Sources */,
 				446DD4512DA12543009AB427 /* Message+Mocks.swift in Sources */,
+				4404E93F2DB769760028759F /* NetworkManager.swift in Sources */,
+				4404E9422DB7D6AE0028759F /* CharacterStore.swift in Sources */,
 				446DD4492DA11AEE009AB427 /* LMStudioParameters.swift in Sources */,
+				4404E9462DB8DAB90028759F /* Character+Mocks.swift in Sources */,
+				4404E9442DB87E7F0028759F /* DirectoryStructure.md in Sources */,
 				446DD44A2DA11AEE009AB427 /* MessageRole.swift in Sources */,
 				446DD44B2DA11AEE009AB427 /* mocks.swift in Sources */,
 				446DD44C2DA11AEE009AB427 /* CharacterSettings.swift in Sources */,
 				446DD44D2DA11AEE009AB427 /* Message.swift in Sources */,
+				446DD4592DA82CE6009AB427 /* ChatService.swift in Sources */,
 				446DD44E2DA11AEE009AB427 /* Conversation.swift in Sources */,
+				4404E9482DB8E12D0028759F /* ConversationListView.swift in Sources */,
+				446DD4572DA8225E009AB427 /* NetworkError.swift in Sources */,
+				4404E93D2DB767B40028759F /* HTTPRequest.swift in Sources */,
 				446DD44F2DA11AEE009AB427 /* ChatView.swift in Sources */,
 				446DD4372DA11A29009AB427 /* MyLive2D_AIChatApp.swift in Sources */,
 			);
@@ -2228,7 +2304,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2257,7 +2333,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

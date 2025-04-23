@@ -12,5 +12,5 @@ struct Conversation: Codable {
     let title: String      // 对话标题
     var messages: [Message]  // 对话消息列表
     let createdAt: Date    // 创建时间
-    let updatedAt: Date    // 更新时间
+    var updatedAt: Date    // 更新时间
 }
