@@ -161,6 +161,9 @@
         }
       }
     },
+    "Hello World!" : {
+
+    },
     "Left" : {
       "localizations" : {
         "ja" : {
