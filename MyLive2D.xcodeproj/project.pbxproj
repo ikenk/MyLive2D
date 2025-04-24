@@ -14,6 +14,10 @@
 		4404E9442DB87E7F0028759F /* DirectoryStructure.md in Sources */ = {isa = PBXBuildFile; fileRef = 4404E9432DB87E6F0028759F /* DirectoryStructure.md */; };
 		4404E9462DB8DAB90028759F /* Character+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E9452DB8DAB20028759F /* Character+Mocks.swift */; };
 		4404E9482DB8E12D0028759F /* ConversationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E9472DB8E12A0028759F /* ConversationListView.swift */; };
+		4404E94E2DB9DB150028759F /* Conversation+Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E94D2DB9DB120028759F /* Conversation+Mocks.swift */; };
+		4404E9502DB9DDAE0028759F /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E94F2DB9DDAB0028759F /* PreviewData.swift */; };
+		4404E9532DB9E07A0028759F /* MockChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E9522DB9E0780028759F /* MockChatViewModel.swift */; };
+		4404E9562DB9F38E0028759F /* DebugModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4404E9552DB9F38B0028759F /* DebugModifiers.swift */; };
 		44158C902CEB235D00CE9D62 /* MetalShaders.metal in Resources */ = {isa = PBXBuildFile; fileRef = 444798BB2CE98FD800BB3C62 /* MetalShaders.metal */; };
 		44158C9F2CEB367900CE9D62 /* libCubismSdkFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 444797552CE98D5400BB3C62 /* libCubismSdkFramework.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		44158CBD2CEB3F4800CE9D62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44479B962CE99F4E00BB3C62 /* AppDelegate.swift */; };
@@ -79,7 +83,6 @@
 		446DD4482DA11AEE009AB427 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD43B2DA11AEE009AB427 /* Character.swift */; };
 		446DD4492DA11AEE009AB427 /* LMStudioParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD43F2DA11AEE009AB427 /* LMStudioParameters.swift */; };
 		446DD44A2DA11AEE009AB427 /* MessageRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4412DA11AEE009AB427 /* MessageRole.swift */; };
-		446DD44B2DA11AEE009AB427 /* mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4392DA11AEE009AB427 /* mocks.swift */; };
 		446DD44C2DA11AEE009AB427 /* CharacterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD43C2DA11AEE009AB427 /* CharacterSettings.swift */; };
 		446DD44D2DA11AEE009AB427 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD4402DA11AEE009AB427 /* Message.swift */; };
 		446DD44E2DA11AEE009AB427 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446DD43D2DA11AEE009AB427 /* Conversation.swift */; };
@@ -142,6 +145,10 @@
 		4404E9432DB87E6F0028759F /* DirectoryStructure.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = DirectoryStructure.md; sourceTree = "<group>"; };
 		4404E9452DB8DAB20028759F /* Character+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Mocks.swift"; sourceTree = "<group>"; };
 		4404E9472DB8E12A0028759F /* ConversationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationListView.swift; sourceTree = "<group>"; };
+		4404E94D2DB9DB120028759F /* Conversation+Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Conversation+Mocks.swift"; sourceTree = "<group>"; };
+		4404E94F2DB9DDAB0028759F /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
+		4404E9522DB9E0780028759F /* MockChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockChatViewModel.swift; sourceTree = "<group>"; };
+		4404E9552DB9F38B0028759F /* DebugModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugModifiers.swift; sourceTree = "<group>"; };
 		44158CA32CEB3DC300CE9D62 /* TouchManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TouchManager.mm; sourceTree = "<group>"; };
 		44158CA52CEB3DC300CE9D62 /* MetalUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalUIView.m; sourceTree = "<group>"; };
 		44158CAD2CEB3DC400CE9D62 /* MetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalView.m; sourceTree = "<group>"; };
@@ -422,7 +429,6 @@
 		446DD4322DA11A29009AB427 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		446DD4332DA11A29009AB427 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		446DD4342DA11A29009AB427 /* MyLive2D_AIChatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLive2D_AIChatApp.swift; sourceTree = "<group>"; };
-		446DD4392DA11AEE009AB427 /* mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mocks.swift; sourceTree = "<group>"; };
 		446DD43B2DA11AEE009AB427 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		446DD43C2DA11AEE009AB427 /* CharacterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSettings.swift; sourceTree = "<group>"; };
 		446DD43D2DA11AEE009AB427 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
@@ -541,6 +547,22 @@
 			path = PhotoModels;
 			sourceTree = "<group>";
 		};
+		4404E9512DB9E0610028759F /* MockViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4404E9522DB9E0780028759F /* MockChatViewModel.swift */,
+			);
+			path = MockViewModel;
+			sourceTree = "<group>";
+		};
+		4404E9542DB9F37D0028759F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4404E9552DB9F38B0028759F /* DebugModifiers.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		44158CC32CEB7EB900CE9D62 /* Bridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,12 +581,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		4416DF902D11473100C2E3B2 /* Utilities */ = {
+		4416DF902D11473100C2E3B2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				4416DF912D11473900C2E3B2 /* Logger.swift */,
 			);
-			path = Utilities;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		4416E1292D12C8590031F7E0 /* LConfigurationView */ = {
@@ -1518,7 +1540,7 @@
 				44CB6FDC2CF72B4E0041EE7A /* NotSure */,
 				4416DF882D0A8F8800C2E3B2 /* View */,
 				441FC6F82D043AAF001B0515 /* Manager */,
-				4416DF902D11473100C2E3B2 /* Utilities */,
+				4416DF902D11473100C2E3B2 /* Utils */,
 				441FC6F72D043A0D001B0515 /* Constants */,
 				44158CC32CEB7EB900CE9D62 /* Bridge */,
 				44479BAF2CEA480800BB3C62 /* HeaderFiles */,
@@ -1589,6 +1611,7 @@
 		446DD4352DA11A29009AB427 /* MyLive2D-AIChat */ = {
 			isa = PBXGroup;
 			children = (
+				4404E9542DB9F37D0028759F /* Extensions */,
 				4404E9402DB7D69F0028759F /* Store */,
 				446DD4522DA2CEFD009AB427 /* Network */,
 				446DD43A2DA11AEE009AB427 /* Mocks */,
@@ -1605,9 +1628,10 @@
 		446DD43A2DA11AEE009AB427 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
+				4404E94F2DB9DDAB0028759F /* PreviewData.swift */,
+				4404E94D2DB9DB120028759F /* Conversation+Mocks.swift */,
 				4404E9452DB8DAB20028759F /* Character+Mocks.swift */,
 				446DD4502DA1253A009AB427 /* Message+Mocks.swift */,
-				446DD4392DA11AEE009AB427 /* mocks.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1624,6 +1648,7 @@
 		446DD4432DA11AEE009AB427 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4404E9512DB9E0610028759F /* MockViewModel */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1969,17 +1994,20 @@
 				4404E93F2DB769760028759F /* NetworkManager.swift in Sources */,
 				4404E9422DB7D6AE0028759F /* CharacterStore.swift in Sources */,
 				446DD4492DA11AEE009AB427 /* LMStudioParameters.swift in Sources */,
+				4404E9532DB9E07A0028759F /* MockChatViewModel.swift in Sources */,
 				4404E9462DB8DAB90028759F /* Character+Mocks.swift in Sources */,
 				4404E9442DB87E7F0028759F /* DirectoryStructure.md in Sources */,
 				446DD44A2DA11AEE009AB427 /* MessageRole.swift in Sources */,
-				446DD44B2DA11AEE009AB427 /* mocks.swift in Sources */,
 				446DD44C2DA11AEE009AB427 /* CharacterSettings.swift in Sources */,
 				446DD44D2DA11AEE009AB427 /* Message.swift in Sources */,
 				446DD4592DA82CE6009AB427 /* ChatService.swift in Sources */,
+				4404E9502DB9DDAE0028759F /* PreviewData.swift in Sources */,
 				446DD44E2DA11AEE009AB427 /* Conversation.swift in Sources */,
 				4404E9482DB8E12D0028759F /* ConversationListView.swift in Sources */,
 				446DD4572DA8225E009AB427 /* NetworkError.swift in Sources */,
+				4404E9562DB9F38E0028759F /* DebugModifiers.swift in Sources */,
 				4404E93D2DB767B40028759F /* HTTPRequest.swift in Sources */,
+				4404E94E2DB9DB150028759F /* Conversation+Mocks.swift in Sources */,
 				446DD44F2DA11AEE009AB427 /* ChatView.swift in Sources */,
 				446DD4372DA11A29009AB427 /* MyLive2D_AIChatApp.swift in Sources */,
 			);

@@ -7,9 +7,11 @@
 
 import Foundation
 
-/// MARK: - 模拟角色数据
 extension Character {
+    /// 模拟角色数据
     static var mockCharacters: [Character] {
+        // MARK: 角色1：助手角色
+
         let character1 = Character(
             id: UUID(),
             name: "助手角色",
@@ -45,11 +47,72 @@ extension Character {
                     ],
                     createdAt: Date().addingTimeInterval(-3600),
                     updatedAt: Date().addingTimeInterval(-3550)
+                ),
+                Conversation(
+                    id: UUID(),
+                    characterId: UUID(),
+                    title: "天气咨询",
+                    messages: [
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .user,
+                            content: "今天天气怎么样？",
+                            timestamp: Date().addingTimeInterval(-2800)
+                        ),
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .assistant,
+                            content: "我没有实时访问天气数据的能力。建议您查看本地天气应用或网站来获取最新的天气情况。您可以告诉我您的位置，我可以提供一些一般性的季节性建议。",
+                            timestamp: Date().addingTimeInterval(-2750)
+                        ),
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .user,
+                            content: "我在北京",
+                            timestamp: Date().addingTimeInterval(-2700)
+                        ),
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .assistant,
+                            content: "北京现在正值春季，春季天气多变，温度逐渐回暖。早晚温差可能较大，建议您查看今天的具体天气预报并适当增减衣物。春季北京有时会有沙尘天气，如果今天有沙尘预警，出门时请戴口罩并减少户外活动。",
+                            timestamp: Date().addingTimeInterval(-2650)
+                        )
+                    ],
+                    createdAt: Date().addingTimeInterval(-2800),
+                    updatedAt: Date().addingTimeInterval(-2650)
+                ),
+                Conversation(
+                    id: UUID(),
+                    characterId: UUID(),
+                    title: "电影推荐",
+                    messages: [
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .user,
+                            content: "你能推荐一些好看的科幻电影吗？",
+                            timestamp: Date().addingTimeInterval(-1200)
+                        ),
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .assistant,
+                            content: "当然可以！以下是一些广受好评的科幻电影：\n\n1. 《星际穿越》- 探索时间相对论和五维空间的壮观之作\n2. 《银翼杀手2049》- 关于人工智能和身份的深度探索\n3. 《到达之际》- 语言学家与外星生物的沟通尝试\n4. 《黑客帝国》系列 - 虚拟现实与哲学思考的经典\n5. 《2001太空漫游》- 库布里克的视觉杰作\n6. 《头号玩家》- 虚拟现实游戏世界的冒险\n7. 《异形》系列 - 太空恐怖的代表作\n8. 《Her》- 关于AI与人类情感关系的思考\n9. 《月球》- 低成本高概念的孤独月球基地故事\n10. 《降临》- 非线性思维与外星接触\n\n这些电影涵盖了科幻片的不同风格和主题，从硬科幻到更具哲学色彩的作品都有。您对哪种类型的科幻片更感兴趣？",
+                            timestamp: Date().addingTimeInterval(-1150)
+                        )
+                    ],
+                    createdAt: Date().addingTimeInterval(-1200),
+                    updatedAt: Date().addingTimeInterval(-1150)
                 )
             ]
         )
-        
-        // 角色2：医疗顾问
+
+        // MARK: 角色2：医疗顾问
+
         let character2 = Character(
             id: UUID(),
             name: "医疗顾问",
@@ -92,11 +155,95 @@ extension Character {
                     ],
                     createdAt: Date().addingTimeInterval(-7200),
                     updatedAt: Date().addingTimeInterval(-7050)
+                ),
+                Conversation(
+                    id: UUID(),
+                    characterId: UUID(),
+                    title: "营养建议",
+                    messages: [
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .user,
+                            content: "作为素食者，我如何确保获得足够的蛋白质？",
+                            timestamp: Date().addingTimeInterval(-5000)
+                        ),
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .assistant,
+                            content: "作为素食者，你可以通过以下食物获取充足蛋白质：\n\n1. 豆类和豆制品：豆腐、豆浆、豆干、黑豆、鹰嘴豆、扁豆等\n2. 坚果和种子：杏仁、腰果、核桃、奇亚籽、亚麻籽、葵花籽\n3. 全谷物：藜麦、燕麦、糙米、荞麦\n4. 蔬菜：西兰花、菠菜、羽衣甘蓝、豌豆\n\n为确保营养均衡，建议：\n• 每餐搭配不同植物蛋白来源，以获取全部必需氨基酸\n• 考虑适量添加强化食品如植物奶\n• 关注维生素B12、铁、锌和钙的摄入\n\n如有特殊健康状况，建议咨询营养师制定个性化方案。",
+                            timestamp: Date().addingTimeInterval(-4950)
+                        )
+                    ],
+                    createdAt: Date().addingTimeInterval(-5000),
+                    updatedAt: Date().addingTimeInterval(-4950)
+                ),
+                Conversation(
+                    id: UUID(),
+                    characterId: UUID(),
+                    title: "运动伤害",
+                    messages: [
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .user,
+                            content: "跑步后膝盖疼痛，我应该如何处理？",
+                            timestamp: Date().addingTimeInterval(-3500)
+                        ),
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .assistant,
+                            content: "跑步后膝盖疼痛可能是由多种原因引起的，包括跑者膝（髌股疼痛综合征）、髂胫束综合征或过度使用。以下是建议的处理方法：\n\n立即处理：\n• 休息：暂停跑步，给膝盖恢复时间\n• 冰敷：每次20分钟，一天数次\n• 压缩：使用弹性绷带提供支持\n• 抬高：休息时将腿部抬高\n• 非处方消炎药：如布洛芬可缓解疼痛和炎症（请按说明使用）\n\n恢复阶段：\n• 进行低冲击性活动如游泳或骑自行车\n• 逐渐重返跑步，从短距离慢速开始\n• 确保穿着合适的跑鞋\n• 加强膝盖周围肌肉的锻炼\n\n如果疼痛持续超过一周，疼痛严重影响日常活动，或出现肿胀、无法负重等症状，请咨询医生或理疗师进行专业评估和治疗。",
+                            timestamp: Date().addingTimeInterval(-3450)
+                        ),
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .user,
+                            content: "有哪些可以加强膝盖的练习？",
+                            timestamp: Date().addingTimeInterval(-3400)
+                        ),
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .assistant,
+                            content: "以下是几个可以加强膝盖周围肌肉的练习，有助于提供更好的支持和稳定性：\n\n1. 直腿抬高：\n   • 仰卧，一腿弯曲，另一腿伸直\n   • 缓慢抬起伸直的腿至约45度角\n   • 保持5秒，然后缓慢放下\n   • 每侧10-15次，3组\n\n2. 半蹲：\n   • 双脚与肩同宽，脚尖稍微向外\n   • 缓慢弯曲膝盖至45度角，就像坐椅子\n   • 确保膝盖不超过脚尖\n   • 保持3秒，然后站起\n   • 重复10-15次，3组\n\n3. 侧向移动：\n   • 站立，膝盖微屈\n   • 向侧边迈步，保持核心紧实\n   • 每侧10-15步，3组\n\n4. 单腿平衡：\n   • 站在一条腿上，微屈膝盖\n   • 保持平衡30秒\n   • 每侧重复3次\n\n5. 小腿拉伸：\n   • 面墙站立，一腿向前迈出\n   • 后腿保持伸直，脚跟贴地\n   • 向前倾斜感受小腿拉伸\n   • 每侧保持30秒，重复3次\n\n建议从简单的开始，逐渐增加难度和次数。如果任何练习引起疼痛，应立即停止并咨询专业人士指导。在开始新运动计划前，特别是如果你有现有伤病，建议先咨询医生或理疗师。",
+                            timestamp: Date().addingTimeInterval(-3350)
+                        )
+                    ],
+                    createdAt: Date().addingTimeInterval(-3500),
+                    updatedAt: Date().addingTimeInterval(-3350)
+                ),
+                Conversation(
+                    id: UUID(),
+                    characterId: UUID(),
+                    title: "睡眠问题",
+                    messages: [
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .user,
+                            content: "我经常晚上难以入睡，有什么方法可以改善睡眠质量？",
+                            timestamp: Date().addingTimeInterval(-1800)
+                        ),
+                        Message(
+                            id: UUID(),
+                            conversationId: UUID(),
+                            role: .assistant,
+                            content: "改善睡眠质量的方法有很多，以下是一些实用的睡眠卫生建议：\n\n建立规律：\n• 每天相同时间入睡和起床，包括周末\n• 创建放松的睡前仪式，如阅读、冥想或泡温水澡\n\n优化睡眠环境：\n• 保持卧室凉爽、安静和黑暗\n• 使用舒适的床垫和枕头\n• 减少卧室内电子设备\n\n健康习惯：\n• 白天保持活跃，定期运动（但避免睡前3小时剧烈运动）\n• 限制咖啡因摄入，尤其是下午和晚上\n• 避免大量饮酒，虽然酒精可能帮助入睡，但会影响睡眠质量\n• 晚餐不宜过饱或过晚\n\n控制光线接触：\n• 白天多接触自然光\n• 晚上减少蓝光暴露（电子屏幕）\n• 睡前1-2小时可使用暖光或低亮度灯光\n\n心理策略：\n• 尝试深呼吸或渐进式肌肉放松\n• 记录担忧事项，留到明天处理\n• 如20分钟内无法入睡，起床做安静活动直到感到困倦\n\n如果持续存在睡眠问题，请咨询医生，可能需要评估是否有睡眠障碍或其他健康问题。",
+                            timestamp: Date().addingTimeInterval(-1750)
+                        )
+                    ],
+                    createdAt: Date().addingTimeInterval(-1800),
+                    updatedAt: Date().addingTimeInterval(-1750)
                 )
             ]
         )
-        
-        // 角色3：编程教练
+
+        // MARK: 角色3：编程教练
+
         let character3 = Character(
             id: UUID(),
             name: "编程教练",
@@ -172,8 +319,9 @@ extension Character {
                 )
             ]
         )
-        
-        // 角色4：旅行顾问
+
+        // MARK: 角色4：旅行顾问
+
         let character4 = Character(
             id: UUID(),
             name: "旅行顾问",
@@ -226,8 +374,9 @@ extension Character {
                 )
             ]
         )
-        
-        // 角色5：历史学者
+
+        // MARK: 角色5：历史学者
+
         let character5 = Character(
             id: UUID(),
             name: "历史学者",
