@@ -8,10 +8,10 @@ import Foundation
 
 enum NetworkError: Error, LocalizedError {
     // HTTP状态码相关错误
-    case badRequest(Data?) // 400
-    case unauthorized(Data?) // 401
-    case forbidden(Data?) // 403
-    case notFound(Data?) // 404
+    case badRequest(Int, Data?) // 400
+    case unauthorized(Int, Data?) // 401
+    case forbidden(Int, Data?) // 403
+    case notFound(Int, Data?) // 404
     case clientError(Int, Data?) // 其他4xx
     case serverError(Int, Data?) // 5xx
 
@@ -55,14 +55,14 @@ enum NetworkError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         // HTTP状态码相关错误
-        case .badRequest:
-            return "请求参数错误"
-        case .unauthorized:
-            return "需要身份验证"
-        case .forbidden:
-            return "没有访问权限"
-        case .notFound:
-            return "请求的资源不存在"
+        case .badRequest(let code,_):
+            return "\(code) 请求参数错误"
+        case .unauthorized(let code,_):
+            return "\(code) 需要身份验证"
+        case .forbidden(let code,_):
+            return "\(code) 没有访问权限"
+        case .notFound(let code,_):
+            return "\(code) 请求的资源不存在"
         case .clientError(let code, _):
             return "客户端错误: \(code)"
         case .serverError(let code, _):

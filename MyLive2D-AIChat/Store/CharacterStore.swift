@@ -7,7 +7,9 @@
 
 import Foundation
 
-class CharacterStore {
+class CharacterStore:ObservableObject {
+    static let shared = CharacterStore()
+
     private(set) var characters: [Character] = []
 
     private let fileManager = FileManager.default
@@ -15,25 +17,37 @@ class CharacterStore {
         fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
     }
 
+    // MARK: - 获取xxx路径
+    // MARK: 获取存储角色文件的路径
+
     /// 获取角色目录
     private func characterDirectory()->URL {
         documentDirectory.appendingPathComponent("Characters")
     }
+
+    // MARK: 获取特定角色的路径
 
     /// 获取特定角色目录
     private func characterFilesURL(for characterId: UUID)->URL {
         characterDirectory().appendingPathComponent("\(characterId.uuidString)")
     }
 
+    // MARK: 获取存储对话文件的路径
+
     /// 获取对话目录
     private func conversationsDirectory(for characterId: UUID)->URL {
         characterFilesURL(for: characterId).appendingPathComponent("Conversations")
     }
 
+    // MARK: 获取特定对话文件的路径
+
     /// 获取特定对话的文件URL
     private func conversationFileURL(for characterId: UUID, and conversationId: UUID)->URL {
         conversationsDirectory(for: characterId).appendingPathComponent("\(conversationId.uuidString)", conformingTo: .json)
     }
+
+    // MARK: - 加载数据
+    // MARK: 加载所有角色
 
     /// 加载所有角色
     func loadAllCharacters() {
@@ -70,15 +84,20 @@ class CharacterStore {
                     return character
 
                 } catch {
-                    print("加载角色失败: \(directory.lastPathComponent), 错误: \(error)")
+//                    print("加载角色失败: \(directory.lastPathComponent), 错误: \(error)")
+                    MyLog("加载角色失败", directory.lastPathComponent)
+                    MyLog("错误", error)
                     return nil
                 }
             }
 
         } catch {
-            print("加载角色列表失败: \(error)")
+//            print("加载角色列表失败: \(error)")
+            MyLog("加载角色列表失败", error)
         }
     }
+
+    // MARK: 加载指定角色
 
     /// 加载指定角色
     func loadCharacter(id: UUID)->Character? {
@@ -106,10 +125,14 @@ class CharacterStore {
 
             return character
         } catch {
-            print("加载角色失败: \(id.uuidString), 错误: \(error)")
+//            print("加载角色失败: \(id.uuidString), 错误: \(error)")
+            MyLog("加载角色失败", id.uuidString)
+            MyLog("错误", error)
             return nil
         }
     }
+
+    // MARK: 加载指定角色的所有对话
 
     /// 加载角色的所有对话
     private func loadConversationsForCharacter(id: UUID)->[Conversation] {
@@ -130,7 +153,9 @@ class CharacterStore {
 
                     return try JSONDecoder().decode(Conversation.self, from: conversationData)
                 } catch {
-                    print("加载对话失败: \(fileURL.lastPathComponent), 错误: \(error)")
+//                    print("加载对话失败: \(fileURL.lastPathComponent), 错误: \(error)")
+                    MyLog("加载对话失败", fileURL.lastPathComponent)
+                    MyLog("错误", error)
                     return nil
                 }
             }
@@ -138,10 +163,59 @@ class CharacterStore {
             return conversations
 
         } catch {
-            print("加载对话目录失败: \(error)")
+//            print("加载对话目录失败: \(error)")
+            MyLog("加载对话目录失败", error)
             return []
         }
     }
+
+    // MARK: - 创建新数据
+    // MARK: 创建新角色
+
+    /// 创建新角色
+    @discardableResult
+    func createCharacter(name: String, settings: CharacterSettings)->Character {
+        let newCharacter = Character(
+            id: UUID(),
+            name: name,
+            settings: settings,
+            conversations: []
+        )
+
+        saveCharacter(newCharacter)
+
+        return newCharacter
+    }
+
+    // MARK: 创建新对话
+
+    /// 创建新对话
+    @discardableResult
+    func createConversation(for characterId: UUID, title: String)->Conversation? {
+        guard var character = loadCharacter(id: characterId) else { return nil }
+
+        let newConversation = Conversation(
+            id: UUID(),
+            characterId: characterId,
+            title: title,
+            messages: [],
+            createdAt: Date(),
+            updatedAt: Date()
+        )
+
+        character.conversations.append(newConversation)
+        saveConversation(newConversation, for: characterId)
+
+        // 更新内存中的数据
+        if let index = characters.firstIndex(where: { $0.id == characterId }) {
+            characters[index] = character
+        }
+
+        return newConversation
+    }
+
+    // MARK: - 保存数据
+    // MARK: 保存角色基本信息（不包括对话）
 
     /// 保存角色基本信息（不包括对话）
     private func saveCharacterInfo(_ character: Character) {
@@ -159,26 +233,40 @@ class CharacterStore {
 
             let data = try JSONEncoder().encode(characterCopy)
             try data.write(to: characterInfoURL)
+            
+            print(characterInfoURL)
+            
+            print("saveCharacterInfo run")
 
         } catch {
-            print("保存角色信息失败: \(error)")
+            MyLog("保存角色信息失败", error)
+//            print("保存角色信息失败: \(error)")
         }
     }
 
+    // MARK: 保存单个对话
+
     /// 保存单个对话
     private func saveConversation(_ conversation: Conversation, for characterId: UUID) {
+        // 获取当前Conversation所在的文件夹目录
+        let conversationsDir = conversationsDirectory(for: characterId)
         // 获取当前Conversation的完整路径
         let fileURL = conversationFileURL(for: characterId, and: conversation.id)
 
         do {
-            try fileManager.createDirectory(at: fileURL, withIntermediateDirectories: true)
+            try fileManager.createDirectory(at: conversationsDir, withIntermediateDirectories: true)
 
             let data = try JSONEncoder().encode(conversation)
             try data.write(to: fileURL)
+            
+            print("saveConversation run")
         } catch {
-            print("保存对话失败: \(error)")
+            MyLog("保存对话失败", error)
+//            print("保存对话失败: \(error)")
         }
     }
+
+    // MARK: 保存角色和它的所有对话
 
     /// 保存角色和它的所有对话
     func saveCharacter(_ character: Character) {
@@ -197,6 +285,8 @@ class CharacterStore {
             saveConversation(conversation, for: character.id)
         }
     }
+
+    // MARK: 添加消息到对话
 
     /// 添加消息到对话
     func addMessageToConversation(_ message: Message, in character: Character) {
@@ -220,6 +310,9 @@ class CharacterStore {
         }
     }
 
+    // MARK: - 删除数据
+    // MARK: 删除角色
+
     /// 删除角色
     func deleteCharacter(id: UUID)->Bool {
         let characterDir = characterFilesURL(for: id)
@@ -236,10 +329,13 @@ class CharacterStore {
 
             return true
         } catch {
-            print("删除角色失败: \(error)")
+//            print("删除角色失败 \(error)")
+            MyLog("删除角色失败", error)
             return false
         }
     }
+
+    // MARK: 删除对话
 
     /// 删除对话
     func deleteConversation(id: UUID, for characterId: UUID)->Bool {
@@ -257,7 +353,8 @@ class CharacterStore {
 
             return true
         } catch {
-            print("删除对话失败: \(error)")
+//            print("删除对话失败: \(error)")
+            MyLog("删除对话失败", error)
             return false
         }
     }

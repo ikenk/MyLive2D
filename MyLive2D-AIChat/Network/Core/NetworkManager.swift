@@ -12,21 +12,17 @@ final class NetworkManager {
     private let baseURL: URL
     private let decoder: JSONDecoder
     
-//    static let shared: NetworkManager = {
-//        // 从UserDefaults读取服务器设置
-//        let serverAddress = UserDefaults.standard.string(forKey: "serverAddress") ?? "127.0.0.1"
-//        let serverPort = UserDefaults.standard.string(forKey: "serverPort") ?? "1234"
-//        let urlString = "http://\(serverAddress):\(serverPort)"
-//        
-//        guard let url = URL(string: urlString) else {
-//            fatalError("无效的服务器地址")
-//        }
-//        
-//        let configuration = URLSessionConfiguration.default
-//        let session = URLSession(configuration: configuration)
-//        
-//        return NetworkManager(session: session, baseURL: url)
-//    }()
+    static var `default`: NetworkManager = {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+        
+        let serverAddress = UserDefaults.standard.string(forKey: UserDefaultsKeys.serverAddress) ?? ServerDefaults.address
+        let serverPort = UserDefaults.standard.string(forKey: UserDefaultsKeys.serverPort) ?? ServerDefaults.port
+        let baseURL = URL(string: "http://\(serverAddress):\(serverPort)")!
+        
+        return .init(session: .shared, baseURL: baseURL, decoder: decoder)
+    }()
 
     init(session: URLSession = .shared, baseURL: URL, decoder: JSONDecoder = JSONDecoder()) {
         self.session = session
@@ -60,13 +56,13 @@ final class NetworkManager {
             case 200...299:
                 return data
             case 400:
-                throw NetworkError.badRequest(data)
+                throw NetworkError.badRequest(httpResponse.statusCode,data)
             case 401:
-                throw NetworkError.unauthorized(data)
+                throw NetworkError.unauthorized(httpResponse.statusCode,data)
             case 403:
-                throw NetworkError.forbidden(data)
+                throw NetworkError.forbidden(httpResponse.statusCode,data)
             case 404:
-                throw NetworkError.notFound(data)
+                throw NetworkError.notFound(httpResponse.statusCode,data)
             case 400...499:
                 throw NetworkError.clientError(httpResponse.statusCode, data)
             case 500...599:
@@ -74,7 +70,6 @@ final class NetworkManager {
             default:
                 throw NetworkError.clientError(httpResponse.statusCode, data)
             }
-            
         } catch let error as URLError {
             throw NetworkError(urlError: error)
         } catch let error as NetworkError {

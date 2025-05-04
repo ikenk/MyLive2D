@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct MyLive2D_AIChatApp: App {
+//    @StateObject private var characterStore:CharacterStore = .shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+//                .environmentObject(characterStore)
         }
     }
 }

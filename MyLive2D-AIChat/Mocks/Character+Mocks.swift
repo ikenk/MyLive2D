@@ -17,12 +17,13 @@ extension Character {
             name: "助手角色",
             settings: CharacterSettings(
                 modelParameters: LMStudioParameters(
-                    model: "deepseek-r1-distill-qwen-1.5b",
+                    model: "gemma-2-2b-it",
                     temperature: 0.7,
                     maxTokens: -1,
                     stream: false
                 ),
-                voiceParameters: nil
+                voiceParameters: nil,
+                systemPrompt: nil
             ),
             conversations: [
                 Conversation(
@@ -118,12 +119,13 @@ extension Character {
             name: "医疗顾问",
             settings: CharacterSettings(
                 modelParameters: LMStudioParameters(
-                    model: "mistral-7b-instruct",
+                    model: "google_gemma-3-4b-it",
                     temperature: 0.5,
                     maxTokens: 2048,
                     stream: true
                 ),
-                voiceParameters: nil
+                voiceParameters: nil,
+                systemPrompt: nil
             ),
             conversations: [
                 Conversation(
@@ -249,12 +251,13 @@ extension Character {
             name: "编程教练",
             settings: CharacterSettings(
                 modelParameters: LMStudioParameters(
-                    model: "codellama-7b",
+                    model: "google_gemma-3-4b-it",
                     temperature: 0.3,
                     maxTokens: 4096,
                     stream: false
                 ),
-                voiceParameters: nil
+                voiceParameters: nil,
+                systemPrompt: nil
             ),
             conversations: [
                 Conversation(
@@ -327,12 +330,13 @@ extension Character {
             name: "旅行顾问",
             settings: CharacterSettings(
                 modelParameters: LMStudioParameters(
-                    model: "llama-2-13b-chat",
+                    model: "google_gemma-3-4b-it",
                     temperature: 0.8,
                     maxTokens: 2048,
                     stream: true
                 ),
-                voiceParameters: nil
+                voiceParameters: nil,
+                systemPrompt: nil
             ),
             conversations: [
                 Conversation(
@@ -382,12 +386,13 @@ extension Character {
             name: "历史学者",
             settings: CharacterSettings(
                 modelParameters: LMStudioParameters(
-                    model: "vicuna-33b",
+                    model: "google_gemma-3-4b-it",
                     temperature: 0.6,
                     maxTokens: 3072,
                     stream: true
                 ),
-                voiceParameters: nil
+                voiceParameters: nil,
+                systemPrompt: nil
             ),
             conversations: [
                 Conversation(
