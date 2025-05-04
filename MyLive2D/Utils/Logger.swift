@@ -7,7 +7,9 @@
 
 func MyLog(_ message: String, _ items: Any..., file: String = #file, function: String = #function, line: Int = #line) {
     #if DEBUG
+    let projectName = "MyLive2D-SwiftUI"
     let itemsString = items.isEmpty ? "" : ": \(items)"
-    print("[MyLog][\(file):\(line)] \(function) - \(message)\(itemsString)")
+    let fileDir = file.split(separator: projectName).last ?? "没有该文件路径"
+    print("[MyLog][\(fileDir):\(line)] \(function) - \(message)\(itemsString)")
     #endif
 }

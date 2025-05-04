@@ -1,7 +1,11 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%@" : {
+
+    },
     "1" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -18,6 +22,7 @@
       }
     },
     "3" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -34,6 +39,7 @@
       }
     },
     "Animation" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -50,6 +56,7 @@
       }
     },
     "Auto-Animate Toggle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -66,6 +73,7 @@
       }
     },
     "Change Model" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -82,6 +90,7 @@
       }
     },
     "Change Model Position And Size" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -98,6 +107,7 @@
       }
     },
     "Choose Background Image" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -114,6 +124,7 @@
       }
     },
     "Choose Image" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -130,6 +141,7 @@
       }
     },
     "Down" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -146,6 +158,7 @@
       }
     },
     "FaceTracking View Toggle" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -161,10 +174,8 @@
         }
       }
     },
-    "Hello World!" : {
-
-    },
     "Left" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -181,6 +192,7 @@
       }
     },
     "Next Model" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -197,6 +209,7 @@
       }
     },
     "Previous Model" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -213,6 +226,7 @@
       }
     },
     "Right" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -229,6 +243,7 @@
       }
     },
     "Scale" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -245,6 +260,7 @@
       }
     },
     "Up" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -261,6 +277,7 @@
       }
     },
     "X Translation" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -277,6 +294,7 @@
       }
     },
     "Y Translation" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {

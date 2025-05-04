@@ -11,21 +11,24 @@ import SwiftUI
 
 struct LARFaceTrackingView: UIViewRepresentable {
     @EnvironmentObject var modelManager: LModelManager
+    
+//    @Binding var viewSize:CGFloat
 
-    let arView: ARView = {
-        let view = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
-        view.debugOptions = [
-//            .showStatistics,
-//            .showFeaturePoints,
-//            .showAnchorOrigins, // 显示锚点位置
-//            .showAnchorGeometry // 显示锚点几何体
-        ]
+    // 不要在 makeUIView 外创建 ARView，否则可能导致 UI 首次显示异常
+//    let arView: ARView = {
+//        let view = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
+//        view.debugOptions = [
+//            //            .showStatistics,
+////            .showFeaturePoints,
+////            .showAnchorOrigins, // 显示锚点位置
+////            .showAnchorGeometry // 显示锚点几何体
+//        ]
+//
+//        return view
+//    }()
 
-        return view
-    }()
-
-    private func setupFaceTrackingSession(context: Context) {
-        guard ARFaceTrackingConfiguration.isSupported else { print("ARFaceTrackingConfiguration is NOT SUPPORTED!!!"); fatalError() }
+    private func setupFaceTrackingSession(in arView: ARView, context: Context) {
+        guard ARFaceTrackingConfiguration.isSupported else { print("ARFaceTrackingConfiguration is NOT SUPPORTED!!!"); return }
 
         let config = ARFaceTrackingConfiguration()
         config.maximumNumberOfTrackedFaces = 1
@@ -36,12 +39,18 @@ struct LARFaceTrackingView: UIViewRepresentable {
     }
 
     func makeUIView(context: Context) -> ARView {
-        setupFaceTrackingSession(context: context)
+        let arView = ARView(frame: .zero, cameraMode: .ar, automaticallyConfigureSession: true)
+        setupFaceTrackingSession(in: arView, context: context)
         context.coordinator.setupFaceAnchor(in: arView)
         return arView
     }
 
-    func updateUIView(_ uiView: ARView, context: Context) {}
+    func updateUIView(_ uiView: ARView, context: Context) {
+//        if viewSize > 0 {
+//            MyLog("viewSize", viewSize)
+//            MyLog("uiView.frame.size", uiView.frame.size)
+//        }
+    }
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -67,7 +76,7 @@ extension LARFaceTrackingView {
             self.modelManager = parent.modelManager
             super.init()
         }
-        
+
         func setupFaceAnchor(in arView: ARView) {
             // 移除现有的 anchor
             if let existingAnchorEntity = faceAnchorEntity {
@@ -183,7 +192,7 @@ extension LARFaceTrackingView {
 //            print("[MyLog]faceAnchor.blendShapes[.eyeBlinkRight]: \(faceAnchor.blendShapes[.eyeBlinkRight] ?? 0)")
 //            MyLog("faceAnchor.blendShapes[.eyeBlinkRight]", faceAnchor.blendShapes[.eyeBlinkRight] ?? 0)
         }
-        
+
         func session(_ session: ARSession, didFailWithError error: any Error) {
             if error is ARError {
 //                print("[MyLog]LARFaceTrackingView Session")
@@ -261,6 +270,7 @@ extension LARFaceTrackingView {
 }
 
 // MARK: LARFaceTrackingView with LARFaceTrackingViewModel
+
 // struct LARFaceTrackingView: UIViewRepresentable {
 //    @EnvironmentObject var modelManager: LModelManager
 //
